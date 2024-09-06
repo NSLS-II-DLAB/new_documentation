@@ -1,0 +1,44 @@
+--- ac --- occurrence: 2
+
+
+
+--- bg --- occurrence: 675
+
+
+
+--- dc --- occurrence: 2
+
+
+
+--- iht --- occurrence: 3
+
+
+
+--- kd --- occurrence: 3
+
+
+
+--- kp --- occurrence: 3
+
+
+
+--- op --- occurrence: 16
+
+
+
+--- pa --- occurrence: 452
+
+
+
+--- pr --- occurrence: 208
+
+
+
+--- sp --- occurrence: 500
+
+
+
+--- tp --- occurrence: 4
+
+
+
