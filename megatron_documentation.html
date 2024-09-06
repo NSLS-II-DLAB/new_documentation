@@ -1,0 +1,829 @@
+<html><head>  <style>
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      color: #333;
+      font-weight: 600;
+      text-align: left; /* Remove centering */
+    }
+
+    h1 {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h2 {
+      margin-top: 40px;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #555;
+    }
+
+    p {
+      margin: 15px 20px;
+    }
+
+    pre {
+      background-color: #e0e0e0;
+      padding: 10px;
+      margin: 10px 20px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      color: #111;
+      width: calc(100% - 40px); /* Ensures it fits nicely in the container */
+    }
+
+    code {
+      background-color: #eee;
+      padding: 3px 5px;
+      border-radius: 3px;
+      color: #222;
+    }
+
+    ul, ol {
+      margin: 10px 40px;
+    }
+
+    ul li, ol li {
+      margin: 5px 0;
+    }
+
+    .command-block {
+      margin: 20px 20px;
+    }
+
+    .command-title {
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    .example, .syntax, .description {
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    .example pre {
+      background-color: #f7f7f7;
+    }
+
+    /* Navigation links */
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #555;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #ddd;
+      margin: 30px 0;
+    }
+
+    /* Code block styling */
+    pre code {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.95em;
+    }
+
+    /* Box style for each command section */
+    .command-section {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 20px;
+      padding: 15px;
+      background-color: #fff;
+    }
+
+</style>
+</head><body><h1 id="megatron-control-system-documentation">Megatron Control System Documentation</h1>
+  <h2>Table of Contents</h2>
+  <ul>
+    <li><a href="#basic-commands">Basic Commands</a></li>
+    <li><a href="#script-overview-and-flow-control">Script Overview and Flow Control</a></li>
+    <li><a href="#script-functionality-breakdown">Script Functionality Breakdown</a></li>
+    <li><a href="#debugging-and-testing">Debugging and Testing</a></li>
+  </ul>
+<hr>
+<h2 id="introduction">Introduction</h2>
+<p>The <strong>Megatron Control System</strong> is a powerful scripting language used for controlling hardware components, monitoring processes, and executing automated tasks in industrial and laboratory environments. This documentation provides detailed descriptions of all commands, their syntax, and examples to help users effectively use the system.</p>
+<hr>
+<h2 id="basic-commands">Basic Commands</h2>
+<h3 id="-alm-"><code>alm</code></h3>
+<p><strong>Description</strong>: Controls the AllMotion device.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>alm &quot;text&quot;</code></li>
+<li><strong>Example</strong>: <pre><code class="lang-megatron"><span class="hljs-attribute">alm</span> <span class="hljs-string">"start"</span>
+alm <span class="hljs-string">"stop"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Used to control and send commands to AllMotion devices. See <code>alm help</code> for further details on subcommands.</li>
+</ul>
+<h3 id="-edit-"><code>edit</code></h3>
+<p><strong>Description</strong>: Opens a script for editing.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>edit &quot;script_name&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-keyword">edit</span> <span class="hljs-string">"process_control_script"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Opens the specified script for editing within the control environment.</li>
+</ul>
+<h3 id="-email-"><code>email</code></h3>
+<p><strong>Description</strong>: Sends an email from <code>depositionlab@gmail.com</code>.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>email &quot;Subject&quot;, &quot;Message&quot;, to_address1[, to_address2, ...]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-attribute">email</span> <span class="hljs-string">"Process Completed"</span>, <span class="hljs-string">"The deposition process has finished."</span>, <span class="hljs-string">"admin<span class="hljs-variable">@example</span>.com"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Sends email notifications for process completions, errors, or other events.</li>
+</ul>
+<h3 id="-exec-"><code>exec</code></h3>
+<p><strong>Description</strong>: Executes Python code. Reserved for internal use.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>exec &quot;python_code&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">exec</span> <span class="hljs-string">"print('Internal use only')"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Used to execute Python code within the script. Primarily for internal development.</li>
+</ul>
+<h3 id="-failif-"><code>failif</code></h3>
+<p><strong>Description</strong>: Stops a script if a digital input changes to a specific value.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>failif &quot;PV&quot;, y, &quot;script_to_run_on_fail&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">failif <span class="hljs-string">"DoorOpen"</span>, <span class="hljs-number">1</span>, <span class="hljs-string">"emergency_stop"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Stops the current script and runs another if a process variable (PV) meets the specified condition.</li>
+</ul>
+<h3 id="-failifoff-"><code>failifoff</code></h3>
+<p><strong>Description</strong>: Disables the <code>failif</code> condition for a specified PV.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>failifoff &quot;PV&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-attribute">failifoff</span> <span class="hljs-string">"DoorOpen"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Turns off the fail condition for a specific PV.</li>
+</ul>
+<h3 id="-fopen-"><code>fopen</code></h3>
+<p><strong>Description</strong>: Opens a file for writing data.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>fopen &quot;filename&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">fopen</span> <span class="hljs-string">"process_log.txt"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Opens the specified file to log process data or write information.</li>
+</ul>
+<h3 id="-fprint-"><code>fprint</code></h3>
+<p><strong>Description</strong>: Appends text to a file opened with <code>fopen</code>.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>fprint &quot;filename&quot;, &quot;text&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-keyword">fprint</span> <span class="hljs-string">"process_log.txt"</span>, <span class="hljs-string">"Process started."</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Writes information to a file for tracking or logging purposes.</li>
+</ul>
+<h3 id="-h-help-"><code>h</code> / <code>help</code></h3>
+<p><strong>Description</strong>: Displays help information for a specific command.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>help [keyword]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">help</span> <span class="hljs-string">"log"</span>
+<span class="hljs-built_in">help</span> <span class="hljs-string">"setdo"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Displays detailed information about the command and its usage.</li>
+</ul>
+<h3 id="-ion-"><code>ion</code></h3>
+<p><strong>Description</strong>: Sends a command directly to the ION 1500 system.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>ion &quot;text&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-attribute">ion</span> <span class="hljs-string">"set voltage 1000"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Used for controlling the ION 1500, typically to adjust voltage or power output.</li>
+</ul>
+<h3 id="-l-"><code>l</code></h3>
+<p><strong>Description</strong>: Loops the following block of commands <code>n</code> times.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>l n</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">l <span class="hljs-number">5</span>
+  <span class="hljs-built_in">print</span> <span class="hljs-string">"Iteration"</span>
+n
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Repeats a block of commands for a specified number of iterations.</li>
+</ul>
+<h3 id="-length-"><code>length</code></h3>
+<p><strong>Description</strong>: Retrieves the length of a queue and stores it in a variable.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>length &quot;queue_name&quot;, &quot;variable&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">length</span> <span class="hljs-string">"taskQueue"</span>, <span class="hljs-string">"queueLength"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Retrieves the number of items in a queue and stores the result in the specified variable.</li>
+</ul>
+<h3 id="-log-"><code>log</code></h3>
+<p><strong>Description</strong>: Adds a process variable (PV) to the log list for tracking.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>log &quot;PV1&quot; [, &quot;PV2&quot;, ...]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">log</span> <span class="hljs-string">"Temperature"</span>
+<span class="hljs-built_in">log</span> <span class="hljs-string">"Pressure"</span>, <span class="hljs-string">"FlowRate"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Logs specified process variables to monitor their values over time.</li>
+</ul>
+<h3 id="-lograte-"><code>lograte</code></h3>
+<p><strong>Description</strong>: Sets the logging interval for process variables.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>lograte n</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">lograte <span class="hljs-number">5</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Adjusts how frequently process variables are logged, in seconds.</li>
+</ul>
+<h3 id="-monitor-"><code>monitor</code></h3>
+<p><strong>Description</strong>: Monitors digital PLC changes.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>monitor [on | off]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">monitor <span class="hljs-keyword">on</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Turns monitoring on or off for digital PLC changes.</li>
+</ul>
+<h3 id="-mos-"><code>mos</code></h3>
+<p><strong>Description</strong>: Controls the MOS system with specified settings.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>mos (on | off), [samples], [data_points], [timeout]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">mos on, <span class="hljs-number">100</span>, <span class="hljs-number">10</span>, <span class="hljs-number">60</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Turns the MOS system on or off and sets sample sizes, data points, and timeouts.</li>
+</ul>
+<h3 id="-nolog-"><code>nolog</code></h3>
+<p><strong>Description</strong>: Removes a process variable from the log list.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>nolog &quot;PV&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-attribute">nolog</span> <span class="hljs-string">"Pressure"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Stops logging the specified process variable.</li>
+</ul>
+<h3 id="-overview-"><code>overview</code></h3>
+<p><strong>Description</strong>: Opens an overview window for monitoring.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>overview [force]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-attribute">overview</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Opens a graphical overview of system data and current state.</li>
+</ul>
+<h3 id="-plot-"><code>plot</code></h3>
+<p><strong>Description</strong>: Plots process variables for real-time monitoring.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>plot &quot;PV1&quot; [, &quot;PV2&quot;, ...] [+x,y,width,height]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">plot <span class="hljs-string">"Temperature"</span>, <span class="hljs-string">"Pressure"</span> +<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">400</span>,<span class="hljs-number">300</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Creates a plot of one or more process variables with optional positioning and size.</li>
+</ul>
+<h3 id="-pop-"><code>pop</code></h3>
+<p><strong>Description</strong>: Removes a value from a queue and stores it in a variable.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>pop &quot;queue_name&quot;, &quot;variable&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-keyword">pop </span><span class="hljs-string">"taskQueue"</span>, <span class="hljs-string">"currentTask"</span>
+</code></pre>
+</li>
+<li><strong>Usage</strong>: Retrieves and removes the first value from the specified queue and stores it in a variable.</li>
+</ul>
+<h3 id="-print-"><code>print</code></h3>
+<p><strong>Description</strong>: Prints text to the console.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>print &quot;text&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">print</span> <span class="hljs-string">"Process starting"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-profile-"><code>profile</code></h3>
+<p><strong>Description</strong>: Loads a PVT profile for motion control.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>profile &quot;profile_name&quot;, [equation_velocity], [equation_position]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">profile <span class="hljs-string">"standard_profile"</span>, <span class="hljs-string">"%velocity%", "</span>%position%"
+</code></pre>
+</li>
+</ul>
+<h3 id="-push-"><code>push</code></h3>
+<p><strong>Description</strong>: Appends a value to a queue.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>push &quot;queue_name&quot;, &quot;value&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-keyword">push </span><span class="hljs-string">"taskQueue"</span>, <span class="hljs-string">"newTask"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-restart-"><code>restart</code></h3>
+<p><strong>Description</strong>: Restarts or reconnects specified components.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>restart [components]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">restart</span> <span class="hljs-string">"network"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-resume-"><code>resume</code></h3>
+<p><strong>Description</strong>: Resumes a paused script.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>resume &quot;script_name&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-keyword">resume</span> <span class="hljs-string">"data_collection"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-run-"><code>run</code></h3>
+<p><strong>Description</strong>: Runs a specified script.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>run &quot;script_name&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-string">"data_collection_script"</span></span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-say-"><code>say</code></h3>
+<p><strong>Description</strong>: Uses text-to-speech to read a string aloud.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>say &quot;text&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">say</span> <span class="hljs-string">"Process complete"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-search-"><code>search</code></h3>
+<p><strong>Description</strong>: Searches for text in command descriptions.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>search &quot;text&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">search</span> <span class="hljs-string">"log"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-setao-"><code>setao</code></h3>
+<p><strong>Description</strong>: Sets an analog output.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>setao &quot;SP&quot;, value</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">setao <span class="hljs-string">"MFC1 Setpoint"</span>, <span class="hljs-number">5.0</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-set">`set</h3>
+<p>do`
+<strong>Description</strong>: Sets a digital output.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>setdo &quot;PV&quot;, value</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-stop-"><code>stop</code></h3>
+<p><strong>Description</strong>: Stops a running script.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>stop &quot;script_name&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-built_in">stop</span> <span class="hljs-string">"data_collection_script"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-stops-"><code>stops</code></h3>
+<p><strong>Description</strong>: Stops a running service.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>stops &quot;service_name&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-attribute">stops</span> <span class="hljs-string">"network_service"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-t-"><code>t</code></h3>
+<p><strong>Description</strong>: Pauses execution for a specified number of seconds.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>tn</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">t<span class="hljs-number">10</span>  # Pauses for <span class="hljs-number">10</span> seconds
+</code></pre>
+</li>
+</ul>
+<h3 id="-tic-"><code>tic</code></h3>
+<p><strong>Description</strong>: Controls the TIC thermocouple gauge.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>tic [gauge1 | gauge2], &quot;command&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-attribute">tic</span> gauge1, <span class="hljs-string">"degas"</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-tts-"><code>tts</code></h3>
+<p><strong>Description</strong>: Enables or disables text-to-speech for console output.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>tts [on | off]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">tts <span class="hljs-keyword">on</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-var-"><code>var</code></h3>
+<p><strong>Description</strong>: Sets a variable to a specified value or expression.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>var &quot;variable&quot;, &quot;expression&quot;</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron"><span class="hljs-selector-tag">var</span> <span class="hljs-string">"setpoint"</span>, <span class="hljs-number">100</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-waitai-"><code>waitai</code></h3>
+<p><strong>Description</strong>: Waits for an analog input to meet a condition.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>waitai &quot;PV&quot;, operator, value [, tolerance] [, timeout]</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">waitai <span class="hljs-string">"Pressure"</span>, <span class="hljs-string">"&gt;"</span>, <span class="hljs-number">50.0</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="-waitdi-"><code>waitdi</code></h3>
+<p><strong>Description</strong>: Waits for a digital input to meet a condition.</p>
+<ul>
+<li><strong>Syntax</strong>: <code>waitdi &quot;PV&quot;, value</code></li>
+<li><strong>Example</strong>:<pre><code class="lang-megatron">waitdi <span class="hljs-string">"DoorClosed"</span>, <span class="hljs-number">1</span>
+</code></pre>
+</li>
+</ul>
+<p>Here&#39;s the full section on <strong>Script Overview and Flow Control</strong> for the <strong>Megatron Control System Documentation</strong>:</p>
+<hr>
+<h2 id="script-overview-and-flow-control">Script Overview and Flow Control</h2>
+<h3 id="introduction">Introduction</h3>
+<p>In the <strong>Megatron Control System</strong>, scripts are sequences of commands executed to control hardware components, monitor processes, and automate tasks. These scripts can range from simple sequences of digital or analog controls to complex logic-based operations involving loops, conditions, file handling, and timing controls. Understanding how commands are combined and executed in scripts is crucial for effective automation and control.</p>
+<hr>
+<h3 id="command-sequencing">Command Sequencing</h3>
+<p>Commands in Megatron are executed in sequence, one after the other, unless control commands like loops, conditions, or file operations change the flow. A typical script might include commands to start a process, log data, control hardware components, and manage timing.</p>
+<p><strong>Example Script</strong>:</p>
+<pre><code class="lang-megatron">setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>            <span class="hljs-comment"># Turn on relay 1</span>
+<span class="hljs-built_in">log</span> <span class="hljs-string">"Temperature"</span>            <span class="hljs-comment"># Log the temperature</span>
+t <span class="hljs-number">10</span>                         <span class="hljs-comment"># Wait for 10 seconds</span>
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>            <span class="hljs-comment"># Turn off relay 1</span>
+</code></pre>
+<p>In this script:</p>
+<ol>
+<li><code>setdo</code> turns on a relay.</li>
+<li><code>log</code> tracks the temperature.</li>
+<li><code>t</code> pauses the script for 10 seconds before proceeding.</li>
+<li><code>setdo</code> then turns off the relay.</li>
+</ol>
+<p>This sequence illustrates the basic structure of command execution.</p>
+<hr>
+<h3 id="loops-and-repetition-l-command-">Loops and Repetition (<code>l</code> Command)</h3>
+<p>Loops are used to repeat a block of commands multiple times. The <code>l</code> command defines how many times the subsequent block of commands will execute. The loop ends with an <code>n</code> to mark the conclusion of the loop block.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron">l<span class="hljs-built_in">n</span>
+    &lt;commands&gt;
+<span class="hljs-built_in">n</span>
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron">l<span class="hljs-number">3</span>                         # Loop the following block <span class="hljs-number">3</span> times
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>
+    t <span class="hljs-number">5</span>                     # Wait <span class="hljs-number">5</span> seconds
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>
+    t <span class="hljs-number">2</span>                     # Wait <span class="hljs-number">2</span> seconds before restarting loop
+n
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li>The <code>l 3</code> command creates a loop that runs the block three times.</li>
+<li>Inside the loop, relay 1 is turned on, held for 5 seconds, and then turned off, followed by a 2-second pause before repeating.</li>
+</ul>
+<hr>
+<h3 id="conditional-controls-failif-and-failifoff-">Conditional Controls: <code>failif</code> and <code>failifoff</code></h3>
+<p>Conditions are essential for handling process failures or system triggers. The <code>failif</code> command is used to interrupt the script if a process variable (PV) reaches a specified condition. When triggered, the specified fail script is executed.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron">failif <span class="hljs-string">"PV"</span>, condition<span class="hljs-number">_</span><span class="hljs-keyword">value</span>, <span class="hljs-string">"fail_script"</span>
+failifoff <span class="hljs-string">"PV"</span>
+</code></pre>
+<ul>
+<li><code>failif</code> sets up a condition that checks if the process variable <code>PV</code> meets the <code>condition_value</code>. If true, the script will stop, and the <code>fail_script</code> will run.</li>
+<li><code>failifoff</code> disables the <code>failif</code> condition for a given process variable.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron"><span class="hljs-attribute">failif</span> <span class="hljs-string">"Pressure"</span>, <span class="hljs-number">0</span>, <span class="hljs-string">"emergency_shutdown"</span>   <span class="hljs-comment"># If pressure drops to 0, trigger emergency shutdown</span>
+setdo <span class="hljs-string">"Pump"</span>, <span class="hljs-number">1</span>                              <span class="hljs-comment"># Turn on the pump</span>
+t <span class="hljs-number">10</span>                                         <span class="hljs-comment"># Wait 10 seconds</span>
+setdo <span class="hljs-string">"Pump"</span>, <span class="hljs-number">0</span>                              <span class="hljs-comment"># Turn off the pump</span>
+failifoff <span class="hljs-string">"Pressure"</span>                         <span class="hljs-comment"># Disable the fail condition</span>
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li>The script monitors the &quot;Pressure&quot; variable.</li>
+<li>If the pressure drops to 0, the script halts and runs the &quot;emergency_shutdown&quot; script.</li>
+<li>After the main actions (controlling the pump), the fail condition is disabled.</li>
+</ul>
+<hr>
+<h3 id="file-manipulation-fopen-and-fprint-">File Manipulation: <code>fopen</code> and <code>fprint</code></h3>
+<p>The Megatron system allows you to log data and process outputs to files using the <code>fopen</code> and <code>fprint</code> commands. These commands open a file and append text to it, respectively.</p>
+<ul>
+<li><code>fopen</code>: Opens a file for writing.</li>
+<li><code>fprint</code>: Appends specified text to an open file.</li>
+</ul>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron"><span class="hljs-keyword">fopen</span> <span class="hljs-string">"filename"</span>
+<span class="hljs-keyword">fprint</span> <span class="hljs-string">"filename"</span>, <span class="hljs-string">"text"</span>
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron"><span class="hljs-attribute">fopen</span> <span class="hljs-string">"process_log.txt"</span>                <span class="hljs-comment"># Open or create the log file</span>
+fprint <span class="hljs-string">"process_log.txt"</span>, <span class="hljs-string">"Process started at 10:00"</span>   <span class="hljs-comment"># Append data to the log file</span>
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>                      <span class="hljs-comment"># Turn on relay</span>
+t <span class="hljs-number">10</span>                                   <span class="hljs-comment"># Wait 10 seconds</span>
+fprint <span class="hljs-string">"process_log.txt"</span>, <span class="hljs-string">"Relay turned off"</span>    <span class="hljs-comment"># Append another log entry</span>
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>                      <span class="hljs-comment"># Turn off relay</span>
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li>The script logs the start and end of a process to a file named <code>process_log.txt</code>.</li>
+<li>This approach is useful for tracking events, error logging, or recording process outputs.</li>
+</ul>
+<hr>
+<h3 id="timing-control-t-command">Timing Control: <code>t</code> Command</h3>
+<p>The <code>t</code> command is used to pause script execution for a specified number of seconds. This is particularly useful when waiting for a process to complete or for a device to stabilize before proceeding with the next command.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron"><span class="hljs-attribute">t seconds</span>
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron">setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>          # Turn on relay <span class="hljs-number">1</span>
+t <span class="hljs-number">5</span>                        # Wait for <span class="hljs-number">5</span> seconds
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>          # Turn off relay <span class="hljs-number">1</span>
+</code></pre>
+<p>In this script:</p>
+<ul>
+<li>The relay is turned on.</li>
+<li>The script then waits for 5 seconds before proceeding to turn off the relay.</li>
+</ul>
+<hr>
+<h3 id="flow-of-execution">Flow of Execution</h3>
+<p>Megatron scripts execute commands in sequence unless a loop, conditional control, or timing is introduced. When commands are combined, they create a workflow that may involve monitoring, hardware control, logging, and decision-making based on process conditions.</p>
+<p><strong>Example of Full Workflow</strong>:</p>
+<pre><code class="lang-megatron">fopen <span class="hljs-string">"logfile.txt"</span>
+log <span class="hljs-string">"Temperature"</span>
+lograte <span class="hljs-number">5</span>
+
+failif <span class="hljs-string">"Pressure"</span>, <span class="hljs-number">0</span>, <span class="hljs-string">"emergency_shutdown"</span>
+
+l <span class="hljs-number">10</span>                             # Loop <span class="hljs-number">10</span> times
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>            # Turn on relay <span class="hljs-number">1</span>
+    fprint <span class="hljs-string">"logfile.txt"</span>, <span class="hljs-string">"Relay 1 activated"</span>
+    t <span class="hljs-number">5</span>                          # Wait <span class="hljs-number">5</span> seconds
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>            # Turn off relay <span class="hljs-number">1</span>
+    fprint <span class="hljs-string">"logfile.txt"</span>, <span class="hljs-string">"Relay 1 deactivated"</span>
+n
+
+failifoff <span class="hljs-string">"Pressure"</span>
+</code></pre>
+<p>This script demonstrates:</p>
+<ol>
+<li><strong>File Handling</strong>: A file is opened to log data.</li>
+<li><strong>Logging</strong>: The temperature is logged every 5 seconds.</li>
+<li><strong>Fail Conditions</strong>: The script stops and triggers an emergency shutdown if the pressure drops to 0.</li>
+<li><strong>Looping</strong>: A block of commands turns the relay on and off in a loop, with corresponding log entries.</li>
+<li><strong>Flow</strong>: The script combines conditionals, looping, file handling, and timing controls to create a well-structured process.</li>
+</ol>
+<hr>
+<h2 id="script-functionality-breakdown">Script Functionality Breakdown</h2>
+<h3 id="introduction">Introduction</h3>
+<p>In the <strong>Megatron Control System</strong>, scripts are written to automate and control various hardware components. Common scripts include operations such as switching relays, controlling pressure, and monitoring system variables. This section breaks down some commonly used scripts, explaining their functionality and the key steps involved. By understanding these examples, users can better apply the commands in their own scripts.</p>
+<hr>
+<h3 id="example-1-relay-switch-control-script">Example 1: Relay Switch Control Script</h3>
+<p>This type of script is commonly used to turn relays on and off, controlling hardware devices like pumps, lights, or other electrical components. The following script demonstrates a simple sequence for toggling a relay, including logging and timed delays.</p>
+<p><strong>Script:</strong></p>
+<pre><code class="lang-megatron"><span class="hljs-attribute">fopen</span> <span class="hljs-string">"relay_log.txt"</span>                  <span class="hljs-comment"># Open a file to log relay events</span>
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>                      <span class="hljs-comment"># Turn on Relay 1</span>
+fprint <span class="hljs-string">"relay_log.txt"</span>, <span class="hljs-string">"Relay 1 activated"</span>   <span class="hljs-comment"># Log the relay activation</span>
+t <span class="hljs-number">10</span>                                   <span class="hljs-comment"># Wait 10 seconds</span>
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>                      <span class="hljs-comment"># Turn off Relay 1</span>
+fprint <span class="hljs-string">"relay_log.txt"</span>, <span class="hljs-string">"Relay 1 deactivated"</span> <span class="hljs-comment"># Log the relay deactivation</span>
+</code></pre>
+<p><strong>Key Steps</strong>:</p>
+<ol>
+<li><strong>File Handling</strong>: The <code>fopen</code> command opens or creates a log file, <code>relay_log.txt</code>, to track the relay status.</li>
+<li><strong>Relay Control</strong>: The <code>setdo</code> command turns the relay on (<code>setdo &quot;Relay1&quot;, 1</code>) and off (<code>setdo &quot;Relay1&quot;, 0</code>).</li>
+<li><strong>Logging</strong>: The <code>fprint</code> command writes information about when the relay is turned on and off to the log file.</li>
+<li><strong>Timing</strong>: The <code>t</code> command introduces a 10-second delay between turning the relay on and off.</li>
+</ol>
+<p>This script is useful for switching devices on and off with timed delays and logging events for future reference.</p>
+<hr>
+<h3 id="example-2-pressure-monitoring-and-control-script">Example 2: Pressure Monitoring and Control Script</h3>
+<p>This script demonstrates how to monitor pressure in a system and trigger actions based on pressure values. If the pressure drops below a threshold, the system will initiate a shutdown.</p>
+<p><strong>Script:</strong></p>
+<pre><code class="lang-megatron">failif <span class="hljs-string">"Pressure"</span>, <span class="hljs-number">0</span>, <span class="hljs-string">"emergency_shutdown"</span>    <span class="hljs-comment"># If pressure drops to 0, run the emergency shutdown script</span>
+<span class="hljs-built_in">log</span> <span class="hljs-string">"Pressure"</span>                                <span class="hljs-comment"># Log the pressure</span>
+lograte <span class="hljs-number">5</span>                                     <span class="hljs-comment"># Log every 5 seconds</span>
+setdo <span class="hljs-string">"Pump"</span>, <span class="hljs-number">1</span>                               <span class="hljs-comment"># Turn on the pump</span>
+t <span class="hljs-number">60</span>                                          <span class="hljs-comment"># Wait for 60 seconds</span>
+setdo <span class="hljs-string">"Pump"</span>, <span class="hljs-number">0</span>                               <span class="hljs-comment"># Turn off the pump</span>
+failifoff <span class="hljs-string">"Pressure"</span>                          <span class="hljs-comment"># Disable the fail condition for pressure</span>
+</code></pre>
+<p><strong>Key Steps</strong>:</p>
+<ol>
+<li><strong>Failure Condition</strong>: The <code>failif</code> command monitors the &quot;Pressure&quot; process variable. If the pressure drops to 0, the <code>emergency_shutdown</code> script is triggered to stop the process.</li>
+<li><strong>Logging</strong>: The <code>log</code> command records the pressure variable, and <code>lograte</code> sets the logging interval to 5 seconds, allowing the pressure to be tracked at regular intervals.</li>
+<li><strong>Pump Control</strong>: The <code>setdo</code> command controls the pump by turning it on for 60 seconds (<code>t 60</code>) and then turning it off.</li>
+<li><strong>Failure Handling</strong>: The <code>failifoff</code> command disables the failure condition at the end of the script, ensuring the system returns to normal.</li>
+</ol>
+<p>This script is ideal for controlling hardware components based on environmental or system conditions, such as pressure, temperature, or flow rates.</p>
+<hr>
+<h3 id="example-3-process-automation-with-loops">Example 3: Process Automation with Loops</h3>
+<p>This script demonstrates how to automate repetitive tasks using loops. The script toggles a relay in 5-second intervals and logs each activation/deactivation.</p>
+<p><strong>Script:</strong></p>
+<pre><code class="lang-megatron"><span class="hljs-attribute">fopen</span> <span class="hljs-string">"automation_log.txt"</span>                   <span class="hljs-comment"># Open a log file to track automation events</span>
+l <span class="hljs-number">10</span>                                         <span class="hljs-comment"># Repeat the block of commands 10 times</span>
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>                        <span class="hljs-comment"># Turn on Relay 1</span>
+    fprint <span class="hljs-string">"automation_log.txt"</span>, <span class="hljs-string">"Relay 1 activated"</span>   <span class="hljs-comment"># Log relay activation</span>
+    t <span class="hljs-number">5</span>                                      <span class="hljs-comment"># Wait 5 seconds</span>
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>                        <span class="hljs-comment"># Turn off Relay 1</span>
+    fprint <span class="hljs-string">"automation_log.txt"</span>, <span class="hljs-string">"Relay 1 deactivated"</span> <span class="hljs-comment"># Log relay deactivation</span>
+    t <span class="hljs-number">2</span>                                      <span class="hljs-comment"># Wait 2 seconds before the next loop</span>
+n
+</code></pre>
+<p><strong>Key Steps</strong>:</p>
+<ol>
+<li><strong>Looping</strong>: The <code>l 10</code> and <code>n</code> commands create a loop that repeats the block of commands 10 times.</li>
+<li><strong>Relay Control</strong>: Inside the loop, the relay is turned on for 5 seconds and then turned off, with a 2-second delay before the next iteration.</li>
+<li><strong>Logging</strong>: The <code>fprint</code> command records when the relay is activated and deactivated for each loop iteration.</li>
+<li><strong>Timing</strong>: The <code>t</code> command manages the timing for the relay switching and delays between iterations.</li>
+</ol>
+<p>This script is useful for automating repetitive tasks in a controlled sequence, such as cycling power to a component or running timed tests.</p>
+<hr>
+<h3 id="example-4-monitoring-system-variables-and-logging-data">Example 4: Monitoring System Variables and Logging Data</h3>
+<p>In this script, system variables such as temperature and pressure are continuously monitored and logged. The script demonstrates how to track multiple variables over time and adjust logging rates.</p>
+<p><strong>Script:</strong></p>
+<pre><code class="lang-megatron">fopen <span class="hljs-string">"system_log.txt"</span>                      <span class="hljs-comment"># Open a log file to track system data</span>
+<span class="hljs-built_in">log</span> <span class="hljs-string">"Temperature"</span>                           <span class="hljs-comment"># Log the temperature</span>
+<span class="hljs-built_in">log</span> <span class="hljs-string">"Pressure"</span>                              <span class="hljs-comment"># Log the pressure</span>
+lograte <span class="hljs-number">10</span>                                  <span class="hljs-comment"># Set the logging rate to every 10 seconds</span>
+l <span class="hljs-number">20</span>                                        <span class="hljs-comment"># Loop to log the data 20 times</span>
+    fprint <span class="hljs-string">"system_log.txt"</span>, <span class="hljs-string">"Logging data at interval"</span>
+    t <span class="hljs-number">10</span>                                    <span class="hljs-comment"># Wait 10 seconds</span>
+n
+</code></pre>
+<p><strong>Key Steps</strong>:</p>
+<ol>
+<li><strong>Logging Setup</strong>: The <code>log</code> command tracks the temperature and pressure, while <code>lograte</code> sets the logging interval to 10 seconds.</li>
+<li><strong>Looping</strong>: The script logs data at 10-second intervals for 20 iterations using the <code>l 20</code> loop.</li>
+<li><strong>File Output</strong>: The <code>fprint</code> command writes a timestamped log entry for each interval.</li>
+<li><strong>Timing</strong>: The <code>t 10</code> command introduces a 10-second delay between log entries, ensuring data is captured at the specified intervals.</li>
+</ol>
+<p>This script is commonly used for data acquisition, allowing system variables to be recorded at regular intervals for later analysis.</p>
+<hr>
+<h3 id="example-5-emergency-shutdown-script">Example 5: Emergency Shutdown Script</h3>
+<p>This script handles emergency conditions, such as pressure dropping to zero, by shutting down the system and stopping all processes.</p>
+<p><strong>Script:</strong></p>
+<pre><code class="lang-megatron"><span class="hljs-attribute">fprint</span> <span class="hljs-string">"logfile.txt"</span>, <span class="hljs-string">"Emergency shutdown initiated"</span>    <span class="hljs-comment"># Log the emergency shutdown</span>
+setdo <span class="hljs-string">"Pump"</span>, <span class="hljs-number">0</span>                                         <span class="hljs-comment"># Turn off the pump</span>
+setdo <span class="hljs-string">"Heater"</span>, <span class="hljs-number">0</span>                                       <span class="hljs-comment"># Turn off the heater</span>
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>                                       <span class="hljs-comment"># Turn off relay 1</span>
+setao <span class="hljs-string">"Flow"</span>, <span class="hljs-number">0</span>                                         <span class="hljs-comment"># Set flow to 0</span>
+fprint <span class="hljs-string">"logfile.txt"</span>, <span class="hljs-string">"System shut down completed"</span>
+</code></pre>
+<p><strong>Key Steps</strong>:</p>
+<ol>
+<li><strong>Logging the Event</strong>: The <code>fprint</code> command writes the emergency shutdown event to the log file.</li>
+<li><strong>Hardware Control</strong>: The <code>setdo</code> command turns off the pump, heater, and relay, while <code>setao</code> sets the flow to zero, stopping all processes.</li>
+<li><strong>Completion Logging</strong>: Another <code>fprint</code> command records when the shutdown is complete.</li>
+</ol>
+<p>This script is typically run when an emergency condition (such as <code>failif &quot;Pressure&quot; 0</code>) is triggered, ensuring a safe and orderly shutdown of system components.</p>
+<hr>
+<h2 id="debugging-and-testing">Debugging and Testing</h2>
+<h3 id="introduction">Introduction</h3>
+<p>Debugging and testing are critical steps in the script development process, ensuring that your Megatron scripts behave as expected. This section provides guidance on effective debugging techniques, focusing on using logging (<code>log</code>, <code>lograte</code>), checking outputs, and interpreting results. Testing scripts before deploying them in production environments helps to catch issues early, reduce downtime, and improve system reliability.</p>
+<hr>
+<h3 id="using-logging-for-debugging">Using Logging for Debugging</h3>
+<p>Logging is one of the most powerful tools for testing and debugging in the <strong>Megatron Control System</strong>. By logging key process variables, you can observe the system&#39;s behavior in real time, understand how inputs are changing, and identify issues such as incorrect sensor readings or unexpected timing.</p>
+<h4 id="logging-process-variables-log-and-lograte-">Logging Process Variables (<code>log</code> and <code>lograte</code>)</h4>
+<p>The <code>log</code> command allows you to track specific process variables (PVs) over time, while the <code>lograte</code> command controls how frequently these variables are logged. Logged data is stored either in the console or a specified file, which can then be reviewed to identify issues.</p>
+<ul>
+<li><strong><code>log</code></strong>: Monitors specific variables.</li>
+<li><strong><code>lograte</code></strong>: Sets the frequency (in seconds) at which these variables are logged.</li>
+</ul>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron"><span class="hljs-built_in">log</span> <span class="hljs-string">"PV1"</span>, <span class="hljs-string">"PV2"</span>, ...     # Monitors process variables
+lograte <span class="hljs-built_in">n</span>                 # Sets <span class="hljs-built_in">log</span> interval to <span class="hljs-built_in">n</span> seconds
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron"><span class="hljs-built_in">log</span> <span class="hljs-string">"Temperature"</span>, <span class="hljs-string">"Pressure"</span>    # <span class="hljs-built_in">Log</span> temperature <span class="hljs-built_in">and</span> pressure
+lograte <span class="hljs-number">5</span>                        # <span class="hljs-built_in">Log</span> every <span class="hljs-number">5</span> seconds
+</code></pre>
+<p>In this example, the script logs the <code>Temperature</code> and <code>Pressure</code> every 5 seconds. By reviewing these log outputs, you can check if the system is behaving as expected (e.g., if the pressure is increasing or decreasing as desired).</p>
+<h4 id="file-based-logging-with-fopen-and-fprint-">File-Based Logging with <code>fopen</code> and <code>fprint</code></h4>
+<p>If you need to save logs to a file, use <code>fopen</code> and <code>fprint</code> to append log entries into a specified file. This is particularly useful for long-term debugging or for capturing logs during complex operations.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron"><span class="hljs-keyword">fopen</span> <span class="hljs-string">"filename"</span>              # Opens or creates a <span class="hljs-keyword">log</span> <span class="hljs-keyword">file</span>
+<span class="hljs-keyword">fprint</span> <span class="hljs-string">"filename"</span>, <span class="hljs-string">"text"</span>     # Appends <span class="hljs-keyword">log</span> entries to the <span class="hljs-keyword">file</span>
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron">fopen <span class="hljs-string">"debug_log.txt"</span>                    <span class="hljs-comment"># Open the log file</span>
+<span class="hljs-built_in">log</span> <span class="hljs-string">"Temperature"</span>                        <span class="hljs-comment"># Log temperature</span>
+lograte <span class="hljs-number">10</span>                               <span class="hljs-comment"># Log every 10 seconds</span>
+fprint <span class="hljs-string">"debug_log.txt"</span>, <span class="hljs-string">"Starting debug"</span> <span class="hljs-comment"># Log a custom message</span>
+</code></pre>
+<p>Here, logs are written both to the console and saved in a file named <code>debug_log.txt</code>. This is helpful for tracking issues over long periods or debugging while the system is not being actively monitored.</p>
+<hr>
+<h3 id="interpreting-log-output">Interpreting Log Output</h3>
+<p>When debugging with logs, it&#39;s important to know how to interpret the output. Here are a few things to look out for:</p>
+<ol>
+<li><p><strong>Expected Value Ranges</strong>:</p>
+<ul>
+<li>Verify that logged values are within the expected ranges. For example, if the temperature should be between 50°C and 100°C, make sure the values stay within this range over time.</li>
+</ul>
+</li>
+<li><p><strong>Rate of Change</strong>:</p>
+<ul>
+<li>Look at how values change between log intervals. For example, if a pressure reading should gradually increase, make sure the rate of change is consistent and that there are no sudden drops or spikes.</li>
+</ul>
+</li>
+<li><p><strong>Timestamps and Event Timing</strong>:</p>
+<ul>
+<li>Ensure that key events are happening at the right times. If you&#39;re controlling a relay and logging its state, check the timing of when it&#39;s activated and deactivated, comparing this with expected wait times or conditions.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Example Output</strong>:</p>
+<pre><code><span class="hljs-attr">Temperature:</span> <span class="hljs-number">60</span>°C
+<span class="hljs-attr">Pressure:</span> <span class="hljs-number">25</span> psi
+Relay <span class="hljs-number">1</span>: ON
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">Temperature:</span> <span class="hljs-number">62</span>°C
+<span class="hljs-attr">Pressure:</span> <span class="hljs-number">26</span> psi
+Relay <span class="hljs-number">1</span>: OFF
+</code></pre><p>In this log output, you can track how the temperature and pressure values change over time, as well as when Relay 1 is turned on and off. If the values deviate from what’s expected, there may be a hardware issue or an error in the script logic.</p>
+<hr>
+<h3 id="testing-with-fail-conditions-failif-">Testing with Fail Conditions (<code>failif</code>)</h3>
+<p>Another way to test scripts is by using <code>failif</code> commands to trigger alternative behavior when specific conditions are met. This is useful for simulating failure scenarios and ensuring that your failover or emergency processes are working as intended.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron">failif <span class="hljs-string">"PV"</span>, <span class="hljs-keyword">condition</span>, <span class="hljs-string">"fail_script"</span>
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron">failif <span class="hljs-string">"Pressure"</span>, <span class="hljs-number">0</span>, <span class="hljs-string">"emergency_shutdown"</span>   # Trigger emergency <span class="hljs-built_in">shutdown</span> <span class="hljs-built_in">if</span> pressure drops to <span class="hljs-number">0</span>
+</code></pre>
+<p>In this example, the script will trigger the <code>emergency_shutdown</code> script if the <code>Pressure</code> process variable drops to 0. Testing fail conditions like this ensures that the system behaves correctly during critical failures.</p>
+<hr>
+<h3 id="step-by-step-testing-with-timing-controls-t-">Step-by-Step Testing with Timing Controls (<code>t</code>)</h3>
+<p>Use the <code>t</code> command to introduce controlled delays between commands during testing. This is useful for:</p>
+<ul>
+<li>Verifying that commands are executed in the correct order.</li>
+<li>Ensuring hardware components have time to respond.</li>
+<li>Debugging timing issues where operations happen too quickly or too slowly.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron">setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>           # Turn on relay
+t <span class="hljs-number">10</span>                        # Wait <span class="hljs-number">10</span> seconds
+setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>           # Turn off relay
+</code></pre>
+<p>In this example, the script waits for 10 seconds after turning on Relay 1 before proceeding. By adjusting the time delay with <code>t</code>, you can test the impact of timing changes on the overall process.</p>
+<hr>
+<h3 id="incremental-testing-with-loops-l-">Incremental Testing with Loops (<code>l</code>)</h3>
+<p>When testing repetitive processes, such as toggling relays or logging data, use loops (<code>l</code>) to run a block of commands multiple times. Start with a low number of iterations to ensure everything works as expected before expanding the loop.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="lang-megatron">l <span class="hljs-built_in">n</span>
+    &lt;commands&gt;
+<span class="hljs-built_in">n</span>
+</code></pre>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron">l <span class="hljs-number">5</span>                          # Loop <span class="hljs-number">5</span> times for initial testing
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">1</span>
+    t <span class="hljs-number">5</span>                      # Wait <span class="hljs-number">5</span> seconds
+    setdo <span class="hljs-string">"Relay1"</span>, <span class="hljs-number">0</span>
+    t <span class="hljs-number">2</span>                      # Wait <span class="hljs-number">2</span> seconds before next loop
+n
+</code></pre>
+<p>In this script, the relay is toggled on and off in a loop. Testing the process with a small number of iterations ensures that everything works as expected before scaling up.</p>
+<hr>
+<h3 id="testing-with-conditional-logic">Testing with Conditional Logic</h3>
+<p>For scripts that include conditional logic, such as fail conditions or variables that affect flow, it’s important to simulate different scenarios and conditions during testing. This can include:</p>
+<ul>
+<li>Manually adjusting the values of process variables.</li>
+<li>Using test scripts to mimic various hardware states.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-megatron">var <span class="hljs-string">"temperature_threshold"</span>, <span class="hljs-number">80</span>            <span class="hljs-comment"># Set a variable for the temperature threshold</span>
+<span class="hljs-built_in">log</span> <span class="hljs-string">"Temperature"</span>                          <span class="hljs-comment"># Log the temperature</span>
+lograte <span class="hljs-number">10</span>                                 <span class="hljs-comment"># Log every 10 seconds</span>
+failif <span class="hljs-string">"Temperature"</span>, &gt;, <span class="hljs-string">"temperature_threshold"</span>, <span class="hljs-string">"overheat_shutdown"</span>  <span class="hljs-comment"># Trigger shutdown if temperature exceeds threshold</span>
+</code></pre>
+<p>In this script, the temperature is monitored and compared to a threshold. If the temperature exceeds 80°C, the <code>overheat_shutdown</code> script is triggered. By adjusting the threshold and testing under different conditions, you can verify that the conditional logic is working as expected.</p>
+<hr>
+<h3 id="general-debugging-tips">General Debugging Tips</h3>
+<ul>
+<li><strong>Start Simple</strong>: Begin testing with small, simple scripts before building more complex ones. This will help isolate issues early on.</li>
+<li><strong>Test in Steps</strong>: Test sections of your script individually before running the entire script.</li>
+<li><strong>Use Log Outputs</strong>: Log everything you can—this is especially useful for tracking the flow of operations and catching any unexpected behavior.</li>
+<li><strong>Check Hardware Response</strong>: Ensure that hardware components, such as relays or pumps, are responding as expected to script commands.</li>
+<li><strong>Simulate Failures</strong>: Test failure scenarios to ensure that emergency or recovery scripts are triggered when needed.</li>
+</ul>
+<hr>
+</body></html>
