@@ -2,35 +2,43 @@
 
 
 
---- failif --- occurrence: 343
+--- failif --- occurrence: 362
 
 
 
---- failifoff --- occurrence: 14
+--- failifoff --- occurrence: 15
 
 
 
---- l --- occurrence: 1064
+--- l --- occurrence: 337942
 
 
 
---- log --- occurrence: 18958
+--- log --- occurrence: 24626
 
 
 
---- print --- occurrence: 402
+--- lograte --- occurrence: 349
 
 
 
---- run --- occurrence: 168747
+--- plot --- occurrence: 96
 
 
 
---- setao --- occurrence: 169399
+--- print --- occurrence: 167893
 
 
 
---- setdo --- occurrence: 1070
+--- run --- occurrence: 168766
+
+
+
+--- setao --- occurrence: 173899
+
+
+
+--- setdo --- occurrence: 515000
 
 
 
@@ -38,19 +46,19 @@
 
 
 
---- t --- occurrence: 3934
+--- t --- occurrence: 508282
 
 
 
---- var --- occurrence: 31
+--- var --- occurrence: 125
 
 
 
---- waitai --- occurrence: 160114
+--- waitai --- occurrence: 160155
 
 
 
---- waitdi --- occurrence: 34
+--- waitdi --- occurrence: 47
 
 
 
