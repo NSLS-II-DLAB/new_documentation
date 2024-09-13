@@ -8,37 +8,40 @@ def find_keywords_in_file(file_path, keywords):
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
         lines = file.readlines()
         for line_number, line in enumerate(lines, 1):
+            line_lower = line.strip().lower()
             for keyword in keywords:
-                if keyword == 't':
-                    if re.match(r'^t\d+', line.strip()):
-                        if keyword not in result:
-                            result[keyword] = []
-                        result[keyword].append((line.strip(), line_number))
-                elif keyword == 'l':
-                    if re.match(r'^l\d+', line.strip()):
+                keyword_lower = keyword.lower()
+                if keyword_lower == 't':
+                    if re.match(r'^t\d+', line_lower):
+                        if keyword_lower not in result:
+                            result[keyword_lower] = []
+                        result[keyword_lower].append((line.strip(), line_number))
+                elif keyword_lower == 'l':
+                    if re.match(r'^l\d+', line_lower):
                         loop_start_line = line_number
                         for sub_line_number in range(line_number + 1, len(lines)):
-                            if lines[sub_line_number].strip() == 'n':
-                                if keyword not in result:
-                                    result[keyword] = []
-                                result[keyword].append((line.strip(), loop_start_line))
-                                result[keyword].append((lines[sub_line_number].strip(), sub_line_number + 1))
+                            if lines[sub_line_number].strip().lower() == 'n':
+                                if keyword_lower not in result:
+                                    result[keyword_lower] = []
+                                result[keyword_lower].append((line.strip(), loop_start_line))
+                                result[keyword_lower].append((lines[sub_line_number].strip(), sub_line_number + 1))
                                 break
                 else:
-                    if re.match(rf'^{keyword}\b', line.strip()):
-                        if keyword not in result:
-                            result[keyword] = []
-                        result[keyword].append((line.strip(), line_number))
+                    if re.match(rf'^{keyword_lower}\b', line_lower):
+                        if keyword_lower not in result:
+                            result[keyword_lower] = []
+                        result[keyword_lower].append((line.strip(), line_number))
     return result
 
 def write_output(output_path, results, keywords, file_paths, simple):
     with open(output_path, 'w') as output_file:
         for keyword in keywords:
-            if keyword in results:
-                occurrences = len(results[keyword])
+            keyword_lower = keyword.lower()
+            if keyword_lower in results:
+                occurrences = len(results[keyword_lower])
                 output_file.write(f"--- {keyword} --- occurrence: {occurrences}\n")
                 if not simple:
-                    for line, file_path in zip(results[keyword], file_paths[keyword]):
+                    for line, file_path in zip(results[keyword_lower], file_paths[keyword_lower]):
                         output_file.write(f"{line[0]} (found in {file_path}, line {line[1]})\n")
                 output_file.write("\n\n\n")  
 
@@ -59,11 +62,12 @@ def search_directory(directory, keywords):
                     relative_file_path = os.path.relpath(file_path, directory)
                     keyword_results = find_keywords_in_file(file_path, [keyword])
                     for key, lines in keyword_results.items():
-                        if key not in results:
-                            results[key] = []
-                            file_paths[key] = []
-                        results[key].extend(lines)
-                        file_paths[key].extend([relative_file_path] * len(lines))
+                        key_lower = key.lower()
+                        if key_lower not in results:
+                            results[key_lower] = []
+                            file_paths[key_lower] = []
+                        results[key_lower].extend(lines)
+                        file_paths[key_lower].extend([relative_file_path] * len(lines))
         
         print("\n")  
 
