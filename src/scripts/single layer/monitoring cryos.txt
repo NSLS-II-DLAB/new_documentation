@@ -1,0 +1,61 @@
+#*****Monitoring chamber*****
+
+LOG "TETech power output"
+
+log "Temp Diode 1 (CP1)"
+log "Temp Diode 2 (CP2)"
+log "Temp Diode 3 (CP3)"
+log "Temp Diode 4 (CP4)"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+
+log "LJ Car RTD"
+log "LJ FacePlate RTD"
+
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM2 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+LOG "Landing Chamber UHV CCG1"
+LOG "Loadlock UHV CCG2"
+
+LOGRATE 1
+
+email "starting monitoring", "48h", bouet@bnl.gov, sgiorgio@bnl.gov
+
+l12
+l60
+t240
+n
+email "monitoring 4h mark", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+n
+email "script completed", "end of monitoring", bouet@bnl.gov, sgiorgio@bnl.gov 
+T10
+EXIT

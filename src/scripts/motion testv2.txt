@@ -1,0 +1,242 @@
+#*****MLL Preparation*****
+#Load substrates at 8.5" 
+#test car motion July 2021
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "LJ Ion Voltage (Analog)"
+log "ION Voltage"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+
+log "LJ Car RTD"
+log "LJ FacePlate RTD"
+
+log "Magnetron 1 Temperature"
+log "Magnetron 2 Temperature"
+log "Magnetron 3 Temperature"
+log "Magnetron 4 Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM2 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+log "Magnetron 1 Flow"
+log "Magnetron 2 Flow"
+log "Magnetron 3 Flow"
+log "Magnetron 4 Flow"
+log "Magnetron 5 Flow"
+log "Magnetron 6 Flow"
+log "Magnetron 7 Flow"
+log "Magnetron 8 Flow"
+log "Magnetron 9 Flow"
+log "QCM 1 Flow"
+log "QCM 2 Flow"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+
+log "[T] Body 1"
+log "[T] Body 2"
+log "[T] Box"
+log "[T] Load Lock"
+log "[T] Gun 1"
+log "[T] Gun 2"
+log "[T] Gun 3"
+log "[T] Gun 4"
+log "[T] Gun 5"
+log "[T] Gun 6"
+log "[T] Gun 7"
+log "[T] Gun 8"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+#RUN DOUBLE ML RATE TESTS FOR GUN 2 AND 5
+
+t30
+AC 6000000
+DC 6000000
+
+email "starting test", "move gun to gun", bouet@bnl.gov, mvescovi@bnl.gov
+
+#Note: this position applies when substrates are loaded at the 8.5"
+#bringing position 8.5 in front of gun 1
+pa -32493000
+sp 2000000
+bg
+t5
+
+#bringing sample in front of gun 2
+SP 2500000
+PA -28429000
+BG
+t5
+
+#bringing sample in front of gun 3
+pr 4064000
+sp 2000000
+bg
+t5
+
+#bringing sample in front of gun 4
+pr 4064000
+sp 2000000
+bg
+t5
+
+#bringing sample in front of gun 5
+SP 2500000
+PA 10690000
+BG
+t5
+
+#bringing sample in front of gun 6
+pr 4064000
+sp 2000000
+bg
+t5
+
+#bringing sample in front of gun 7
+pr 4064000
+sp 2000000
+bg
+t5
+
+#bringing sample in front of gun 8
+pr 4064000
+sp 2000000
+bg
+t5
+
+email "motion gun to gun ok", "starting loops GD1", bouet@bnl.gov, mvescovi@bnl.gov 
+
+PA -28429000
+SP 2500000
+BG
+t5
+
+L5
+T7
+L6
+ PR 4000000
+ SP 1809293
+ BG
+ PR -4000000
+ SP 1809293
+ BG
+ N
+
+SP 2500000
+PR 8128000
+BG
+t1
+
+T7
+L5
+ PR 4000000
+ SP 856236
+ BG
+ PR -4000000
+ SP 856236
+ BG
+N
+
+SP 2500000
+PR -8128000
+BG
+N
+
+email "loops motion GD1 ok", "starting loops GD1 to GD2", bouet@bnl.gov, mvescovi@bnl.gov 
+
+PA -28429000
+SP 2500000
+BG
+t5
+
+L5
+T10
+
+L6
+ PR 4000000
+ SP 1809293
+ BG
+ PR -4000000
+ SP 1809293
+ BG
+ N
+
+SP 2500000
+PR 43183000
+BG
+t10
+
+T7
+L5
+ PR 4000000
+ SP 856236
+ BG
+ PR -4000000
+ SP 856236
+ BG
+N
+
+SP 2500000
+PR -43183000
+BG
+N
+
+email "test motion complete", "move between Guns 2 and 6", bouet@bnl.gov, mvescovi@bnl.gov 
+run "System\\FINISH_ML_nocarunload"
+EXIT

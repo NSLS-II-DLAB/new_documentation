@@ -1,0 +1,17 @@
+#*****record pressure*****
+# recording after first plasma 
+# Mar 10 2022
+
+
+log "Landing Chamber UHV CCG1"
+log "Loadlock UHV CCG2"
+log "LJ Capacitance monometer (1000 Torr)"
+
+LOGRATE 60
+
+L24
+T3600
+N
+email "finished logging", "CCG1 and CGG2 readings", bouet@bnl.gov, rdemartin@bnl.gov
+
+EXIT

@@ -1,0 +1,7873 @@
+#*****MLL GROWTH*****
+#Load substrates at 9"center
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "LJ Ion Voltage (Analog)"
+log "ION Voltage"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "TETech power output"
+LOG "TETech control sensor temperature"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+log "LJ Car RTD"
+log "LJ FacePlate RTD"
+log "Magnetron 1 Temperature"
+log "Magnetron 2 Temperature"
+log "Magnetron 3 Temperature"
+log "Magnetron 4 Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM2 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+log "Magnetron 1 Flow"
+log "Magnetron 2 Flow"
+log "Magnetron 3 Flow"
+log "Magnetron 4 Flow"
+log "Magnetron 5 Flow"
+log "Magnetron 6 Flow"
+log "Magnetron 7 Flow"
+log "Magnetron 8 Flow"
+log "Magnetron 9 Flow"
+log "QCM 1 Flow"
+log "QCM 2 Flow"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+#waitai "Landing Chamber UHV CCG1", <, 5.0e-7
+#email "UHVCCG1 pressure below 5.0e-7", "Waiting 1 minutes further", bouet@bnl.gov, sgiorgio@bnl.gov
+l1
+l1
+t5
+n
+n
+#email "starting MLL growth", "Waiting no further", bouet@bnl.gov, sgiorgio@bnl.gov
+
+SETDO "MFC1 to Landing Chamber (AV1)", 1
+t.5
+SETDO "MFC2 to Gun Chamber 1 (AV2)", 1
+t.5
+SETDO "MFC3 to Gun Chamber 1 (AV3)", 1
+t.5
+SETDO "MFC4 to Gun Chamber 1 (AV4)", 1
+t.5
+SETDO "MFC5 to Gun Chamber 1 (AV5)", 1
+t.5
+SETDO "MFC6 to Gun Chamber 2 (AV6)", 1
+t.5
+SETDO "MFC7 to Gun Chamber 2 (AV7)", 1
+t.5
+SETDO "MFC8 to Gun Chamber 2 (AV8)", 1
+t.5
+SETDO "MFC9 to Landing Chamber (AV9)", 1
+SETDO "MFC1 Manual", 1
+SETDO "MFC2 Manual", 1
+SETDO "MFC3 Manual", 1
+SETDO "MFC4 Manual", 1
+SETDO "MFC5 Manual", 1
+SETDO "MFC6 Manual", 1
+SETDO "MFC7 Manual", 1
+SETDO "MFC8 Manual", 1
+SETDO "MFC9 Manual", 1
+setdo "MFC9 LJ Control Enabled", 1
+SETAO "Argon 1 (MFC1)", 5
+SETAO "Argon 2 (MFC2)", 5
+SETAO "Argon 3 (MFC3)", 5
+SETAO "Argon 4 (MFC4)", 5
+SETAO "Argon 5 (MFC5)", 5
+SETAO "Argon 6 (MFC6)", 5
+SETAO "Argon 7 (MFC7)", 5
+SETAO "Argon 8 (MFC8)", 5
+
+#**********BELOW THIS LINE IS WHERE TO CHANGE THE GAS CONCENTRATION
+#Tests from .00 (0%) to .20 (20%) in .02 (2%) increments
+setao "LJ Neon/Argon mix ratio", .05
+#**********ABOVE THIS LINE IS WHERE TO CHANGE THE GAS CONCENTRATION
+
+setao "PID loop 2 enabled", 1
+setao "PID loop 2 setpoint", 4
+setao "PID loop 2 reset", 1
+t5
+setao "PID loop 2 reset", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Main Control (K14)", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Stroke (K43)", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 0
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 0
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 0
+
+SETAO "Gate Valve 2 Position", 430
+SETAO "Gate Valve 3 Position", 430
+print "Waiting 5 minutes for process gas stabilization"
+t300
+AC 6000000
+DC 6000000
+email "Gas stabilized", "Commencing target burn-in", bouet@bnl.gov, sgiorgio@bnl.gov
+
+SETDO "Magnetron ION 1500 Input Relay 1 (J2-1)", 1
+SETDO "Magnetron MDX 1 input Relay (J1-1)", 0
+SETDO "Magnetron RF In Relay 2 (J2-2)", 1
+
+SETAO "ION Power", 250
+SETAO "ION Current", 1
+SETAO "ION Voltage", 1000
+setao "Magnetron MDX Supply 1 Output Level", 0
+
+PA 0
+SP 2500000
+BG
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -22555000
+BG
+T5
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+T5
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7574 (5.0841nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1857999
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7575 (5.0853nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 385075
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7576 (5.0866nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1955872
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7577 (5.0878nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 500352
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7578 (5.0891nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1856181
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7579 (5.0903nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 384698
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7580 (5.0916nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1953956
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7581 (5.0928nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 499861
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7582 (5.0941nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1854361
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7583 (5.0953nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 384320
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7584 (5.0966nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1952038
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7585 (5.0978nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 499371
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7586 (5.0991nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1852539
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7587 (5.1003nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 383943
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7588 (5.1016nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1950118
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7589 (5.1028nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 498879
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7590 (5.1041nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1850715
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7591 (5.1053nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 383565
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7592 (5.1066nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1948196
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7593 (5.1079nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 498387
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7594 (5.1091nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1848890
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7595 (5.1104nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 383186
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7596 (5.1116nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1946273
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7597 (5.1129nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 497895
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7598 (5.1142nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1847063
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7599 (5.1154nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 382807
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7600 (5.1167nm) complete.  (0.02 out of 0 microns grown)"
+email "Layer number 7600", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1944348
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7601 (5.118nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 497402
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7602 (5.1192nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1845234
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7603 (5.1205nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 382428
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7604 (5.1218nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1942421
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7605 (5.123nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 496909
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7606 (5.1243nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1843403
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7607 (5.1256nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 382048
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7608 (5.1269nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1940492
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7609 (5.1281nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 496415
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7610 (5.1294nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1841571
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7611 (5.1307nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 381668
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7612 (5.132nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1938561
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7613 (5.1332nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 495921
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7614 (5.1345nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1839737
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7615 (5.1358nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 381288
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7616 (5.1371nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1936628
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7617 (5.1384nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 495427
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7618 (5.1397nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1837901
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7619 (5.1409nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 380907
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7620 (5.1422nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1934694
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7621 (5.1435nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 494931
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7622 (5.1448nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1836063
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7623 (5.1461nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 380526
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7624 (5.1474nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1932757
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7625 (5.1487nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 494436
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7626 (5.15nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1834224
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7627 (5.1512nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 380145
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7628 (5.1525nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1930819
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7629 (5.1538nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 493940
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7630 (5.1551nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1832382
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7631 (5.1564nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 379763
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7632 (5.1577nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1928879
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7633 (5.159nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 493443
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7634 (5.1603nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1830539
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7635 (5.1616nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 379381
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7636 (5.1629nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1926937
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7637 (5.1642nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 492946
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7638 (5.1655nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1828694
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7639 (5.1668nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 378998
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7640 (5.1681nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1924993
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7641 (5.1694nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 492449
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7642 (5.1707nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1826848
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7643 (5.172nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 378616
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7644 (5.1733nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1923047
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7645 (5.1747nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 491951
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7646 (5.176nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1824999
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7647 (5.1773nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 378232
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7648 (5.1786nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1921099
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7649 (5.1799nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 491452
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7650 (5.1812nm) complete.  (0.02 out of 0 microns grown)"
+email "Layer number 7650", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1823149
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7651 (5.1825nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 377849
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7652 (5.1838nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1919149
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7653 (5.1852nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 490953
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7654 (5.1865nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1821297
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7655 (5.1878nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 377464
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7656 (5.1891nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1917198
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7657 (5.1904nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 490453
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7658 (5.1918nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1819443
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7659 (5.1931nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 377080
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7660 (5.1944nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1915244
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7661 (5.1957nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 489953
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7662 (5.1971nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1817587
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7663 (5.1984nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 376695
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7664 (5.1997nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1913289
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7665 (5.201nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L16
+SP 521948
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7666 (15.6112nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1814800
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7667 (5.2064nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 376117
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7668 (5.2077nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1910352
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7669 (5.209nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 488701
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7670 (5.2104nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1812939
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7671 (5.2117nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 375732
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7672 (5.2131nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1908392
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7673 (5.2144nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 488199
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7674 (5.2157nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1811077
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7675 (5.2171nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 375345
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7676 (5.2184nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1906429
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7677 (5.2198nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 487697
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7678 (5.2211nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1809213
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7679 (5.2225nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 374959
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7680 (5.2238nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1904465
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7681 (5.2251nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 487195
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7682 (5.2265nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1807347
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7683 (5.2278nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 374572
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7684 (5.2292nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1902499
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7685 (5.2305nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 486691
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7686 (5.2319nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1805479
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7687 (5.2333nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 374185
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7688 (5.2346nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1900531
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7689 (5.236nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 486187
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7690 (5.2373nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1803609
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7691 (5.2387nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 373797
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7692 (5.24nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1898560
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7693 (5.2414nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 485683
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7694 (5.2428nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1801738
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7695 (5.2441nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 373409
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7696 (5.2455nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1896588
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7697 (5.2468nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 485178
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7698 (5.2482nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1799864
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7699 (5.2496nm) complete.  (0.02 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 373020
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7700 (5.2509nm) complete.  (0.02 out of 0 microns grown)"
+email "Layer number 7700", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1894614
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7701 (5.2523nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 484673
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7702 (5.2537nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1797989
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7703 (5.2551nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 372631
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7704 (5.2564nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1892638
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7705 (5.2578nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 484167
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7706 (5.2592nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1796111
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7707 (5.2605nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 372242
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7708 (5.2619nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1890660
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7709 (5.2633nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 483661
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7710 (5.2647nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1794232
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7711 (5.2661nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 371853
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7712 (5.2674nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1888679
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7713 (5.2688nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 483154
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7714 (5.2702nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1792351
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7715 (5.2716nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 371462
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7716 (5.273nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1886697
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7717 (5.2744nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 482647
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7718 (5.2757nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1790468
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7719 (5.2771nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 371072
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7720 (5.2785nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1884713
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7721 (5.2799nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 482139
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7722 (5.2813nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1788583
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7723 (5.2827nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 370681
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7724 (5.2841nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1882727
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7725 (5.2855nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 481631
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7726 (5.2869nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1786696
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7727 (5.2883nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 370290
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7728 (5.2897nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1880739
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7729 (5.2911nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 481122
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7730 (5.2925nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1784807
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7731 (5.2939nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 369898
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7732 (5.2953nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1878748
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7733 (5.2967nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 480612
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7734 (5.2981nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1782917
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7735 (5.2995nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 369506
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7736 (5.3009nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1876756
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7737 (5.3023nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 480102
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7738 (5.3037nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1781024
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7739 (5.3051nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 369114
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7740 (5.3065nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1874761
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7741 (5.3079nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 479592
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7742 (5.3093nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1779129
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7743 (5.3108nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 368721
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7744 (5.3122nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1872765
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7745 (5.3136nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 479081
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7746 (5.315nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1777233
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7747 (5.3164nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 368328
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7748 (5.3178nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1870766
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7749 (5.3193nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 478569
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7750 (5.3207nm) complete.  (0.03 out of 0 microns grown)"
+email "Layer number 7750", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1775334
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7751 (5.3221nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 367934
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7752 (5.3235nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1868766
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7753 (5.325nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 478057
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7754 (5.3264nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1773433
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7755 (5.3278nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 367540
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7756 (5.3292nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1866763
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7757 (5.3307nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 477545
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7758 (5.3321nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1771531
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7759 (5.3335nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 367145
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7760 (5.335nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1864758
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7761 (5.3364nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 477032
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7762 (5.3378nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1769626
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7763 (5.3393nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 366750
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7764 (5.3407nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1862751
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7765 (5.3422nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 476518
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7766 (5.3436nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1767720
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7767 (5.345nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 366355
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7768 (5.3465nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1860743
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7769 (5.3479nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 476004
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7770 (5.3494nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1765811
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7771 (5.3508nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 365959
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7772 (5.3523nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1858731
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7773 (5.3537nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 475489
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7774 (5.3552nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1763901
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7775 (5.3566nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 365563
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7776 (5.3581nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1856718
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7777 (5.3595nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 474974
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7778 (5.361nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1761988
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7779 (5.3624nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 365167
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7780 (5.3639nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1854703
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7781 (5.3653nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 474458
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7782 (5.3668nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1760074
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7783 (5.3683nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 364770
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7784 (5.3697nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1852685
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7785 (5.3712nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 473942
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7786 (5.3726nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1758157
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7787 (5.3741nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 364372
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7788 (5.3756nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1850666
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7789 (5.377nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 473425
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7790 (5.3785nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1756239
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7791 (5.38nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 363974
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7792 (5.3815nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1848644
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7793 (5.3829nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 472907
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7794 (5.3844nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1754318
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7795 (5.3859nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 363576
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7796 (5.3873nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1846620
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7797 (5.3888nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 472389
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7798 (5.3903nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1752395
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7799 (5.3918nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 363177
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7800 (5.3933nm) complete.  (0.03 out of 0 microns grown)"
+email "Layer number 7800", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1844594
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7801 (5.3947nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 471871
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7802 (5.3962nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1750471
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7803 (5.3977nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 362778
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7804 (5.3992nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1842566
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7805 (5.4007nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 471352
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7806 (5.4022nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1748544
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7807 (5.4037nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 362379
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7808 (5.4051nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1840536
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7809 (5.4066nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 470832
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7810 (5.4081nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1746615
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7811 (5.4096nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 361979
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7812 (5.4111nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1838503
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7813 (5.4126nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 470312
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7814 (5.4141nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1744684
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7815 (5.4156nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 361578
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7816 (5.4171nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1836469
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7817 (5.4186nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 469791
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7818 (5.4201nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1742751
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7819 (5.4216nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 361178
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7820 (5.4231nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1834432
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7821 (5.4246nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 469270
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7822 (5.4261nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1740816
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7823 (5.4276nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 360776
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7824 (5.4292nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1832393
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7825 (5.4307nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 468748
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7826 (5.4322nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1738879
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7827 (5.4337nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 360375
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7828 (5.4352nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1830351
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7829 (5.4367nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 468225
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7830 (5.4382nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1736940
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7831 (5.4398nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 359973
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7832 (5.4413nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1828308
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7833 (5.4428nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 467702
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7834 (5.4443nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1734998
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7835 (5.4458nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 359570
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7836 (5.4474nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1826262
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7837 (5.4489nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 467179
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7838 (5.4504nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1733055
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7839 (5.452nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 359167
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7840 (5.4535nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1824214
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7841 (5.455nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 466654
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7842 (5.4565nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1731109
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7843 (5.4581nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 358764
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7844 (5.4596nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1822164
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7845 (5.4611nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 466130
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7846 (5.4627nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1729162
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7847 (5.4642nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 358360
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7848 (5.4658nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1820112
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7849 (5.4673nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 465604
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7850 (5.4689nm) complete.  (0.03 out of 0 microns grown)"
+email "Layer number 7850", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1727212
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7851 (5.4704nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 357955
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7852 (5.4719nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1818057
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7853 (5.4735nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 465078
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7854 (5.475nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1725260
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7855 (5.4766nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 357551
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7856 (5.4781nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1816000
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7857 (5.4797nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 464552
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7858 (5.4812nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1723306
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7859 (5.4828nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 357145
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7860 (5.4843nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1813941
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7861 (5.4859nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 464025
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7862 (5.4875nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1721350
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7863 (5.489nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 356740
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7864 (5.4906nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1811879
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7865 (5.4921nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 463497
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7866 (5.4937nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1719391
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7867 (5.4953nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 356334
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7868 (5.4968nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 1809816
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7869 (5.4984nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L5
+SP 462969
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7870 (5.5nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2060917
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7871 (5.5016nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 427112
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7872 (5.5031nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2169300
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7873 (5.5047nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 554928
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7874 (5.5063nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2058561
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7875 (5.5078nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 426624
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7876 (5.5094nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2166818
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7877 (5.511nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 554293
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7878 (5.5126nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2056203
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7879 (5.5142nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 426135
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7880 (5.5157nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2164333
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7881 (5.5173nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 553657
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7882 (5.5189nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2053843
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7883 (5.5205nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 425646
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7884 (5.5221nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2161845
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7885 (5.5237nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 553020
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7886 (5.5253nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2051480
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7887 (5.5269nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 425156
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7888 (5.5285nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2159355
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7889 (5.53nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 552383
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7890 (5.5316nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2049114
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7891 (5.5332nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 424665
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7892 (5.5348nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2156862
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7893 (5.5364nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 551745
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7894 (5.538nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2046745
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7895 (5.5396nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 424174
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7896 (5.5412nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2154366
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7897 (5.5429nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 551106
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7898 (5.5445nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2044374
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7899 (5.5461nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 423682
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7900 (5.5477nm) complete.  (0.03 out of 0 microns grown)"
+email "Layer number 7900", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2151868
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7901 (5.5493nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 550466
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7902 (5.5509nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2042000
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7903 (5.5525nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 423190
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7904 (5.5541nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2149366
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7905 (5.5557nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 549826
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7906 (5.5574nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2039624
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7907 (5.559nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 422697
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7908 (5.5606nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2146862
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7909 (5.5622nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 549185
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7910 (5.5639nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2037245
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7911 (5.5655nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 422204
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7912 (5.5671nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2144355
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7913 (5.5687nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 548543
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7914 (5.5704nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2034863
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7915 (5.572nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 421710
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7916 (5.5736nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2141845
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7917 (5.5753nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 547901
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7918 (5.5769nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2032478
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7919 (5.5785nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 421215
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7920 (5.5802nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2139332
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7921 (5.5818nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 547258
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7922 (5.5834nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2030091
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7923 (5.5851nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 420720
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7924 (5.5867nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2136816
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7925 (5.5884nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 546614
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7926 (5.59nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2027701
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7927 (5.5917nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 420225
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7928 (5.5933nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2134297
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7929 (5.595nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 545969
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7930 (5.5966nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2025308
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7931 (5.5983nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 419729
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7932 (5.5999nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2131776
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7933 (5.6016nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 545324
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7934 (5.6032nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2022913
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7935 (5.6049nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 419232
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7936 (5.6066nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2129251
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7937 (5.6082nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 544678
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7938 (5.6099nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2020514
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7939 (5.6116nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 418735
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7940 (5.6132nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2126724
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7941 (5.6149nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 544031
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7942 (5.6166nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2018113
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7943 (5.6182nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 418237
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7944 (5.6199nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2124194
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7945 (5.6216nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 543383
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7946 (5.6233nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2015709
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7947 (5.6249nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 417738
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7948 (5.6266nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2121661
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7949 (5.6283nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 542735
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7950 (5.63nm) complete.  (0.03 out of 0 microns grown)"
+email "Layer number 7950", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2013303
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7951 (5.6317nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 417239
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7952 (5.6333nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2119125
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7953 (5.635nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 542086
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7954 (5.6367nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2010893
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7955 (5.6384nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 416740
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7956 (5.6401nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2116586
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7957 (5.6418nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 541436
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7958 (5.6435nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2008481
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7959 (5.6452nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 416239
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7960 (5.6469nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2114044
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7961 (5.6486nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 540785
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7962 (5.6503nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2006066
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7963 (5.652nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 415739
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7964 (5.6537nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2111499
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7965 (5.6554nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 540134
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7966 (5.6571nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2003648
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7967 (5.6588nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 415237
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7968 (5.6605nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2108951
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7969 (5.6622nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 539482
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7970 (5.6639nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2001228
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7971 (5.6656nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 414735
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7972 (5.6674nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2106400
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7973 (5.6691nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 538829
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7974 (5.6708nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 2"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 1998804
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7975 (5.6725nm) complete.  (0.03 out of 0 microns grown)"
+email "Layer number 7975", "keep going", bouet@bnl.gov, sgiorgio@bnl.gov
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 1"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 414233
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7976 (5.6742nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR 12192000
+BG
+run "SubScripts\\Relay switch 4"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 2103846
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7977 (5.676nm) complete.  (0.03 out of 0 microns grown)"
+SETDO "ION Output Enable", 0
+T1
+SP 2500000
+PR -4064000
+BG
+run "SubScripts\\Relay switch 3"
+T1
+setao "ION Power", 250
+SETDO "ION Output Enable", 1
+T7
+L6
+SP 538175
+PR 4000000
+BG
+PR -4000000
+BG
+N
+SETDO "ION Output Enable", 0
+PRINT "Layer number 7978 (5.6777nm) complete.  (0.03 out of 0 microns grown)"
+
+PRINT "Growth Completed. "
+email "MLL complete", "4 guns", sgiorgio@bnl.gov, bouet@bnl.gov
+run "System\\FINISH_ML_nocarunload"
+EXIT

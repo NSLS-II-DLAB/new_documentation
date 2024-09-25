@@ -1,0 +1,69 @@
+#Shut down all 4 cryopumps to a safe state.
+
+#failif CHECK IF THE GAS BOTTLE IS LOW....
+SETAO "Gate Valve 2 Position", 0
+SETAO "Gate Valve 3 Position", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 0
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 0
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Main Control (K14)", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Stroke (K43)", 0
+setdo "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 0
+setdo "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 0
+
+PRINT "Commencing regeneration cycle."
+
+SETAO "Roughing Pump VP1 (VFD1)", 60
+SETDO "VP1 Process Vacuum Pump (K5)", 1
+t60
+PRINT "Shutting down cryopump 1"
+SETDO "CP1 Landing Chamber Cryo Pump (K19)", 1
+
+PRINT "Shutting down cryopump 2"
+SETDO "CP2 Gun Chamber 2 Cryo Pump (K20)", 1
+
+PRINT "Shutting down cryopump 3"
+SETDO "CP3 Gun Chamber 1 Cryo Pump (K21)", 1
+
+
+PRINT "Shutting down cryopump 4"
+SETDO "CP4 Loadlock Chamber Cryo Pump (K22)", 1
+
+
+T10
+
+SETDO "N2 Purge to CP1 (AV12)", 1
+SETDO "N2 Purge to CP2 (AV13)", 1
+SETDO "N2 Purge to CP3 (AV14)", 1
+SETDO "N2 Purge to CP4 (AV15)", 1
+T60
+SETDO "CP1 Exhaust to VP1 (AV18)", 1
+SETDO "CP2 Exhaust to VP1 (AV19)", 1
+SETDO "CP3 Exhaust to VP1 (AV20)", 1
+SETDO "CP4 Exhaust to VP1 (AV21)", 1
+
+WAITAI "Temp Diode 1 (CP1)", >, 280
+WAITAI "Temp Diode 2 (CP2)", >, 280
+WAITAI "Temp Diode 3 (CP3)", >, 280
+WAITAI "Temp Diode 4 (CP4)", >, 280
+
+SETDO "N2 Purge to CP1 (AV12)", 0
+SETDO "N2 Purge to CP4 (AV15)", 0
+SETDO "N2 Purge to CP2 (AV13)", 0
+SETDO "N2 Purge to CP3 (AV14)", 0
+
+WAITAI "Gun Chamber 2 Cryo CP2 (PT6)", <, 0.005
+WAITAI "Gun Chamber 1 Cryo CP3 (PT7)", <, 0.005
+WAITAI "Landing Chamber Cryo CP1 (PT5)", <, 0.005
+WAITAI "Loadlock Cryo CP4 (PT8)", <, 0.005
+
+SETDO "CP2 Exhaust to VP1 (AV19)", 0
+SETDO "CP3 Exhaust to VP1 (AV20)", 0
+SETDO "CP1 Exhaust to VP1 (AV18)", 0
+SETDO "CP4 Exhaust to VP1 (AV21)", 0
+
+SETAO "Roughing Pump VP1 (VFD1)", 0
+SETDO "VP1 Process Vacuum Pump (K5)", 0
+
+PRINT "All 4 Cryopumps ready for safe shutdown state."

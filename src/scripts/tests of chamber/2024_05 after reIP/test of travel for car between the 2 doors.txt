@@ -1,0 +1,66 @@
+#*****car motion test*****
+#Load substrates at 9" 
+#Move car between the 2 gun doors to test long distance travel and speed changes
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+email "starting script", "long distance test", bouet@bnl.gov, sgiorgio@bnl.gov
+t2
+
+#Note: this position applies when substrates are loaded at 9in
+#bringing position 19 in front of gun 4
+pa -25635000
+sp 2000000
+bg
+t5
+
+L15
+
+L2
+ PR 4000000
+ SP 1809293
+ BG
+ PR -4000000
+ SP 1809293
+ BG
+ N
+
+SP 2000000
+PA 13484000
+BG
+t10
+
+L2
+ PR 4000000
+ SP 1277418
+ BG
+ PR -4000000
+ SP 1277418
+ BG
+N
+
+SP 2000000
+PA -25635000
+BG
+T1
+N
+
+T10
+
+SP 1000000
+PA 0
+BG
+T1
+
+email "test completed", "travel between gun 4 and gun7", bouet@bnl.gov, sgiorgio@bnl.gov 
+
+EXIT

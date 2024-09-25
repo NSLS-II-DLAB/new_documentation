@@ -1,0 +1,176 @@
+#*****MLL Preparation*****
+#Load substrates at 9" 
+#Motion test
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "LJ Ion Voltage (Analog)"
+log "ION Voltage"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+
+log "LJ Car RTD"
+log "LJ FacePlate RTD"
+
+log "Magnetron 1 Temperature"
+log "Magnetron 2 Temperature"
+log "Magnetron 3 Temperature"
+log "Magnetron 4 Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM2 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+log "Magnetron 1 Flow"
+log "Magnetron 2 Flow"
+log "Magnetron 3 Flow"
+log "Magnetron 4 Flow"
+log "Magnetron 5 Flow"
+log "Magnetron 6 Flow"
+log "Magnetron 7 Flow"
+log "Magnetron 8 Flow"
+log "Magnetron 9 Flow"
+log "QCM 1 Flow"
+log "QCM 2 Flow"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+#RUN DOUBLE ML RATE TESTS FOR GUN 6 AND 8
+
+email "starting script", "Waiting for pressure", bouet@bnl.gov, sgiorgio@bnl.gov
+waitai "Landing Chamber UHV CCG1", <, 5.0e-7
+email "UHVCCG1 pressure below 5.0e-7", "Waiting 1 minute", bouet@bnl.gov, sgiorgio@bnl.gov
+l1
+l1
+t60
+n
+n
+
+t60
+
+AC 6000000
+DC 6000000
+
+email "starting motion test", "start", bouet@bnl.gov, sgiorgio@bnl.gov
+
+SETDO "Magnetron ION 1500 Input Relay 1 (J2-1)", 1
+SETDO "Magnetron MDX 1 input Relay (J1-1)", 0
+SETDO "Magnetron RF In Relay 2 (J2-2)", 1
+
+SETAO "ION Power", 0
+SETAO "ION Current", 1
+SETAO "ION Voltage", 1000
+setao "Magnetron MDX Supply 1 Output Level", 0
+
+#Note: this position applies when substrates are loaded at the 9"
+#bringing position 19 in front of gun 8
+pa 17548000
+sp 2000000
+bg
+t5
+
+#move position 19 in front of gun 6 and burn it for 30 sec
+SP 2500000
+PR -8128000
+BG
+t5
+
+#move sample to start deposition
+
+pa 22628000
+sp 1000000
+bg
+#substrate 9" is now in the middle of gun 8
+pr -2000000
+bg
+T5 
+
+L50
+
+T5
+
+L6
+ PR 4000000
+ SP 1809293
+ BG
+ PR -4000000
+ SP 1809293
+ BG
+N
+
+SP 2500000
+PR -8128000
+BG
+t1
+
+T7
+L5
+ PR 4000000
+ SP 1277418
+ BG
+ PR -4000000
+ SP 1277418
+ BG
+N
+
+
+SP 2500000
+PR 8128000
+BG
+N
+
+email "motion test completed", "May 2023", bouet@bnl.gov, sgiorgio@bnl.gov 
+run "System\\FINISH_ML_nocarunload"
+EXIT

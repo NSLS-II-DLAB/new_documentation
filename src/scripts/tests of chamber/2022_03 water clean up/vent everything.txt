@@ -1,0 +1,50 @@
+SETDO "Loadlock CCG2 (K33)", 0
+setdo "Hornet Filament", 0
+T1
+SETDO "Landing Chamber CCG1 (K32)", 0
+T1
+SETDO "MFC1 to Landing Chamber (AV1)", 0
+SETDO "MFC2 to Gun Chamber 1 (AV2)", 0
+SETDO "MFC3 to Gun Chamber 1 (AV3)", 0
+SETDO "MFC4 to Gun Chamber 1 (AV4)", 0
+SETDO "MFC5 to Gun Chamber 1 (AV5)", 0
+SETDO "MFC6 to Gun Chamber 2 (AV6)", 0
+SETDO "MFC7 to Gun Chamber 2 (AV7)", 0
+SETDO "MFC8 to Gun Chamber 2 (AV8)", 0
+SETDO "MFC9 to Landing Chamber (AV9)", 0
+SETDO "VP2 Seals Pump (K4)", 0
+SETDO "Center Chamber Exhaust to VP1 (AV24)", 0
+T1
+SETDO "Loadlock to VP1 (AV25)", 0
+T1
+
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Main Control (K14)", 0
+T1
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Stroke (K43)", 0
+T1
+SETAO "Gate Valve 2 Position", 0
+T1
+SETAO "Gate Valve 3 Position", 0
+T1
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 0
+T1
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 0
+T1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 0
+T1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 0
+T1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 0
+T1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 0
+T1
+
+SETDO "PT1 to Landing Chamber (AV16)", 0
+T10
+
+#SETDO "Ar Backfill to Loadlock (AV10)", 1
+SETDO "Ar Backfill to Center Chamber (AV11)", 1
+T60
+
+SETDO "Process Argon Hi Backfill (EOV2)", 1
+#SETDO "Loadlock Argon Hi Backfill (EOV3)", 1

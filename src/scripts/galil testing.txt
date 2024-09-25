@@ -1,0 +1,15 @@
+
+setdo "Galil Failed", 0
+t1
+failif "Galil Failed", 1, "galil_fail.txt"
+sp 2000000
+L200000
+l1000000
+t.01
+tp
+n
+l1000000
+t.01
+tp
+n
+N

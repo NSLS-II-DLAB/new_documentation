@@ -1,0 +1,5 @@
+setao "SCR 1 Intensity", 1.0
+setao "SCR 2 Intensity", 1.0
+setao "SCR 3 Intensity", 1.0
+setao "SCR 4 Intensity", 1.0
+#setao "SCR 5 Intensity", 1.0

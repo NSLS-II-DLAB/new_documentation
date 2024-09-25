@@ -1,0 +1,29 @@
+#failif CHECK IF THE GAS BOTTLE IS LOW....
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 0
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 0
+
+PRINT "Commencing regeneration cycle."
+
+SETAO "Roughing Pump VP1 (VFD1)", 60
+SETDO "VP1 Process Vacuum Pump (K5)", 1
+t60
+PRINT "Shutting down cryopump 4"
+SETDO "CP4 Loadlock Chamber Cryo Pump (K22)", 1
+T10
+setdo "LJ Relay Cryo Purge Gas Heater", 1
+SETDO "N2 Purge to CP4 (AV15) ", 1
+T60
+SETDO "CP4 Exhaust to VP1 (AV21)", 1
+
+WAITAI "Temp Diode 4 (CP4)", >, 270
+SETDO "N2 Purge to CP4 (AV15) ", 0
+setdo "LJ Relay Cryo Purge Gas Heater", 0
+WAITAI "Loadlock Cryo CP4 (PT8)", <, 0.005
+SETDO "CP4 Exhaust to VP1 (AV21)", 0
+
+SETDO "CP4 Loadlock Chamber Cryo Pump (K22)", 0
+WAITAI "Temp Diode 4 (CP4)", <, 15
+SETAO "Roughing Pump VP1 (VFD1)", 0
+SETDO "VP1 Process Vacuum Pump (K5)", 0
+
+PRINT "Cryopump 4 regeneration completed."

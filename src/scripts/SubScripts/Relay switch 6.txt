@@ -1,0 +1,18 @@
+print "Attempting to switch to Relay 6"
+waitai "Magnetron MDX Supply 1 Voltage Output", <, 0.01
+waitai "Magnetron MDX Supply 2 Voltage Output", <, 0.01
+waitai "ION Voltage", <, 10
+waitai "ION Current", <, 0.01
+waitai "Magnetron MDX Supply 1 Current Output", <, 0.01
+waitai "Magnetron MDX Supply 2 Current Output", <, 0.01	
+t1
+setdo "Magnetron 1 Relay", 0
+setdo "Magnetron 2 Relay", 0
+setdo "Magnetron 3 Relay", 0
+setdo "Magnetron 4 Relay", 0
+setdo "Magnetron 5 Relay", 0
+setdo "Magnetron 6 Relay", 0
+setdo "Magnetron 7 Relay", 0
+setdo "Magnetron 8 Relay", 0
+setdo "Magnetron 9 Relay", 0
+setdo "Magnetron 6 Relay", 1

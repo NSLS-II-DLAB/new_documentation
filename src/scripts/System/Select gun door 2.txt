@@ -1,0 +1,5 @@
+setdo "GD1 Motor Enable/GD2 LockOut (K23/24)", 0
+setdo "GD2 Motor Enable/GD1 LockOut (K24/23)", 0
+T0.2
+setdo "GD2 Motor Enable/GD1 LockOut (K24/23)", 1
+T0.2

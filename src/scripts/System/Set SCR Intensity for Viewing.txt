@@ -1,0 +1,5 @@
+setao "LJ SCR 1 Intensity", 45
+setao "LJ SCR 2 Intensity", 45
+setao "LJ SCR 3 Intensity", 45
+setao "LJ SCR 4 Intensity", 45
+setao "LJ SCR 5 Intensity", 45

@@ -1,0 +1,7 @@
+LOG "Argon 1 (MFC1)", "Argon 2 (MFC2)", "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)", "Galil Position Error"
+LOGRATE 0.1
+L10
+PRINT "hi"
+T0.5
+N

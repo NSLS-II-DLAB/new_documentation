@@ -1,0 +1,244 @@
+#*****MLL Preparation*****
+#40minutes targets burning gun 7 and then rate test deposition 
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "LJ Ion Voltage (Analog)"
+log "ION Voltage"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+
+log "LJ Car RTD"
+log "LJ FacePlate RTD"
+
+log "Magnetron 1 Temperature"
+log "Magnetron 2 Temperature"
+log "Magnetron 3 Temperature"
+log "Magnetron 4 Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM2 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+log "Magnetron 1 Flow"
+log "Magnetron 2 Flow"
+log "Magnetron 3 Flow"
+log "Magnetron 4 Flow"
+log "Magnetron 5 Flow"
+log "Magnetron 6 Flow"
+log "Magnetron 7 Flow"
+log "Magnetron 8 Flow"
+log "Magnetron 9 Flow"
+log "QCM 1 Flow"
+log "QCM 2 Flow"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+
+log "[T] Body 1"
+log "[T] Body 2"
+log "[T] Box"
+log "[T] Load Lock"
+log "[T] Gun 1"
+log "[T] Gun 2"
+log "[T] Gun 3"
+log "[T] Gun 4"
+log "[T] Gun 5"
+log "[T] Gun 6"
+log "[T] Gun 7"
+log "[T] Gun 8"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+#RUN DOUBLE ML RATE TESTS FOR GUN 1 AND 2
+
+
+t60
+
+AC 6000000
+DC 6000000
+
+email "Gas stabilized", "Commencing targets burn-in", bouet@bnl.gov, sgiorgio@bnl.gov
+
+SETDO "Magnetron ION 1500 Input Relay 1 (J2-1)", 1
+SETDO "Magnetron MDX 1 input Relay (J1-1)", 0
+SETDO "Magnetron RF In Relay 2 (J2-2)", 1
+
+SETAO "ION Power", 150
+SETAO "ION Current", 1
+SETAO "ION Voltage", 1000
+setao "Magnetron MDX Supply 1 Output Level", 0
+
+#Note: this position applies when substrates are loaded at 21.5"
+#bringing position 9 in front of gun 5
+pa 10436000
+sp 2000000
+bg
+t5
+
+#burn-in gun 5 for 30 sec
+SETAO "ION Power", 100
+run "SubScripts\\Relay switch 5"
+t1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 200
+waitai "ION Voltage", <, 750
+t30
+SETDO "ION Output Enable", 0
+t10
+
+#move position 9 in front of gun 7 and burn it for 30 sec
+SP 2500000
+PR 8128000
+BG
+t1
+run "SubScripts\\Relay switch 7"
+SETAO "ION Power", 300
+t1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 200
+waitai "ION Voltage", <, 750
+t30
+SETDO "ION Output Enable", 0
+t10
+
+email "test strike complete", "gun 7 ready for conditioning", bouet@bnl.gov, sgiorgio@bnl.gov 
+
+#40 minutes target burning
+#sample already at right position
+
+run "SubScripts\\Relay switch 7"
+SETAO "ION Power", 300
+t1
+L40
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 200
+waitai "ION Voltage", <, 750
+t60
+SETDO "ION Output Enable", 0
+t60
+N
+
+email "Burn in complete", "guns 6 and 7 ready for rate test deposition", bouet@bnl.gov, sgiorgio@bnl.gov 
+t5
+
+#targets ready for deposition
+#move to sample to start deposition
+
+pa 12214000
+sp 1000000
+bg
+#substrate 21.5" is now in the middle of gun 7
+pr -2000000
+bg
+t5
+
+email "starting rate test deposition", "ML growth", bouet@bnl.gov, sgiorgio@bnl.gov 
+L40
+
+run "SubScripts\\Relay switch 7"
+SETAO "ION Power", 300
+T1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 200
+waitai "ION Voltage", <, 750
+T7
+L1
+ PR 4000000
+ SP 1860440
+ BG
+ PR -4000000
+ SP 1860440
+ BG
+ N
+SETDO "ION Output Enable", 0
+
+SP 2500000
+PR -8128000
+BG
+t1
+
+run "SubScripts\\Relay switch 5"
+SETAO "ION Power", 100
+T1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 200
+waitai "ION Voltage", <, 750
+T7
+L2
+ PR 4000000
+ SP 400506
+ BG
+ PR -4000000
+ SP 400506
+ BG
+N
+SETDO "ION Output Enable", 0
+SP 2500000
+PR 8128000
+BG
+N
+T10
+
+email "Si and MoSi2 40 bilayers completed", "rate test deposition G5 and G7", bouet@bnl.gov, sgiorgio@bnl.gov 
+T10
+run "System\\FINISH_ML_nocarunload"
+T10
+EXIT

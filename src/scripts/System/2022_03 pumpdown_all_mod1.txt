@@ -1,0 +1,39 @@
+waitai "Center Chamber (PT3)", <, 0.2
+t10
+email "pt3 condition ok", "keep going", bouet@bnl.gov
+
+WAITAI "LoadlockCM  0-10 Torr (PT2)", <, 0.05
+SETDO "Center Chamber Exhaust to VP1 (AV24)", 0
+SETDO "Loadlock to VP1 (AV25)", 0
+SETAO "Roughing Pump VP1 (VFD1)", 0
+SETDO "VP1 Process Vacuum Pump (K5)", 0
+t10
+
+email "50mTorr ok", "opening to cryos", bouet@bnl.gov, rdemartin@bnl.gov
+
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Main Control (K14)", 1
+T1
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Stroke (K43)", 1
+T1
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 1
+T1
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 1
+T1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 1
+T1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 1
+T1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 1
+T1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 1
+T10
+
+SETDO "PT1 to Landing Chamber (AV16)", 1
+
+failifoff "Loadlock CCG2 (K33)"
+SETDO "Loadlock CCG2 (K33)", 1
+T1
+SETDO "Landing Chamber CCG1 (K32)", 1
+setdo "Hornet Filament", 1
+t10
+email "pumpdown ok", "finished", bouet@bnl.gov, rdemartin@bnl.gov

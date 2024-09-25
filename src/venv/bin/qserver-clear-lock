@@ -1,0 +1,8 @@
+#!/home/jordan/Documents/BNL/megatron_control/venv/bin/python
+# -*- coding: utf-8 -*-
+import re
+import sys
+from bluesky_queueserver.manager.qserver_cli import qserver_clear_lock
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(qserver_clear_lock())

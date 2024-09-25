@@ -1,0 +1,318 @@
+#*****test deposition after long shutdown*****
+#Load samples at 19" rate test deposition
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "ION Voltage"
+log "LJ Ion Voltage (Analog)"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+
+log "[T] Body 1"
+log "[T] Body 2"
+log "[T] Box"
+log "[T] Load Lock"
+log "[T] Gun 1"
+log "[T] Gun 2"
+log "[T] Gun 3"
+log "[T] Gun 4"
+log "[T] Gun 5"
+log "[T] Gun 6"
+log "[T] Gun 7"
+log "[T] Gun 8"
+
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+#waitai "Landing Chamber UHV CCG1", <, 5.1e-7
+#email "UHVCCG1 pressure below 4.5e-7", "Waiting 10 minutes further", mvescovi@bnl.gov, bouet@bnl.gov
+t600
+
+SETDO "MFC1 to Landing Chamber (AV1)", 1
+t.5
+SETDO "MFC2 to Gun Chamber 1 (AV2)", 1
+t.5
+SETDO "MFC3 to Gun Chamber 1 (AV3)", 1
+t.5
+SETDO "MFC4 to Gun Chamber 1 (AV4)", 1
+t.5
+SETDO "MFC5 to Gun Chamber 1 (AV5)", 1
+t.5
+SETDO "MFC6 to Gun Chamber 2 (AV6)", 1
+t.5
+SETDO "MFC7 to Gun Chamber 2 (AV7)", 1
+t.5
+SETDO "MFC8 to Gun Chamber 2 (AV8)", 1
+t.5
+SETDO "MFC9 to Landing Chamber (AV9)", 1
+t.5
+
+SETDO "MFC1 Manual", 1
+SETDO "MFC2 Manual", 1
+SETDO "MFC3 Manual", 1
+SETDO "MFC4 Manual", 1
+SETDO "MFC5 Manual", 1
+SETDO "MFC6 Manual", 1
+SETDO "MFC7 Manual", 1
+SETDO "MFC8 Manual", 1
+SETDO "MFC9 Manual", 1
+setdo "MFC9 LJ Control Enabled", 1
+
+SETAO "Argon 1 (MFC1)", 5
+SETAO "Argon 2 (MFC2)", 5
+SETAO "Argon 3 (MFC3)", 5
+SETAO "Argon 4 (MFC4)", 5
+SETAO "Argon 5 (MFC5)", 5
+SETAO "Argon 6 (MFC6)", 5
+SETAO "Argon 7 (MFC7)", 5
+SETAO "Argon 8 (MFC8)", 5
+
+setao "LJ Neon/Argon mix ratio", .00
+
+#Note: changing pressure for resuming test GD2
+email "changing pressure back to 4mTorr for finishing test cathodes GD2", "back to 4mTorr", bouet@bnl.gov, mvescovi@bnl.gov
+
+setao "PID loop 2 enabled", 1
+setao "PID loop 2 setpoint", 4
+setao "PID loop 2 reset", 1
+t5
+setao "PID loop 2 reset", 0
+T120
+
+SETAO "Gate Valve 2 Position", 440
+SETAO "Gate Valve 3 Position", 440
+
+print "Waiting 5 minutes for process gas stabilization"
+t300
+
+email "Changing gas mix", "10percent nitrogen", bouet@bnl.gov, mvescovi@bnl.gov
+
+setao "LJ Neon/Argon mix ratio", .10
+print "Waiting 5 minutes for process gas stabilization"
+t300
+
+#NOTE : bring sample in front of gun 5 and move 4 inches away
+PA 5356000
+SP 500000
+BG
+PR -2000000
+SP 500000
+BG
+T1
+
+email "Gun5 B4C 100W", "testing gun5", bouet@bnl.gov, mvescovi@bnl.gov
+#NOTE: target burning for 10 secondes then clean 30 secondes
+
+L1
+run "SubScripts\\Relay switch 5"
+SETAO "ION Power", 100
+	T1
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750	
+	T10
+	SETDO "ION Output Enable", 0
+	T10
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750	
+	T30
+	SETDO "ION Output Enable", 0
+	T10
+N
+
+#NOTE : bring sample in front of gun 6 and move 6 inches away
+PA 9420000
+SP 500000
+BG
+PR -3000000
+SP 500000
+BG
+T1
+
+email "Gun6 Si 170W", "testing gun6", bouet@bnl.gov, mvescovi@bnl.gov
+#NOTE: target burning for 10 secondes then clean 30 secondes
+
+L1
+run "SubScripts\\Relay switch 6"
+SETAO "ION Power", 170
+	T1
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750	
+	T10
+	SETDO "ION Output Enable", 0
+	T10
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750	
+	T30
+	SETDO "ION Output Enable", 0
+	T10
+N
+
+#NOTE : bring sample in front of gun 8 and move 6 inches away
+PA 17548000
+SP 500000
+BG
+PR -3000000
+SP 500000
+BG
+T1
+
+email "Gun8 WSi2 170W", "testing gun8", bouet@bnl.gov, mvescovi@bnl.gov
+#NOTE: target burning for 10 secondes then clean 30 secondes
+
+L1
+run "SubScripts\\Relay switch 8"
+SETAO "ION Power", 170
+	T1
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750	
+	T10
+	SETDO "ION Output Enable", 0
+	T10
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750	
+	T30
+	SETDO "ION Output Enable", 0
+	T10
+N
+
+#Note: running now deposition test using guns 3 and 4
+
+email "running test deposition", "starting ML growth on substrate", bouet@bnl.gov, mvescovi@bnl.gov 
+
+pa -25635000
+sp 1000000
+bg
+t1
+
+#substrate 19" is now in the middle of gun 4
+pr -1500000
+bg
+t1
+
+#starting deposition
+
+L40
+run "SubScripts\\Relay switch 4"
+
+T1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 300
+waitai "ION Voltage", <, 750
+T4
+L6
+ PR 3000000
+ SP 1809293
+ BG
+ PR -3000000
+ SP 1809293
+ BG
+ N
+SETDO "ION Output Enable", 0
+SP 2500000
+PR -4064000
+BG
+t1
+run "SubScripts\\Relay switch 3"
+T1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 300
+waitai "ION Voltage", <, 750
+T4
+L5
+ PR 3000000
+ SP 1277418
+ BG
+ PR -3000000
+ SP 1277418
+ BG
+N
+SETDO "ION Output Enable", 0
+SP 2500000
+PR 4064000
+BG
+N
+t1
+
+PRINT "Guns test completed"
+
+email "test of all guns completed", "deposition complete", bouet@bnl.gov, mvescovi@bnl.gov
+
+run "System\\FINISH_ML_nocarunload.txt"
+
+EXIT

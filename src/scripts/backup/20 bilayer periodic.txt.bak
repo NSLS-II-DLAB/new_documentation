@@ -1,0 +1,128 @@
+LOG "Level 1 Sputter Supply 1 (Level Out 1)"
+LOG "Level 2 Sputter Supply 2 (Level Out 2)"
+LOG "Center Chamber 0-50m Torr (PT1)"
+LOG "Argon 1 (MFC1)"
+
+LOGRATE 1
+ 
+
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 1
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 1
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+
+SETDO "RF Input 2 (J2-2)", 0
+SETDO "DC Input 2 (J1-2)", 1
+SETDO "RF Input 1 (J2-1)", 0
+SETDO "DC Power Input 1 (J1-1)", 1
+SETAO "Level 2 Sputter Supply 2 (Level Out 2)", 17.0
+SETAO "Level 1 Sputter Supply 1 (Level Out 1)", 17.0
+
+SETDO "Magnetron 2 Power (J4-1)", 1
+SETDO "Magnetron 5 Power (J3-2)", 1
+
+SP 4000000
+PR -35784000
+BG
+SETDO "Sputter Supply 1 (K6)", 1
+T1200
+SETDO "Sputter Supply 1 (K6)", 0
+SP 4000000
+PR 35784000
+BG
+SETDO "Sputter Supply 2 (K7)", 1
+T60
+SETDO "Sputter Supply 2 (K7)", 0
+
+L20
+
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+L3
+ PR 3024000
+ SP 1356970
+ BG
+ PR -3024000
+ SP 1356970
+ BG
+ N
+
+SETDO "Sputter Supply 2 (K7)", 0
+
+SP 4000000
+PR -36184000
+BG
+
+SETDO "Sputter Supply 1 (K6)", 1
+T10
+
+L5
+ PR -3024000
+ SP 874944
+ BG
+ PR 3024000
+ SP 874944
+ BG
+N
+
+SETDO "Sputter Supply 1 (K6)", 0
+
+SP 4000000
+PR 36184000
+BG
+N
+
+SP 4000000
+PR -6123000
+BG
+
+
+L20
+
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+L6
+ PR 3024000
+ SP 1356970
+ BG
+ PR -3024000
+ SP 1356970
+ BG
+ N
+
+SETDO "Sputter Supply 2 (K7)", 0
+
+SP 4000000
+PR -36184000
+BG
+
+SETDO "Sputter Supply 1 (K6)", 1
+T10
+
+L5
+ PR -3024000
+ SP 874944
+ BG
+ PR 3024000
+ SP 874944
+ BG
+N
+
+SETDO "Sputter Supply 1 (K6)", 0
+
+SP 4000000
+PR 36184000
+BG
+N
+
+SP 4000000
+PR 6123000
+BG
+
+
+EXIT

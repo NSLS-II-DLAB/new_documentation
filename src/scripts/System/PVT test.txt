@@ -1,0 +1,41 @@
+#TEST RUN THE CAR
+LOG "Galil Encoder Readout"
+LOG "Galil Velocity"
+LOG "Galil Torque"
+log "Galil Position Error"
+LOGRATE 1	
+
+ac 6000000
+dc 6000000
+
+PV ,,-1  # clear
+
+# d = v * t
+# t = d / v
+VAR velocity, 100000
+VAR delta_v, 5000
+VAR distance, 20000 # 1mm
+
+VAR samples_per_second, 4000
+
+L10
+	L100
+		VAR velocity, "%velocity% + %delta_v%"
+		VAR time, "int((float(%distance%) / %velocity%) * %samples_per_second%)"
+		PV %distance%,%velocity%,%time%
+	N
+	
+	L100
+		VAR velocity, "%velocity% - %delta_v%"
+		VAR time, "int((float(%distance%) / %velocity%) * %samples_per_second%)"
+		PV %distance%,%velocity%,%time%
+	N
+
+	PV ,,0    # finish
+	BT        # begin pvt movement
+N
+
+
+
+
+EXIT

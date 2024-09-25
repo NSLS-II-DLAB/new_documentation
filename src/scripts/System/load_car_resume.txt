@@ -1,0 +1,12 @@
+
+
+RUN System\\init
+RUN System\\init
+SP 3000000
+PR 10000000
+BG
+#OP 1 (?)
+RUN System\\find_home
+
+
+PRINT "Done loading."

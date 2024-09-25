@@ -1,0 +1,126 @@
+#plot "Center Chamber 0-50m Torr (PT1)", "Argon 2 (MFC2)", "Argon 3 (MFC3)", "Argon 5 (MFC5)", "Argon 6 (MFC6)", "Argon 9 (MFC9)"
+LOG "Sputter Supply 1 Voltage (V Out 1)"
+LOG "Sputter Supply 1 Current (I Out 1)"
+LOG "Center Chamber 0-50m Torr (PT1)"
+LOG "Argon 1 (MFC1)"
+LOG "Argon 3 (MFC3)"
+LOGRATE 1
+#RUN DOUBLE ML RATE TESTS FOR GUN 4 AND 8
+SETAO "Gate Valve 2 Position", 420
+SETAO "Gate Valve 3 Position", 420
+
+SETDO "Magnetron 1 Relay", 0
+SETDO "Magnetron 2 Relay", 0
+SETDO "Magnetron 3 Relay", 0
+SETDO "Magnetron 4 Relay", 1
+SETDO "Magnetron 5 Relay", 0
+SETDO "Magnetron 6 Relay", 0
+SETDO "Magnetron 7 Relay", 0
+SETDO "Magnetron 8 Relay", 1
+SETDO "Magnetron 9 Relay", 0
+
+SETDO "Magnetron RF In Relay 2 (J2-2)", 1
+
+SETDO "Magnetron RF In Relay 1 (J2-1)", 0
+SETDO "DC Power Input 1 (J1-1)", 1
+
+SETAO "Level 1 Sputter Supply 1 (Level Out 1)", 17.0
+
+L20
+SETDO "Magnetron 4 Relay", 0
+SETDO "Spare Power A (J7-1)", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+L3
+ PR 3024000
+ SP 1356970
+ BG
+ PR -3024000
+ SP 1356970
+ BG
+ N
+
+SETDO "Sputter Supply 2 (K7)", 0
+
+SP 2500000
+PR -40156000
+BG
+
+
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Relay", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+
+L5
+ PR -3024000
+ SP 874944
+ BG
+ PR 3024000
+ SP 874944
+ BG
+N
+
+SETDO "Sputter Supply 2 (K7)", 0
+SP 2500000
+PR 40156000
+BG
+N
+
+
+PR 4032000
+BG
+
+
+L20
+SETDO "Magnetron 4 Relay", 0
+SETDO "Spare Power A (J7-1)", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+L6
+ PR 3024000
+ SP 1356970
+ BG
+ PR -3024000
+ SP 1356970
+ BG
+ N
+
+SETDO "Sputter Supply 2 (K7)", 0
+
+SP 2500000
+PR -40156000
+BG
+
+
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Relay", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+
+L5
+ PR -3024000
+ SP 874944
+ BG
+ PR 3024000
+ SP 874944
+ BG
+N
+
+SETDO "Sputter Supply 2 (K7)", 0
+SP 2500000
+PR 40156000
+BG
+N
+
+
+PR -4032000
+BG
+
+
+
+EXIT

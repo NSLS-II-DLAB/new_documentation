@@ -1,0 +1,34 @@
+#TEST RUN THE CAR
+LOG "Galil Encoder Readout"
+LOG "Galil Velocity"
+LOG "Galil Torque"
+log "Galil Position Error"
+LOGRATE 1	
+
+ac 3000000
+dc 3000000
+L300000
+	
+	
+	L1
+		PR 30000000
+		SP 2000000
+		BG
+		PR -30000000
+		SP 2000000
+		BG
+	N
+	L1
+		PR 3000000
+		SP 874944
+		BG
+		PR -3000000
+		SP 874944
+		BG
+	N
+	t0.5
+	
+N
+
+
+EXIT

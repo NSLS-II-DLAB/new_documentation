@@ -1,0 +1,69 @@
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+email "long but simple", "different script", mvescovi@bnl.gov, bouet@bnl.gov
+SP 800000
+t1
+
+pa -20000000
+bg
+t1
+
+#L1
+t1
+L150
+PR -8064000
+BG
+PR 8064000
+BG
+N
+t600
+#N
+
+L100
+PR -8064000
+BG
+PR 8064000
+BG
+N
+
+t600
+
+L100
+PR -8064000
+BG
+PR 8064000
+BG
+N
+
+pr 18000000
+sp 1000000
+bg
+t70
+
+#L2
+t1
+L150
+PR -8064000
+BG
+PR 8064000
+BG
+N
+
+pr -2000000
+bg
+t5
+
+L150
+PR -8064000
+BG
+PR 8064000
+BG
+N
+t10
+#N
+
+email "dry run to test galil", "script completed one step closer to the solution :)", mvescovi@bnl.gov, bouet@bnl.gov
+
+EXIT

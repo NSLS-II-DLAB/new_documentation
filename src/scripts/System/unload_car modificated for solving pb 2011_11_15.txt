@@ -1,0 +1,18 @@
+
+setdo "Grabber Clutch", 1
+setdo "Stepper Connect", 0
+setdo "Stepper After Connect", 0
+setdo "Stepper Disconnect", 1
+WAITDI "Stepper Disengage Limit", 0
+setdo "Stepper Disconnect", 0
+setdo "Loadlock Grab Motor Direction (K11)", 1
+setdo "L/L Grab Motor Enable", 1
+WAITDI "Car Position on Loadplate", 0 
+failifoff "Loadplate Mated to Main Rail"
+
+setdo "LoadPlate Clutch", 0
+waitdi "!Loadplate in Home Position", 0
+setdo "L/L Grab Motor Enable", 0
+setdo "Grabber Clutch", 0
+
+print "completed unload"

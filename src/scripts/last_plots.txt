@@ -1,0 +1,5 @@
+PLOT "Galil Encoder Readout", "Galil Velocity"
+PLOT "Galil Torque"
+PLOT "Galil Position Error"
+PLOT "Argon 1 (MFC1)", "Argon 2 (MFC2)", "Argon 3 (MFC3)", "Argon 4 (MFC4)", "Argon 5 (MFC5)", "Argon 6 (MFC6)", "Argon 7 (MFC7)", "Argon 8 (MFC8)", "Argon 9 (MFC9)"
+PLOT "Center Chamber (PT3)", "Loadlock (PT4)"

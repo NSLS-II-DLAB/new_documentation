@@ -1,0 +1,5234 @@
+
+
+PA 18649824
+SP 2500000
+BG
+PR -300000
+BG
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -1250000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1673635
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1172452
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1741485
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1172452
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1672653
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1171764
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1740463
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1171764
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1671683
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1171085
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1739454
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1171085
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1670724
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1170413
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1738457
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L220
+SP 1170413
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1677367
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1175067
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1745369
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1175067
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1676426
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1174407
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1744389
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1174407
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1675494
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1173755
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1743420
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1173755
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1674573
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1173109
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1742462
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1173109
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1673661
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1172470
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1741512
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1172470
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1672757
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1171837
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1740572
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1171837
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1671861
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1171210
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1739640
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1171210
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1670974
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1170588
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1738716
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1170588
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1670093
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1169971
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1737800
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L221
+SP 1169971
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1676773
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1174651
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1744751
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1174651
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1675902
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1174041
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1743845
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1174041
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1675038
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1173435
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1742945
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1173435
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1674179
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1172833
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1742052
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1172833
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1673326
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1172236
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1741164
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1172236
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1672477
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1171641
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1740281
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1171641
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1671634
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1171050
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1739403
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1171050
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1670794
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1170462
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1738530
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1170462
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1669959
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1169877
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1737660
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L222
+SP 1169877
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1676646
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1174562
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1744618
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1174562
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1675814
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1173979
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1743753
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1173979
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1674985
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1173398
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1742890
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1173398
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1674158
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1172819
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1742030
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1172819
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1673335
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1172242
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1741173
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1172242
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1672513
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1171666
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1740318
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1171666
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1671693
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1171092
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1739465
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1171092
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1670875
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1170519
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1738614
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1170519
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1670058
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1169947
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1737764
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L223
+SP 1169947
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1676728
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1174619
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1744704
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1174619
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1675909
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1174045
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1743852
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1174045
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1675091
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1173472
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1743001
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1173472
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1674274
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1172900
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1742150
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1172900
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1673456
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1172327
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1741299
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1172327
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1672639
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1171754
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1740449
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1171754
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1671821
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1171182
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1739598
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1171182
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1671003
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1170608
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1738747
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1170608
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1670184
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1170035
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1737895
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L224
+SP 1170035
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1676817
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1174681
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1744797
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1174681
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1675993
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1174104
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1743939
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1174104
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1675167
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1173526
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1743080
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1173526
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1674341
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1172947
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1742220
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1172947
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1673513
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1172367
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1741358
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1172367
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1672683
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1171785
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1740495
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1171785
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1671851
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1171203
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1739630
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1171203
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1671018
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1170619
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1738763
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1170619
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1670183
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1170034
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1737893
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L225
+SP 1170034
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L226
+SP 1676765
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -51308000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L226
+SP 1174645
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 55372000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 8 Power (J6-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L226
+SP 1744742
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR -43180000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L226
+SP 1174645
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+SETDO "Sputter Supply 1 (K6)", 0
+SP 2500000
+PR 39116000
+BG
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+SETDO "Spare Power A (J7-1)", 1
+SETDO "Magnetron 7 Power (J5-2)", 1
+T1
+SETDO "Sputter Supply 1 (K6)", 1
+T7
+L2060
+SP 1673438
+PR 3500000
+BG
+PR -3500000
+BG
+N
+SETDO "Sputter Supply 1 (K6)", 0
+EXIT

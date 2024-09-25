@@ -1,0 +1,2 @@
+#load fail skeleton script
+print "WARNING!! THE LOAD SCRIPT HAS FAILED!!"

@@ -1,0 +1,40 @@
+LOG "Argon 1 (MFC1)"
+LOGRATE 0.1
+
+
+
+VAR Gun5BaseSpeedb4c 1898000
+VAR Gun5BaseSpeedw 1042957
+
+VAR erosion 0.0001
+VAR I 1
+VAR blah 5
+
+
+print %blah%
+
+var lj_argon_flow "%LJ Argon flow signal (MFC)%"
+var ion_voltage_WRITE_VALUE "%!ION Voltage%"
+
+var Velocityb4c %Gun5BaseSpeedb4c%
+
+var Velocityb4c %Gun5BaseSpeedb4c%
+var Velocityw %Gun5BaseSpeedw%
+
+L250
+VAR Velocityb4c "int(%Velocityb4c% * (1-%erosion%))"
+sp %Velocityb4c%
+
+
+#PR 30
+#BG
+VAR Velocityw "int(%Velocityw% * (1-%erosion%))"
+#sp %Velocityw%
+
+
+#PR -30
+#BG
+
+T0.1
+
+N

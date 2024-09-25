@@ -1,0 +1,6 @@
+#*****test emails*****
+email "test script", "Waiting for pressure", bouet@bnl.gov, sgiorgio@bnl.gov, hxu@bnl.gov
+T10
+email "Cr deposition completed", "angled deposition test", bouet@bnl.gov, sgiorgio@bnl.gov, hxu@bnl.gov 
+T1
+EXIT

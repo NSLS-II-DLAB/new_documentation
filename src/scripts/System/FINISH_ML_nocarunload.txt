@@ -1,0 +1,57 @@
+SETDO "MFC1 Manual", 1
+SETDO "MFC2 Manual", 1
+SETDO "MFC3 Manual", 1
+SETDO "MFC4 Manual", 1
+SETDO "MFC5 Manual", 1
+SETDO "MFC6 Manual", 1
+SETDO "MFC7 Manual", 1
+SETDO "MFC8 Manual", 1
+SETDO "MFC9 Manual", 1
+
+setdo "MFC1 LJ Control Enabled", 0
+setdo "MFC2 LJ Control Enabled", 0
+setdo "MFC3 LJ Control Enabled", 0
+setdo "MFC4 LJ Control Enabled", 0
+setdo "MFC5 LJ Control Enabled", 0
+setdo "MFC6 LJ Control Enabled", 0
+setdo "MFC7 LJ Control Enabled", 0
+setdo "MFC8 LJ Control Enabled", 0
+setdo "MFC9 LJ Control Enabled", 0
+t5
+SETAO "Argon 2 (MFC2)", 0
+SETAO "Argon 1 (MFC1)", 0
+SETAO "Argon 2 (MFC2)", 0
+SETAO "Argon 3 (MFC3)", 0
+SETAO "Argon 4 (MFC4)", 0
+SETAO "Argon 5 (MFC5)", 0
+SETAO "Argon 6 (MFC6)", 0
+SETAO "Argon 7 (MFC7)", 0
+SETAO "Argon 8 (MFC8)", 0
+SETAO "Argon 9 (MFC9)", 0
+SETAO "Center Chamber CM 0-50 mTorr (PT1)", 0 
+T60
+SETDO "MFC1 to Landing Chamber (AV1)", 0
+SETDO "MFC2 to Gun Chamber 1 (AV2)", 0
+SETDO "MFC3 to Gun Chamber 1 (AV3)", 0
+SETDO "MFC4 to Gun Chamber 1 (AV4)", 0
+SETDO "MFC5 to Gun Chamber 1 (AV5)", 0
+SETDO "MFC6 to Gun Chamber 2 (AV6)", 0
+SETDO "MFC7 to Gun Chamber 2 (AV7)", 0
+SETDO "MFC8 to Gun Chamber 2 (AV8)", 0
+SETDO "MFC9 to Landing Chamber (AV9)", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Main Control (K14)", 1
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Stroke (K43)", 1
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 1
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 1
+
+SETDO "ION Output Enable", 0
+TP
+PA 0
+sp 2000000
+BG
+T10
+

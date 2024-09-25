@@ -1,0 +1,19 @@
+
+
+SETDO "Magnetron MDX Supply 1 Output Enable (K6)", 1
+t2400
+
+SETDO "Magnetron MDX Supply 1 Output Enable (K6)", 0
+t5
+run "SubScripts\\Relay switch 6"
+pr 4064000
+sp 3000000
+bg
+SETDO "Magnetron MDX Supply 1 Output Enable (K6)", 1
+t1200
+
+SETDO "Magnetron MDX Supply 1 Output Enable (K6)", 0
+
+
+
+EXIT
