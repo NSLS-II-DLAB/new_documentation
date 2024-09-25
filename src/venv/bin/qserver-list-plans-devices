@@ -1,8 +1,0 @@
-#!/home/jordan/Documents/BNL/megatron_control/venv/bin/python
-# -*- coding: utf-8 -*-
-import re
-import sys
-from bluesky_queueserver.manager.gen_lists import gen_list_of_plans_and_devices_cli
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(gen_list_of_plans_and_devices_cli())
