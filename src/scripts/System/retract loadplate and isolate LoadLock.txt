@@ -1,0 +1,16 @@
+SP 3000000
+PA 0
+BG
+PRINT "Sending car to home position"
+WaitDI "Car at Home", 1
+T0.5
+
+setdo "LoadPlate Clutch", 1
+setdo "Loadplate Motor Direction (K13)", 1
+setdo "Loadplate Motor Enable", 1
+waitdi "!Loadplate in Home Position", 0
+setdo "Loadplate Motor Enable", 0
+setdo "L/L Grab Motor Enable", 0
+setdo "Grabber Clutch", 0
+
+print "loadplate extracted"

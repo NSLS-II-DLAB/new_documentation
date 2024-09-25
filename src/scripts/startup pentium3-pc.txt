@@ -1,0 +1,41 @@
+# setdo "Control Enable", 1
+
+#stops "MOS"
+#stops "SCR"
+#stops "TTS"
+#stops "ION"
+#stops "MOXA"
+
+
+#run "last plots pentium3-pc"
+t3
+setao "LJ Car RTD Offset", -22
+setao "LJ Car RTD Scaling Factor", 1
+setao "LJ FacePlate RTD Offset", -20
+setao "LJ FacePlate RTD Scaling Factor", 0.1
+
+setao "PID loop 1 P", 0.6
+setao "PID loop 1 I", 0.075
+setao "PID loop 1 D", 0.002
+setao "PID loop 1 setpoint", 850
+setao "PID loop 1 enabled", 1
+setao "PID loop 1 reset", 0
+setao "PID loop 1 dt", 0.5
+setao "PID loop 2 P", 6
+setao "PID loop 2 I", 1.5
+setao "PID loop 2 D", .5
+setao "PID loop 2 setpoint", 4
+setao "PID loop 2 enabled", 1
+setao "PID loop 2 reset", 0
+setao "PID loop 2 dt", .5
+setao "PID loop 3 P", 0.1
+setao "PID loop 3 I", 0.02
+setao "PID loop 3 D", 0.001
+setao "PID loop 3 setpoint", 500
+setao "PID loop 3 enabled", 1
+setao "PID loop 3 reset", 0
+setao "PID loop 3 dt", 0.5
+setao "50mT CM1 offset", -2.20  #changed on 30/july/2024
+setao "50mT CM1 scaling factor", 1
+setao "50mT CM2 offset", 0.00 #changed on 6/june/2024
+setao "50mT CM2 scaling factor", 1

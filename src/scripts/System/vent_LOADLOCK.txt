@@ -1,0 +1,29 @@
+SETDO "Loadlock GV5 OPEN (AV28)", 0
+SETDO "Loadlock GV5 CLOSED (AV29)", 1
+t10
+failif "Loadlock GV5 CLOSED (AV29)", 0, "System\\vent_LOADLOCK_FAIL_GV5.txt"
+
+SETDO "Loadlock CCG2 (K33)", 0
+T1
+
+SETDO "Loadlock to VP1 (AV25)", 0
+T1
+
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 0
+T1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 0
+
+T20
+failif "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 1, "System\\vent_LOADLOCK_FAIL_GV5.txt"  
+SETDO "Ar Backfill to Loadlock (AV10)", 1
+SETDO "Loadlock Door Seal (EOV4)", 0
+T60
+
+SETDO "Loadlock Argon Hi Backfill (EOV3)", 1
+
+waitdi "Loadlock Overpressure (AV23)", 0
+
+
+SETDO "Ar Backfill to Loadlock (AV10)", 0
+SETDO "Loadlock Argon Hi Backfill (EOV3)", 0
+PRINT "**********Loadlock venting complete.**********"

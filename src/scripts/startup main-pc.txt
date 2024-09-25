@@ -1,0 +1,19 @@
+# setdo "Control Enable", 1
+#stops QCM
+#stops mos
+#stops "Gate valve 2"
+#stops "Gate valve 3"
+#run "last plots main-pc.txt"
+setdo "Mos Service Enabled", 0
+setdo "Tts Service Enabled", 0
+setdo "Tts Process", 0
+setdo "Allmotion Service Enabled", 0
+setdo "Bkprecision Service Enabled", 0
+setdo "Tic Service Enabled", 0
+setdo "Ion Service Enabled", 0
+setdo "Gate valve 3 Service Enabled", 0
+setdo "Gate valve 2 Service Enabled", 0
+setdo "Qcm Service Enabled", 0
+setdo "Ksc Service Enabled", 0
+setdo "Kri Service Enabled", 0
+setdo "Tetech Service Enabled", 0

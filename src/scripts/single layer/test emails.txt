@@ -1,0 +1,44 @@
+#*****testing emails*****
+
+log "ION Power"
+log "ION Current"
+log "ION Voltage"
+log "LJ Ion Voltage (Analog)"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+LOGRATE 1
+
+waitai "Landing Chamber UHV CCG1", <, 5.0e-7
+email "UHVCCG1 pressure below 5.0e-7", "Waiting 10 minutes further", sgiorgio@bnl.gov, bouet@bnl.gov
+t6
+
+EXIT

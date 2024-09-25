@@ -1,0 +1,8 @@
+
+L16
+setdo "Stepper After Connect", 1
+T2
+setdo "Stepper After Connect", 0
+T.5
+N
+t1

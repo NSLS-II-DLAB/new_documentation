@@ -1,0 +1,62 @@
+#Regenerate CP2 and CP3.  Requires main chamber to be under vacuum.
+
+#failif CHECK IF THE GAS BOTTLE IS LOW....
+SETAO "Gate Valve 2 Position", 0
+SETAO "Gate Valve 3 Position", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 0
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 0
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 0
+
+
+PRINT "Commencing regeneration cycle."
+
+SETAO "Roughing Pump VP1 (VFD1)", 60
+SETDO "VP1 Process Vacuum Pump (K5)", 1
+t60
+PRINT "Shutting down cryopump 2"
+SETDO "CP2 Gun Chamber 2 Cryo Pump (K20)", 1
+
+PRINT "Shutting down cryopump 3"
+SETDO "CP3 Gun Chamber 1 Cryo Pump (K21)", 1
+
+T10
+SETDO "N2 Purge to CP2 (AV13)", 1
+SETDO "N2 Purge to CP3 (AV14)", 1
+
+T60
+SETDO "CP2 Exhaust to VP1 (AV19)", 1
+SETDO "CP3 Exhaust to VP1 (AV20)", 1
+
+WAITAI "Temp Diode 2 (CP2)", >, 280
+WAITAI "Temp Diode 3 (CP3)", >, 280
+t1200
+
+SETDO "N2 Purge to CP2 (AV13)", 0
+SETDO "N2 Purge to CP3 (AV14)", 0
+
+WAITAI "Gun Chamber 2 Cryo CP2 (PT6)", <, 0.005
+WAITAI "Gun Chamber 1 Cryo CP3 (PT7)", <, 0.005
+
+SETDO "CP2 Exhaust to VP1 (AV19)", 0
+SETDO "CP3 Exhaust to VP1 (AV20)", 0
+
+SETDO "CP2 Gun Chamber 2 Cryo Pump (K20)", 0
+SETDO "CP3 Gun Chamber 1 Cryo Pump (K21)", 0
+
+
+WAITAI "Temp Diode 2 (CP2)", <, 15
+WAITAI "Temp Diode 3 (CP3)", <, 15
+
+SETAO "Roughing Pump VP1 (VFD1)", 0
+SETDO "VP1 Process Vacuum Pump (K5)", 0
+
+waitai "Landing Chamber UHV CCG1", <, 0.00005
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 1
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 1
+SETAO "Gate Valve 2 Position", 1000
+SETAO "Gate Valve 3 Position", 1000
+
+PRINT "Cryopump 2 and 3 regeneration completed."

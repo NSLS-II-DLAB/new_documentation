@@ -1,0 +1,55 @@
+
+LOG "Sputter Supply 2 Voltage (V Out 2)"
+LOG "Sputter Supply 2 Current (I Out 2)"
+LOG "Center Chamber 0-50m Torr (PT1)"
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+LOG "Galil Encoder Readout"
+LOG "Galil Velocity"
+LOG "Galil Torque"
+
+LOGRATE .5
+
+SETAO "Gate Valve 2 Position", 420
+SETAO "Gate Valve 3 Position", 420
+
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 0
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+
+SETDO "RF Input 2 (J2-2)", 1
+
+SETAO "Level 2 Sputter Supply 2 (Level Out 2)", 17.7
+#NOTE: 390,807 x 1 loop = 5nm (9/23/2010), #35
+L1
+	SETDO "Magnetron 7 Power (J5-2)", 0
+	SETDO "Magnetron 8 Power (J6-2)", 1
+
+	T1
+	SETDO "Sputter Supply 2 (K7)", 1
+	T10
+	L5
+		PR 4000000
+		SP 390807
+		BG
+		PR -4000000
+		SP 390807
+		BG
+	N
+	SETDO "Sputter Supply 2 (K7)", 0
+	
+N
+EXIT

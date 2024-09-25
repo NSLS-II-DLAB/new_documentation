@@ -1,0 +1,223 @@
+#*****test sample*****
+#Load substrate at 9" 
+#degasing door and faceplate to improve pressure using gun 6 & 8 with ION1500 
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "LJ Ion Voltage (Analog)"
+log "ION Voltage"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+
+log "LJ Car RTD"
+log "LJ FacePlate RTD"
+
+log "Magnetron 1 Temperature"
+log "Magnetron 2 Temperature"
+log "Magnetron 3 Temperature"
+log "Magnetron 4 Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM2 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+log "Magnetron 1 Flow"
+log "Magnetron 2 Flow"
+log "Magnetron 3 Flow"
+log "Magnetron 4 Flow"
+log "Magnetron 5 Flow"
+log "Magnetron 6 Flow"
+log "Magnetron 7 Flow"
+log "Magnetron 8 Flow"
+log "Magnetron 9 Flow"
+log "QCM 1 Flow"
+log "QCM 2 Flow"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+#RUN DOUBLE ML RATE TESTS FOR GUN 6 AND 8
+
+email "starting script", "Waiting for pressure", bouet@bnl.gov, sgiorgio@bnl.gov
+waitai "Landing Chamber UHV CCG1", <, 1.5e-6
+email "UHVCCG1 pressure below 1.1e-6", "Waiting 1 minutes", bouet@bnl.gov, sgiorgio@bnl.gov
+l1
+l1
+t60
+n
+n
+
+SETDO "MFC1 to Landing Chamber (AV1)", 1
+t.5
+SETDO "MFC2 to Gun Chamber 1 (AV2)", 1
+t.5
+SETDO "MFC3 to Gun Chamber 1 (AV3)", 1
+t.5
+SETDO "MFC4 to Gun Chamber 1 (AV4)", 1
+t.5
+SETDO "MFC5 to Gun Chamber 1 (AV5)", 1
+t.5
+SETDO "MFC6 to Gun Chamber 2 (AV6)", 1
+t.5
+SETDO "MFC7 to Gun Chamber 2 (AV7)", 1
+t.5
+SETDO "MFC8 to Gun Chamber 2 (AV8)", 1
+t.5
+SETDO "MFC9 to Landing Chamber (AV9)", 1
+SETDO "MFC1 Manual", 1
+SETDO "MFC2 Manual", 1
+SETDO "MFC3 Manual", 1
+SETDO "MFC4 Manual", 1
+SETDO "MFC5 Manual", 1
+SETDO "MFC6 Manual", 1
+SETDO "MFC7 Manual", 1
+SETDO "MFC8 Manual", 1
+SETDO "MFC9 Manual", 1
+setdo "MFC9 LJ Control Enabled", 1
+
+SETAO "Argon 1 (MFC1)", 5
+SETAO "Argon 2 (MFC2)", 5
+SETAO "Argon 3 (MFC3)", 5
+SETAO "Argon 4 (MFC4)", 5
+SETAO "Argon 5 (MFC5)", 5
+SETAO "Argon 6 (MFC6)", 5
+SETAO "Argon 7 (MFC7)", 5
+SETAO "Argon 8 (MFC8)", 5
+
+#**********BELOW THIS LINE IS WHERE TO CHANGE THE GAS CONCENTRATION
+#from .00 (0%) to .20 (20%) in .02 (2%) increments
+setao "LJ Neon/Argon mix ratio", .00
+#**********ABOVE THIS LINE IS WHERE TO CHANGE THE GAS CONCENTRATION
+
+setao "PID loop 2 enabled", 1
+setao "PID loop 2 setpoint", 4
+setao "PID loop 2 reset", 1
+t5
+setao "PID loop 2 reset", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Main Control (K14)", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Stroke (K43)", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 1
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 0
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 1
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 0
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 0
+
+
+SETAO "Gate Valve 2 Position", 440
+SETAO "Gate Valve 3 Position", 440
+print "Waiting 10 minutes for process gas stabilization"
+t600
+AC 6000000
+DC 6000000
+
+email "Gas stabilized", "Commencing targets burn-in", bouet@bnl.gov, sgiorgio@bnl.gov
+
+SETDO "Magnetron ION 1500 Input Relay 1 (J2-1)", 1
+SETDO "Magnetron MDX 1 input Relay (J1-1)", 0
+SETDO "Magnetron RF In Relay 2 (J2-2)", 1
+
+SETAO "ION Power", 170
+SETAO "ION Current", 1
+SETAO "ION Voltage", 1000
+setao "Magnetron MDX Supply 1 Output Level", 0
+
+#Note: this position applies when substrates are loaded at 9" 
+#bringing position 19 in front of gun 6
+pa 9420000
+sp 2000000
+bg
+t5
+
+L20
+
+#burn-in gun 6 for 30 sec
+run "SubScripts\\Relay switch 6"
+t1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 200
+waitai "ION Voltage", <, 750
+t60
+SETDO "ION Output Enable", 0
+t10
+
+#move position 19 in front of gun 8 and burn it for 30 sec
+SP 2000000
+PR 8128000
+BG
+t5
+run "SubScripts\\Relay switch 8"
+t1
+SETDO "ION Output Enable", 1
+waitai "ION Current", >, 0.1
+waitai "ION Voltage", >, 200
+waitai "ION Voltage", <, 750
+t30
+SETDO "ION Output Enable", 0
+t10
+
+#move back to position 19 in front of gun 6 
+SP 2000000
+PR -8128000
+BG
+t10
+N
+
+T5
+email "warm up complete", "using G6 and G8", bouet@bnl.gov, sgiorgio@bnl.gov 
+T10
+run "System\\FINISH_ML_nocarunload"
+T10
+EXIT

@@ -1,0 +1,11 @@
+SETAO "Roughing Pump VP1 (VFD1)", 60
+SETDO "VP1 Process Vacuum Pump (K5)", 1
+T60
+SETDO "CP1 Exhaust to VP1 (AV18)", 1
+T10
+SETDO "CP2 Exhaust to VP1 (AV19)", 1
+T10
+SETDO "CP3 Exhaust to VP1 (AV20)", 1
+T10
+SETDO "CP4 Exhaust to VP1 (AV21)", 1
+T10

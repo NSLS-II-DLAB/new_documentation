@@ -1,0 +1,7 @@
+# -start-
+# this is a description
+# of this script
+# -end-
+
+print "OK"
+

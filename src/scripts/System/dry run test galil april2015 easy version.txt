@@ -1,0 +1,131 @@
+#*****MLL Preparation*****
+#Load substrates at 8.5" and the 19" centers
+#test response galil no logs
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail2015.txt"
+
+
+email "dry run to test galil 30 minutes", "starting script", klauer@bnl.gov, mvescovi@bnl.gov, bouet@bnl.gov
+
+t10
+AC 6000000
+DC 6000000
+
+
+#Note: this position applies when substrates are loaded at the 8.5" and the 19" centers
+pa -22130532
+sp 3000000
+bg
+
+
+t10
+
+#burn-in gun 3 for 10 sec
+SP 2500000
+PR -4064000
+BG
+
+t10
+
+print "starting serie 1"
+
+SP 2500000
+PR 4064000
+BG
+t1
+
+L5
+#run "SubScripts\\Relay switch 4"
+
+T1
+
+T7
+L5
+ PR 4000000
+ SP 1000000
+ BG
+ PR -4000000
+ SP 1000000
+ BG
+ N
+#SETDO "ION Output Enable", 0
+
+SP 2500000
+PR -4064000
+BG
+t1
+#run "SubScripts\\Relay switch 3"
+T1
+
+T7
+L2
+ PR 4000000
+ SP 1000000
+ BG
+ PR -4000000
+ SP 1000000
+ BG
+N
+
+SP 2500000
+PR 4064000
+BG
+N
+
+#switch to substrate center=19"
+SP 2500000
+PR -5334000
+BG
+
+print "starting serie 2"
+
+L10
+#run "SubScripts\\Relay switch 4"
+
+T1
+
+T7
+L5
+ PR 4000000
+ SP 1000000
+ BG
+ PR -4000000
+ SP 1000000
+ BG
+ N
+#SETDO "ION Output Enable", 0
+SP 2500000
+PR -4064000
+BG
+t1
+#run "SubScripts\\Relay switch 3"
+T1
+
+T7
+L10
+ PR 4000000
+ SP 1000000
+ BG
+ PR -4000000
+ SP 1000000
+ BG
+N
+# SETDO "ION Output Enable", 0
+SP 2500000
+PR 4064000
+BG
+N
+
+print "finished with serie 2"
+
+#switch back to substrate center=8.5"
+SP 2500000
+PR 5334000
+BG
+
+print "you should get the end e-mail now"
+email "dry run to test galil 30 minutes", "script completed let's increase the time :)", klauer@bnl.gov, mvescovi@bnl.gov, bouet@bnl.gov
+run "System\\FINISH_ML_nocarunload"
+EXIT

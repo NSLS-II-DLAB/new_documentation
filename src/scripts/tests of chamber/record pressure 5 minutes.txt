@@ -1,0 +1,19 @@
+#*****record pressure*****
+# XX
+# Feb 25 2022
+
+
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM2 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+log "LJ CM2 50mTorr"
+
+log "Landing Chamber UHV CCG1"
+log "Loadlock UHV CCG2"
+
+LOGRATE 1
+
+T300
+
+EXIT

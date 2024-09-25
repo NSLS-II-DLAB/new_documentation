@@ -1,0 +1,3 @@
+#load fail skeleton script
+setdo "Grabber Clutch", 0
+setdo "L/L Grab Motor Enable", 0

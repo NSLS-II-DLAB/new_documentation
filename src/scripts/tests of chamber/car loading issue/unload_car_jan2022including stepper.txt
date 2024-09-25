@@ -1,0 +1,39 @@
+stop "System\load_car.txt"
+
+setdo "LoadPlate Clutch", 1
+setdo "L/L Grab Motor Enable", 0
+setdo "Loadplate Motor Direction (K13)", 0
+setdo "Loadplate Motor Enable", 1
+waitdi "Loadplate Mated to Main Rail", 0
+print "LoadPlate Mated to the main rail."
+FAILIF "Loadplate Mated to Main Rail", 1, System\\unloadfail
+setdo "Loadplate Motor Enable", 0
+setdo "Grabber Clutch", 0
+setdo "LoadPlate Clutch", 1
+
+SP 3000000
+PA -40000000
+BG
+PRINT "Car closing in on the cable disconnect position."
+T0.5
+SP 1000000
+LD 2
+PA -49343120
+BG
+waitdi "Car at Cable Disconnect Position", 1
+PRINT "Car at the Cable Disconnect Position"
+ST
+MO
+
+T0.5
+
+setdo "Grabber Clutch", 1
+setdo "Stepper Connect", 0
+setdo "Stepper After Connect", 0
+print "Shutting down Interpolator (Relay is normally closed)"
+setdo "LJ Renishaw Interpolator Power Relay", 1
+t3
+setdo "Stepper Disconnect", 1
+WAITDI "Stepper Disengage Limit", 0
+setdo "Stepper Disconnect", 0
+PRINT "all done"

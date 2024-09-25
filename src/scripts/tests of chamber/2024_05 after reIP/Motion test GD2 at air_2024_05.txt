@@ -1,0 +1,73 @@
+#*****test car motion after reIP*****
+#Chamber at air 
+#Motion test
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+email "starting motion test", "start", bouet@bnl.gov, sgiorgio@bnl.gov
+t5
+
+AC 6000000
+DC 6000000
+
+#Note: this position applies when substrates are loaded at the 9"
+#bringing position 19 in front of gun 8
+pa 17548000
+sp 2000000
+bg
+t5
+
+#move position 19 in front of gun 6 and wait 5s
+SP 2500000
+PR -8128000
+BG
+t5
+
+L10
+T5
+
+L6
+ PR 4000000
+ SP 1809293
+ BG
+ PR -4000000
+ SP 1809293
+ BG
+N
+
+SP 2500000
+PR -8128000
+BG
+t1
+
+T7
+L5
+ PR 4000000
+ SP 1277418
+ BG
+ PR -4000000
+ SP 1277418
+ BG
+N
+
+SP 2500000
+PR 8128000
+BG
+N
+
+SP 1000000
+PA 0
+BG
+
+email "motion test completed", "May 2024", bouet@bnl.gov, sgiorgio@bnl.gov 
+
+EXIT

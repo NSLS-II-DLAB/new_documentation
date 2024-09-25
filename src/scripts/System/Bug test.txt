@@ -1,0 +1,10 @@
+setao "PID loop 1 enabled", 1
+setao "LJ Argon setpoint (MFC)", 10
+l10000
+
+setao "ION Voltage", 500
+t5
+setao "ION Voltage", 1000
+t5
+n
+EXIT

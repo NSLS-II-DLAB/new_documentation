@@ -1,0 +1,1 @@
+print "Error: Cold Cathode Gage 2 (loadlock) was enabled.  	Quitting Loadlock Pumpdown Sequence."

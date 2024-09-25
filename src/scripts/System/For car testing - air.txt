@@ -1,0 +1,101 @@
+#*****script for car motion testing*****
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "ION Voltage"
+log "LJ Ion Voltage (Analog)"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+AC 6000000
+DC 6000000
+
+email "motion test", "start", bouet@bnl.gov, mvescovi@bnl.gov
+
+
+
+#NOTE : bring position edge car to front of gun 2
+
+PA -24111000
+SP 500000
+BG
+
+#NOTE: will ask to move from gun 2 to pass gun 9
+
+
+L50
+	
+	T10
+
+		PR 55000000
+		SP 700000
+		BG
+		PR -55000000
+		SP 700000
+		BG
+	
+N
+
+
+PRINT "test completed"
+
+email "motion test completed", "all good!", bouet@bnl.gov, mvescovi@bnl.gov
+
+EXIT

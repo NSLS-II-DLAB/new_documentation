@@ -1,0 +1,81 @@
+#*****Ni deposition for RIE samples*****
+#Load samples at 9" deposition Ni
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "ION Voltage"
+log "LJ Ion Voltage (Analog)"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+LOG "QCM 1 Live growth rate"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+LOGRATE 1
+
+t5
+SETDO "Magnetron MDX 1 input Relay (J1-1)", 0
+SETDO "Magnetron ION 1500 Input Relay 1 (J2-1)", 1
+SETDO "Magnetron RF In Relay 2 (J2-2)", 1
+SETDO "ION Output Enable", 0
+t5
+SETAO "ION Power", 170
+SETAO "ION Current", 1
+SETAO "ION Voltage", 1000
+setao "Magnetron MDX Supply 1 Output Level",
+t2 
+
+email "test deposition completed", "test", bouet@bnl.gov, sgiorgio@bnl.gov
+
+run "System\\FINISH_ML_nocarunload.txt"
+
+EXIT

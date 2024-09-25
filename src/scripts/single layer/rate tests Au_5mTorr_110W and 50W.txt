@@ -1,0 +1,247 @@
+#*****Au rate tests deposition*****
+#Load samples at 8.5 and 19"  
+
+log "Magnetron MDX Supply 1 Current Output"
+log "Magnetron MDX Supply 1 Power Output"
+log "Magnetron MDX Supply 1 Voltage Output"
+
+log "ION Power"
+log "ION Current"
+log "ION Voltage"
+log "LJ Ion Voltage (Analog)"
+log "ION Arc rate"
+LOG "ION KWH Count"
+LOG "ION KWH Count"
+LOG "TETech power output"
+
+log "LJ SCR 1 Thermocouple"
+log "LJ SCR 2 Thermocouple"
+log "LJ SCR 3 Thermocouple"
+log "LJ SCR 4 Thermocouple"
+log "LJ SCR 5 Thermocouple"
+log "LJ Plate Temperature"
+log "Magnetron 5 Temperature"
+log "Magnetron 6 Temperature"
+log "Magnetron 7 Temperature"
+log "Magnetron 8 Temperature"
+log "Magnetron 9 Temperature"
+log "Cable Tray 1"
+log "Cable Tray 2"
+log "Body 1"
+log "Body 2"
+log "Main Water Supply"
+log "Main Water Return"
+log "Rail Water Supply"
+log "Rail Water Return"
+log "50mTorr Thermocouple"
+LOG "Center Chamber CM 0-50 mTorr (PT1)"
+log "LJ CM1 50mTorr"
+log "LJ CM 1 raw (50mTorr)"
+
+log "LJ CM2 50mTorr"
+log "LJ Neon/Argon mix ratio"
+log "LJ Neon flow signal (MFC)"
+log "LJ Argon flow signal (MFC)"
+
+LOG "Argon 1 (MFC1)"
+LOG "Argon 2 (MFC2)"
+LOG "Argon 3 (MFC3)"
+LOG "Argon 4 (MFC4)"
+LOG "Argon 5 (MFC5)"
+LOG "Argon 6 (MFC6)"
+LOG "Argon 7 (MFC7)"
+LOG "Argon 8 (MFC8)"
+LOG "Argon 9 (MFC9)"
+
+LOG "Galil Velocity"
+LOG "Galil Torque"
+LOG "Galil Position Error"
+LOG "Galil Encoder Readout"
+log "LJ Cathode Gas Total Setpoint (MFC)"
+
+LOGRATE 1
+
+setdo "Galil Failed", 0
+t3
+failif "Galil Failed", 1, "galil_fail.txt"
+
+#waitai "Landing Chamber UHV CCG1", <, 5.0e-7
+email "UHVCCG1 pressure below 5.0e-7", "Waiting 1 minute further", sgiorgio@bnl.gov, bouet@bnl.gov
+t6
+
+SETDO "MFC1 to Landing Chamber (AV1)", 1
+t.5
+SETDO "MFC2 to Gun Chamber 1 (AV2)", 1
+t.5
+SETDO "MFC3 to Gun Chamber 1 (AV3)", 1
+t.5
+SETDO "MFC4 to Gun Chamber 1 (AV4)", 1
+t.5
+SETDO "MFC5 to Gun Chamber 1 (AV5)", 1
+t.5
+SETDO "MFC6 to Gun Chamber 2 (AV6)", 1
+t.5
+SETDO "MFC7 to Gun Chamber 2 (AV7)", 1
+t.5
+SETDO "MFC8 to Gun Chamber 2 (AV8)", 1
+t.5
+SETDO "MFC9 to Landing Chamber (AV9)", 1
+t.5
+
+SETDO "MFC1 Manual", 1
+SETDO "MFC2 Manual", 1
+SETDO "MFC3 Manual", 1
+SETDO "MFC4 Manual", 1
+SETDO "MFC5 Manual", 1
+SETDO "MFC6 Manual", 1
+SETDO "MFC7 Manual", 1
+SETDO "MFC8 Manual", 1
+SETDO "MFC9 Manual", 1
+setdo "MFC9 LJ Control Enabled", 1
+
+SETAO "Argon 1 (MFC1)", 5
+SETAO "Argon 2 (MFC2)", 5
+SETAO "Argon 3 (MFC3)", 5
+SETAO "Argon 4 (MFC4)", 5
+SETAO "Argon 5 (MFC5)", 5
+SETAO "Argon 6 (MFC6)", 5
+SETAO "Argon 7 (MFC7)", 5
+SETAO "Argon 8 (MFC8)", 5
+
+setao "LJ Neon/Argon mix ratio", .00
+
+setao "PID loop 2 enabled", 1
+setao "PID loop 2 setpoint", 5
+setao "PID loop 2 reset", 1
+t5
+setao "PID loop 2 reset", 0
+
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Main Control (K14)", 0
+SETDO "GV1 Cryo 1 Gate Valve (Landing Chamber) Stroke (K43)", 0
+
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Spare Control Signal (K28)", 0
+SETDO "GV2 Cryo 2 Gate Valve (Gun Chamber 2) Throttled (K29)", 1
+
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Spare Control Signal (K30)", 0
+SETDO "GV3 Cryo 3 Gate Valve (Gun Chamber 1) Throttled (K31)", 1
+
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Main Control (K16)", 0
+SETDO "GV4 Cryo 4 Gate Valve (LoadLock Chamber) Stroke (K17)", 0
+
+SETAO "Gate Valve 2 Position", 420
+SETAO "Gate Valve 3 Position", 420
+print "Waiting 5 minutes for process gas stabilization"
+t300
+
+AC 6000000
+DC 6000000
+
+email "Gas stabilized", "start cathode cleanup", bouet@bnl.gov, sgiorgio@bnl.gov
+
+SETDO "Magnetron MDX 1 input Relay (J1-1)", 0
+SETDO "Magnetron ION 1500 Input Relay 1 (J2-1)", 1
+SETDO "Magnetron RF In Relay 2 (J2-2)", 1
+SETDO "ION Output Enable", 0
+t5
+SETAO "ION Power", 110
+SETAO "ION Current", 1
+SETAO "ION Voltage", 1000
+
+setao "Magnetron MDX Supply 1 Output Level", 0
+
+#NOTE : bring to center samples 
+
+PA 16151000
+SP 1000000
+BG
+T1
+
+#NOTE: target burning for 1 minute
+
+L2
+run "SubScripts\\Relay switch 7"
+	T1
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750
+	T30
+	SETDO "ION Output Enable", 0
+	T300
+N
+
+#NOTE : bring to sample at 8.5 front gun and move env 4 inches away
+
+PA 18818000
+SP 500000
+BG
+t5
+PR -1500000
+SP 500000
+BG
+
+#NOTE : first keep old conditions rate test 5nm per loop for SP 695000 (sample 778)
+
+L10	
+	run "SubScripts\\Relay switch 7"
+	T1
+	SETDO "ION Output Enable", 1
+	T10
+
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750
+	L1
+		PR 3000000
+		SP 695000
+		BG
+		PR -3000000
+		SP 695000
+		BG
+	N
+	SETDO "ION Output Enable", 0
+	T300
+N
+
+T10
+#NOTE : bring to sample at 19 front gun and move env 4 inches away
+
+PA 13484000
+SP 500000
+BG
+t5
+PR -1500000
+SP 500000
+BG
+T5
+
+SETAO "ION Power", 50
+
+#NOTE : first keep old conditions rate test 5nm per loop for SP 695000 (sample 778)
+
+L10	
+	run "SubScripts\\Relay switch 7"
+	T1
+	SETDO "ION Output Enable", 1
+	T10
+	waitai "ION Current", >, 0.1
+	waitai "ION Voltage", >, 250
+	waitai "ION Voltage", <, 750
+	L1
+		PR 3000000
+		SP 695000
+		BG
+		PR -3000000
+		SP 695000
+		BG
+	N
+	SETDO "ION Output Enable", 0
+	T300
+N
+
+email "deposition completed", "rate tests done", bouet@bnl.gov, sgiorgio@bnl.gov
+
+run "System\\FINISH_ML_nocarunload.txt"
+
+EXIT

@@ -1,0 +1,40 @@
+#failif CHECK IF THE GAS BOTTLE IS LOW....
+
+SETAO "Gate Valve 2 Position", 0
+
+PRINT "Commencing regeneration cycle."
+
+SETAO "Roughing Pump VP1 (VFD1)", 60
+SETDO "VP1 Process Vacuum Pump (K5)", 1
+t60
+PRINT "Shutting down cryopump 2"
+SETDO "CP2 Gun Chamber 2 Cryo Pump (K20)", 1
+
+
+T10
+SETDO "N2 Purge to CP2 (AV13)", 1
+
+
+T60
+SETDO "CP2 Exhaust to VP1 (AV19)", 1
+
+
+WAITAI "Temp Diode 2 (CP2)", >, 280
+t1200
+
+SETDO "N2 Purge to CP2 (AV13)", 0
+
+WAITAI "Gun Chamber 2 Cryo CP2 (PT6)", <, 0.005
+
+SETDO "CP2 Exhaust to VP1 (AV19)", 0
+
+SETDO "CP2 Gun Chamber 2 Cryo Pump (K20)", 0
+
+WAITAI "Temp Diode 2 (CP2)", <, 15
+
+SETAO "Roughing Pump VP1 (VFD1)", 0
+SETDO "VP1 Process Vacuum Pump (K5)", 0
+
+SETAO "Gate Valve 2 Position", 1000
+
+PRINT "Cryopump 2 regeneration completed."

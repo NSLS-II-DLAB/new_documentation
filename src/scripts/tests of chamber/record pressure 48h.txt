@@ -1,0 +1,17 @@
+#*****record pressure*****
+# recording for post cycle pumping
+# Mar 18 2022
+
+
+log "Landing Chamber UHV CCG1"
+log "Loadlock UHV CCG2"
+log "LJ Capacitance monometer (1000 Torr)"
+
+LOGRATE 60
+email "start logging for 62h", "CCG1 and CGG2 readings", bouet@bnl.gov, rdemartin@bnl.gov
+L62
+T3600
+N
+email "finished logging", "CCG1 and CGG2 readings", bouet@bnl.gov, rdemartin@bnl.gov
+
+EXIT

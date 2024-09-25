@@ -1,0 +1,4 @@
+
+setao "Gate Valve 2 Position", 440
+setao "Gate Valve 3 Position", 440
+setao "PID loop 2 setpoint", 4

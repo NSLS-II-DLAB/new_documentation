@@ -1,0 +1,16 @@
+#*****record pressure*****
+# recording for post IBF leak fix
+# May 27 2022
+
+
+log "Landing Chamber UHV CCG1"
+log "Loadlock UHV CCG2"
+
+LOGRATE 120
+
+L72
+T3600
+N
+email "finished logging", "CCG1 and CGG2 readings", bouet@bnl.gov
+
+EXIT

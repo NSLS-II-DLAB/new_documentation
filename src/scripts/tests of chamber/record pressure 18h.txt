@@ -1,0 +1,16 @@
+#*****record pressure*****
+# recording after RP exchange water purging and restart of big chiller
+# Mar 24 2022
+
+
+log "Landing Chamber UHV CCG1"
+log "Loadlock UHV CCG2"
+
+LOGRATE 60
+
+L18
+T3600
+N
+email "finished logging", "CCG1 and CGG2 readings", bouet@bnl.gov
+
+EXIT

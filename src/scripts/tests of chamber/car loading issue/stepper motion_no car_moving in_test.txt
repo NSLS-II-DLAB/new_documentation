@@ -1,0 +1,7 @@
+setdo "Stepper Disconnect", 0
+setdo "Stepper After Connect", 0
+setdo "Stepper Connect", 1
+
+t20
+setdo "Stepper Connect", 0
+t5

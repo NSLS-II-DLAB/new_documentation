@@ -1,0 +1,125 @@
+LOG "Sputter Supply 1 Voltage (V Out 1)"
+LOG "Sputter Supply 1 Current (I Out 1)"
+LOG "Center Chamber 0-50m Torr (PT1)"
+LOG "Argon 1 (MFC1)"
+LOG "Argon 3 (MFC3)"
+LOGRATE 1
+#RUN DOUBLE ML RATE TESTS FOR GUN 1 AND 7 
+SETAO "Gate Valve 2 Position", 420
+SETAO "Gate Valve 3 Position", 420
+
+SETDO "Magnetron 1 Power (J3-1)", 1
+SETDO "Magnetron 2 Power (J4-1)", 0
+SETDO "Magnetron 3 Power (J5-1)", 0
+SETDO "Magnetron 4 Power (J6-1)", 0
+SETDO "Magnetron 5 Power (J3-2)", 0
+SETDO "Magnetron 6 Power (J4-2)", 0
+SETDO "Magnetron 7 Power (J5-2)", 1
+SETDO "Magnetron 8 Power (J6-2)", 0
+SETDO "Magnetron 9 Power (J7-2)", 0
+
+SETDO "RF Input 2 (J2-2)", 1
+
+SETDO "RF Input 1 (J2-1)", 0
+SETDO "DC Power Input 1 (J1-1)", 1
+
+SETAO "Level 1 Sputter Supply 1 (Level Out 1)", 17.0
+
+L20
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Spare Power A (J7-1)", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+L3
+ PR 3024000
+ SP 1356970
+ BG
+ PR -3024000
+ SP 1356970
+ BG
+ N
+
+SETDO "Sputter Supply 2 (K7)", 0
+
+SP 2500000
+PR -48280000
+BG
+
+
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+
+L5
+ PR -3024000
+ SP 874944
+ BG
+ PR 3024000
+ SP 874944
+ BG
+N
+
+SETDO "Sputter Supply 2 (K7)", 0
+SP 2500000
+PR 48280000
+BG
+N
+
+
+PR 4032000
+BG
+
+
+L20
+SETDO "Magnetron 1 Power (J3-1)", 0
+SETDO "Spare Power A (J7-1)", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+L6
+ PR 3024000
+ SP 1356970
+ BG
+ PR -3024000
+ SP 1356970
+ BG
+ N
+
+SETDO "Sputter Supply 2 (K7)", 0
+
+SP 2500000
+PR -48280000
+BG
+
+
+SETDO "Spare Power A (J7-1)", 0
+SETDO "Magnetron 1 Power (J3-1)", 1
+T1
+SETDO "Sputter Supply 2 (K7)", 1
+T10
+
+L5
+ PR -3024000
+ SP 874944
+ BG
+ PR 3024000
+ SP 874944
+ BG
+N
+
+SETDO "Sputter Supply 2 (K7)", 0
+SP 2500000
+PR 48280000
+BG
+N
+
+
+PR -4032000
+BG
+
+
+
+EXIT

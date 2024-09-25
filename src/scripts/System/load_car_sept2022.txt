@@ -1,0 +1,55 @@
+stop "System\unload_car.txt"
+
+FAILIF "Loadlock GV5 Door Closed", 1, System\\loadfail
+FAILIF "Loadlock GV5 Door Open", 0, System\\loadfail
+setdo "Loadplate Motor Direction (K13)", 0
+setdo "Grabber Clutch", 0
+setdo "L/L Grab Motor Enable", 0
+setdo "LoadPlate Clutch", 1
+setdo "Loadplate Motor Enable", 1
+waitdi "Loadplate Mated to Main Rail", 0
+t0.2
+setdo "Loadplate Motor Enable", 0
+#FAILIF "Loadplate Mated to Main Rail", 1, loadfail
+print "Loadplate successfully mated to main rail. Huzzah."
+setdo "Grabber Clutch", 1
+setdo "Loadlock Grab Motor Direction (K11)", 0
+setdo "L/L Grab Motor Enable", 1
+op 2
+
+waitdi "Car at Cable Disconnect Position", 1
+setdo "L/L Grab Motor Enable", 0
+setdo "Grabber Clutch", 0
+
+op 1
+setdo "Stepper Disconnect", 0
+setdo "Stepper After Connect", 0
+setdo "Stepper Connect", 1
+
+t20
+setdo "Stepper Connect", 0
+print "Electrical connector successfully mated to car"
+L16
+setdo "Stepper After Connect", 1
+T2
+setdo "Stepper After Connect", 0
+T.5
+N
+t1
+print "Powering up Interpolator (Relay is Normally closed)"
+setdo "LJ Renishaw Interpolator Power Relay", 0
+t3
+
+t5
+#was t1
+
+RUN System\\init
+RUN System\\init
+SP 3000000
+PR 10000000
+BG
+#OP 1 (?)
+RUN System\\find_home
+
+
+PRINT "Done loading."

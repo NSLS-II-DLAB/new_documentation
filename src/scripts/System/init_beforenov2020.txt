@@ -1,0 +1,45 @@
+iht => -3
+setdo "Galil Service Enabled", 0
+t5
+setdo "Galil Service Enabled", 1
+t2
+
+BA A
+BM 609600
+#KD 40
+# KP 30 removed 3/24/2011
+#KP 29
+
+#kp 35
+#kd 40
+#KI .15
+
+kp 20
+kd 20
+KI .0996
+
+IL 0.75 
+FA 4
+FV 3
+AF -1
+MT 1
+CE 2
+BI 3
+HV 5000
+CN 1,-1,-1,0,0
+FL 39300000
+BL -48300000
+AC 4000000
+DC 4000000
+SP 254000
+CC 19200,0,0,0
+#T 0.5
+XQ#BZMEGA
+#BZ 4.9
+t10
+SH
+AC 6000000
+DC 6000000
+ER 160000
+IB 0
+#ALM /1j16
