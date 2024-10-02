@@ -1,11 +1,9 @@
 from ophyd import EpicsMotor
 import bluesky.plan_stubs as bps
 from megatron.exceptions import CommandNotFoundError
+from megatron.support import motor_move, motor_stop
 
-galil = EpicsMotor('sim:mtr1', name='galil')
-galil.wait_for_connection(timeout=5)
-
-def process_motor_command(command, args):
+def process_motor_command(command, args, context):
     command_dispatcher = {
         "ac": ac, "af": af, "ba": ba, "bg": bg, "bi": bi, "bl": bl, "bm": bm,
         "bt": bt, "bz": bz, "cc": cc, "ce": ce, "cn": cn, "dc": dc, "dp": dp,
@@ -16,186 +14,205 @@ def process_motor_command(command, args):
     }
     
     if command in command_dispatcher:
-        yield from command_dispatcher[command](args)
+        yield from command_dispatcher[command](args, context)
     else:
         raise CommandNotFoundError(command)
 
-def ac(args):
+def ac(args, context):
     acceleration = float(args[0])
     print(f"Setting acceleration to {acceleration}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.acceleration, acceleration)
 
-def af(args):
+def af(args, context):
     print(f"Executing 'af' (Analog Feedback Select) command with args: {args}")
     yield from bps.null()
 
-def ba(args):
+def ba(args, context):
     print(f"Executing 'ba' command with args: {args}")
     yield from bps.null()
 
-def bg(args):
-    print(f"Executing 'bg' (Begin movement) command")
-    yield from bps.mv(galil, galil.position)
+def bg(args, context):
+    print(f"Begin movement")
+    galil = context.devices["galil"]
+    yield from bps.mv(galil.velocity, context.galil_speed / 1000000)
+    yield from bps.checkpoint()
+    yield from motor_move(galil, context.galil_pos / 1000000, is_rel=context.galil_abs_rel)
 
-def bi(args):
+def bi(args, context):
     print(f"Executing 'bi' command with args: {args}")
     yield from bps.null()
 
-def bl(args):
+def bl(args, context):
     print(f"Executing 'bl' (Reverse Software Limit) command with args: {args}")
     yield from bps.null()
 
-def bm(args):
+def bm(args, context):
     print(f"Executing 'bm' command with args: {args}")
     yield from bps.null()
 
-def bt(args):
+def bt(args, context):
     print(f"Executing 'bt' command with args: {args}")
     yield from bps.null()
 
-def bz(args):
+def bz(args, context):
     print(f"Executing 'bz' (Brushless Zero) command with args: {args}")
     yield from bps.null()
 
-def cc(args):
+def cc(args, context):
     print(f"Executing 'cc' (Configure Communications) command with args: {args}")
     yield from bps.null()
 
-def ce(args):
+def ce(args, context):
     print(f"Executing 'ce' (Configure Encoder) command with args: {args}")
     yield from bps.null()
 
-def cn(args):
+def cn(args, context):
     print(f"Executing 'cn' command with args: {args}")
     yield from bps.null()
 
-def dc(args):
+def dc(args, context):
     deceleration = float(args[0])
     print(f"Setting deceleration to {deceleration}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.acceleration, deceleration)  
 
-def dp(args):
+def dp(args, context):
     position = float(args[0])
     print(f"Defining position: {position}")
+    galil = context.devices["galil"]
     galil.set_current_position(position)
     yield from bps.null()
 
-def er(args):
+def er(args, context):
     error_limit = float(args[0])
     print(f"Setting error limit to {error_limit}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.error_limit, error_limit)  # placeholder, depends on the motor configuration
 
-def fa(args):
+def fa(args, context):
     print(f"Executing 'fa' (Acceleration Feedforward) command with args: {args}")
     yield from bps.null()
 
-def fe(args):
+def fe(args, context):
     print(f"Executing 'fe' (Find Edge) command with args: {args}")
     yield from bps.null()
 
-def fl(args):
+def fl(args, context):
     print(f"Executing 'fl' (Forward Software Limit) command with args: {args}")
     yield from bps.null()
 
-def fv(args):
+def fv(args, context):
     velocity_feedforward = float(args[0])
     print(f"Setting velocity feedforward to {velocity_feedforward}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.velocity, velocity_feedforward)
 
-def hv(args):
+def hv(args, context):
     homing_velocity = float(args[0])
     print(f"Setting homing velocity to {homing_velocity}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.homing_velocity, homing_velocity)
 
-def ib(args):
+def ib(args, context):
     print(f"Executing 'ib' command with args: {args}")
     yield from bps.null()
 
-def iht(args):
+def iht(args, context):
     print(f"Executing 'iht' (Close IP Handle) command with args: {args}")
     yield from bps.null()
 
-def il(args):
+def il(args, context):
     integrator_limit = float(args[0])
     print(f"Setting integrator limit to {integrator_limit}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.integrator_limit, integrator_limit)
 
-def kd(args):
+def kd(args, context):
     derivative_gain = float(args[0])
     print(f"Setting derivative gain to {derivative_gain}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.kd, derivative_gain)
 
-def ki(args):
+def ki(args, context):
     integrator_gain = float(args[0])
     print(f"Setting integrator gain to {integrator_gain}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.ki, integrator_gain)
 
-def kp(args):
+def kp(args, context):
     proportional_gain = float(args[0])
     print(f"Setting proportional gain to {proportional_gain}")
+    galil = context.devices["galil"]
     yield from bps.mv(galil.kp, proportional_gain)
 
-def ld(args):
+def ld(args, context):
     print(f"Executing 'ld' (Limit Disable) command with args: {args}")
     yield from bps.null()
 
-def mo(args):
+def mo(args, context):
     print(f"Turning motor off")
     galil.stop()  # assume motor off is the same as stop
     yield from bps.null()
 
-def mt(args):
+def mt(args, context):
     motor_type = args[0]
     print(f"Setting motor type to {motor_type}")
     yield from bps.null()
 
-def op(args):
+def op(args, context):
     output_port = int(args[0])
     print(f"Setting output port: {output_port}")
     yield from bps.null()
 
-def pa(args):
-    absolute_position = float(args[0])
-    print(f"Executing 'pa' (set absolute position) command with position: {absolute_position}")
-    yield from bps.mv(galil, absolute_position)
+def pa(args, context):
+    position = float(args[0])
+    print(f"Setting absolute position to {position}")
+    context.galil_abs_rel = 0
+    context.galil_pos = position
+    yield from bps.null()
 
-def pr(args):
-    relative_position = float(args[0])
-    print(f"Executing 'pr' (set relative position) command with position: {relative_position}")
-    yield from bps.mvr(galil, relative_position)
+def pr(args, context):
+    position = float(args[0])
+    print(f"Setting relative position to {relative_position}")
+    context.galil_abs_rel = 1
+    context.galil_pos = position
+    yield from bps.null()
 
-def pv(args):
+def pv(args, context):
     print(f"Executing 'pv' command with args: {args}")
     yield from bps.null()
 
-def sc(args):
+def sc(args, context):
     print(f"Executing 'sc' (stop motor) command")
+    galil = context.devices["galil"]
     galil.stop()
     yield from bps.null()
 
-def sh(args):
+def sh(args, context):
     print(f"Executing 'sh' (Servo Here) command")
     yield from bps.null()
 
-def sp(args):
+def sp(args, context):
     speed = float(args[0])
-    print(f"Executing 'sp' (set speed) command with args: {speed}")
-    yield from bps.mv(galil.velocity, speed)
+    context.galil_speed = speed;
+    print(f"Setting speed to {speed}")
+    yield bps.null()
 
-def st(args):
-    print(f"Executing 'st' (stop motor) command")
-    galil.stop()
-    yield from bps.null()
+def st(args, context):
+    print(f"Stopping motor")
+    yield from motor_stop(context.devices["galil"])
 
-def ta(args):
+def ta(args, context):
     print(f"Executing 'ta' command with args: {args}")
     yield from bps.null()
 
-def tp(args):
+def tp(args, context):
+    galil = context.devices["galil"]
     current_position = galil.position
     print(f"Executing 'tp' (tell position), current position: {current_position}")
     yield from bps.null()
 
-def xq(args):
+def xq(args, context):
     print(f"Executing 'xq' (execute program) command with args: {args}")
     yield from bps.null()
