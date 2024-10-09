@@ -1,0 +1,86 @@
+Run aborted
+Traceback (most recent call last):
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/bluesky/run_engine.py", line 1507, in _run
+    msg = self._plan_stack[-1].throw(stashed_exception or resp)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/bluesky/utils/__init__.py", line 1203, in dec_inner
+    return (yield from plan)
+            ^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/interpreter.py", line 60, in ts_periodic_logging_wrapper
+    return (yield from _inner())
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/interpreter.py", line 58, in _inner
+    yield from plan  # Continue executing the plan here
+    ^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/new_documentation/src/main.py", line 51, in run_with_logging
+    yield from interpreter.execute_script(script_path)
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/interpreter.py", line 145, in execute_script
+    yield from plan()
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/interpreter.py", line 137, in plan
+    yield from process_motor_command(command, args, self.context)
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/motor_control.py", line 17, in process_motor_command
+    yield from command_dispatcher[command](args, context)
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/motor_control.py", line 40, in bg
+    yield from motor_move(galil, context.galil_pos / 1000000, is_rel=context.galil_abs_rel)
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/support.py", line 247, in motor_move
+    yield from motor_stop(motor)
+  File "/home/jordan/Documents/BNL/new_documentation/src/megatron/support.py", line 240, in motor_stop
+    yield from bps.stop(motor)
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/bluesky/plan_stubs.py", line 444, in stop
+    return (yield Msg('stop', obj))
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/bluesky/run_engine.py", line 1592, in _run
+    new_response = await coro(msg)
+                   ^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/bluesky/run_engine.py", line 2454, in _stop
+    return await maybe_await(obj.stop())  # nominally, this returns None
+                             ^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/ophyd/utils/epics_pvs.py", line 205, in wrapper
+    raise DisconnectedError("{} is not connected".format(self.name))
+ophyd.utils.errors.DisconnectedError: galil is not connected
+Starting periodic logging
+Added Galil VAL to logging signals.
+Added Galil RBV to logging signals.
+Setting speed to 1500000.0
+Setting absolute position to 10000000.0
+Begin movement
+Stopping periodic logging
+Execution failed with error: galil is not connected
+Exception occurred during callback <bound method EpicsSignalBase._pv_connected of EpicsSignal(read_pv='sim:mtr1.TDIR', name='galil_direction_of_travel', parent='galil', timestamp=631152000.0, auto_monitor=True, string=False, write_pv='sim:mtr1.TDIR', limits=False, put_complete=False)> (pvname='sim:mtr1.TDIR')
+Traceback (most recent call last):
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/ophyd/_dispatch.py", line 55, in run
+    callback(*args, **kwargs)
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/ophyd/signal.py", line 1147, in _pv_connected
+    self._add_callback(pvname, pv, self._read_changed)
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/ophyd/signal.py", line 1207, in _add_callback
+    mon = pv.add_callback(cb, run_now=pv.connected)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/ophyd/_pyepics_shim.py", line 89, in add_callback
+    return super().add_callback(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/pv.py", line 841, in add_callback
+    self.get(as_string=True)
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/pv.py", line 505, in get
+    data = self.get_with_metadata(count=count, as_string=as_string,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/pv.py", line 41, in wrapped
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/pv.py", line 584, in get_with_metadata
+    metad = ca.get_with_metadata(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/ca.py", line 687, in wrapper
+    return fcn(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/ca.py", line 1499, in get_with_metadata
+    return get_complete_with_metadata(chid, count=count, ftype=ftype,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/ca.py", line 687, in wrapper
+    return fcn(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/ca.py", line 1631, in get_complete_with_metadata
+    warnings.warn(msg % (name(chid), timeout))
+                         ^^^^^^^^^^
+  File "/home/jordan/Documents/BNL/megatron_control/venv/lib/python3.12/site-packages/epics/ca.py", line 628, in wrapper
+    raise ChannelAccessException('Unexpected channel ID')
+epics.ca.ChannelAccessException: Unexpected channel ID

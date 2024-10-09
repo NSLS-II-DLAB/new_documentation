@@ -1,15 +1,15 @@
-log "Galil VAL"
-log "Galil RBV"
+log Galil VAL
+log Galil RBV
 
 sp 1500000
 pa 10000000
 bg
-waitai "Galil RBV", >=, 10000000
+waitai "Galil RBV", >=, 10
 t2
 sp 200000
 pr -1000000
 bg
-waitai "Galil RBV",<=,9000000,0,12
+waitai "Galil RBV",<=,0.9,0,12
 t2
 sp 1000000
 pa 0
