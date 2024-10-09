@@ -27,6 +27,7 @@ def process_megatron_command(command, args, context):
     else:
         raise CommandNotFoundError(command)
 
+
 def l_command(args, block, context):
     for line in block:
         yield from process_megatron_command(line[0], line[1:], context)
@@ -64,12 +65,14 @@ def failifoff(args, context):
 def log(args, context):
     signal_name = args[0]
     if signal_name in context.device_mapping:
-        signal = getattr(context.devices, context.device_mapping[signal_name])
-        context.logged_signals[signal_name] = signal  
-        print(f"Added {signal_name} to logging signals")
+        signal_device_name = context.device_mapping[signal_name]
+        signal = getattr(context.devices, signal_device_name)
+        context.logged_signals[signal_name] = signal 
+        print(f"Added {signal_name} to logging signals.")
     else:
         raise RuntimeError(f"Signal {signal_name} not found in device mapping.")
     yield from bps.null()
+
 
 def print_command(args, context):
     text = ' '.join(args)
