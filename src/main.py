@@ -7,12 +7,12 @@
 #   docker pull dchabot/simioc
 #   sudo docker run --network="host" -d dchabot/simioc
 #   sudo docker exec -it <ID> bash
-# Iniside the container shell
+# Inside the container shell
 #   telnet localhost 2048
+#   caRepeater &
 # Run the code
 #   ipython
 #   run -i "main.py"
-
 
 import os
 from datetime import datetime
@@ -21,6 +21,9 @@ from bluesky import RunEngine
 from ophyd import EpicsMotor, EpicsSignal, EpicsSignalRO
 from megatron.interpreter import MegatronInterpreter, create_shared_context, ts_periodic_logging_decorator 
 from megatron.exceptions import InvalidScriptPathError
+from epics import ca
+
+# ca.use_initial_context()
 
 galil = EpicsMotor('sim:mtr1', name='galil')
 galil_val = EpicsSignal('sim:mtr1.VAL', name='galil_val', auto_monitor=True)
@@ -28,31 +31,27 @@ galil_rbv = EpicsSignalRO('sim:mtr1.RBV', name='galil_rbv', auto_monitor=True)
 
 devices = {"galil": galil, "galil_val": galil_val, "galil_rbv": galil_rbv}
 
-def main():
-    RE = RunEngine({})
-    RE.waiting_hook = ProgressBarManager()
-    context = create_shared_context(devices)
-    interpreter = MegatronInterpreter(shared_context=context)
+RE = RunEngine({})
+RE.waiting_hook = ProgressBarManager()
 
-    script_path = "scripts/script.txt"
-    
-    if not os.path.exists(script_path) or not os.path.isfile(script_path):
-        raise InvalidScriptPathError(script_path)
+context = create_shared_context(devices)
+interpreter = MegatronInterpreter(shared_context=context)
 
-    logging_dir = "./logs"
-    log_file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + ".csv"
-    log_file_path = os.path.join(logging_dir, log_file_name)
+script_path = "scripts/script.txt"
+logging_dir = "./logs"
+log_file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + ".csv"
+log_file_path = os.path.join(logging_dir, log_file_name)
 
-    try:
-        @ts_periodic_logging_decorator(signals=context.logged_signals, log_file_path=log_file_path, period=1)
-        def run_with_logging():
-            yield from interpreter.execute_script(script_path, log_file_path)
+if not os.path.exists(script_path) or not os.path.isfile(script_path):
+    raise InvalidScriptPathError(script_path)
 
-        RE(run_with_logging())
-    except InvalidScriptPathError as e:
-        print(e)
-    except Exception as e:
-        print(f"Execution failed with error: {e}")
+try:
+    @ts_periodic_logging_decorator(signals=context.logged_signals, log_file_path=log_file_path, period=1)
+    def run_with_logging():
+        yield from interpreter.execute_script(script_path)
 
-if __name__ == "__main__":
-    main()
+    RE(run_with_logging())
+except InvalidScriptPathError as e:
+    print(e)
+except Exception as e:
+    print(f"Execution failed with error: {e}")
