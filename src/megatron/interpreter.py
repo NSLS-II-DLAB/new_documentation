@@ -8,7 +8,7 @@ class MegatronInterpreter:
     def __init__(self, *, shared_context):
         self.context = shared_context
         self.megatron_commands = ["email", "exit", "failif", "failifoff", "l", "log", "lograte", "plot", "print", "run", "setao", "setdo", "stop", "t", "var", "waitai", "waitdi"]
-        self.motor_commands = ["ac", "af", "ba", "bg", "bi", "bl", "bm", "bt", "bz", "cc", "ce", "cn", "dc", "dp", "er", "fa", "fe", "fl", "fv", "hv", "ib", "iht", "il", "kd", "ki", "kp", "ld", "mo", "mt", "op", "pa", "pr", "pv", "sc", "sh", "sp", "st", "ta", "tp", "xq"]
+        self.motor_commands = ["ac", "af", "ba", "bg", "bi", "bl", "bm", "bt", "bz", "cc", "ce", "cn", "dc", "dp", "er", "fa", "fe", "fl", "fv", "hm", "hv", "ib", "iht", "il", "kd", "ki", "kp", "ld", "mo", "mt", "op", "pa", "pr", "pv", "sc", "sh", "sp", "st", "ta", "tp", "xq"]
 
     def execute_script(self, script_path):
         with open(script_path, "r") as script_file:

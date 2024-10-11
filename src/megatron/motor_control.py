@@ -1,15 +1,15 @@
 import bluesky.plan_stubs as bps
 from megatron.exceptions import CommandNotFoundError
-from megatron.support import motor_move, motor_stop
+from megatron.support import motor_move, motor_stop, motor_home
 
 def process_motor_command(command, args, context):
     command_dispatcher = {
         "ac": ac, "af": af, "ba": ba, "bg": bg, "bi": bi, "bl": bl, "bm": bm,
         "bt": bt, "bz": bz, "cc": cc, "ce": ce, "cn": cn, "dc": dc, "dp": dp,
-        "er": er, "fa": fa, "fe": fe, "fl": fl, "fv": fv, "hv": hv, "ib": ib,
-        "iht": iht, "il": il, "kd": kd, "ki": ki, "kp": kp, "ld": ld, "mo": mo,
-        "mt": mt, "op": op, "pa": pa, "pr": pr, "pv": pv, "sc": sc, "sh": sh,
-        "sp": sp, "st": st, "ta": ta, "tp": tp, "xq": xq
+        "er": er, "fa": fa, "fe": fe, "fl": fl, "fv": fv, "hm": hm, "hv": hv, 
+        "ib": ib, "iht": iht, "il": il, "kd": kd, "ki": ki, "kp": kp, "ld": ld, 
+        "mo": mo, "mt": mt, "op": op, "pa": pa, "pr": pr, "pv": pv, "sc": sc, 
+        "sh": sh, "sp": sp, "st": st, "ta": ta, "tp": tp, "xq": xq
     }
 
     if command in command_dispatcher:
@@ -106,6 +106,11 @@ def fv(args, context):
     print(f"Setting velocity feedforward to {velocity_feedforward}")
     galil = context.devices.galil
     yield from bps.mv(galil.velocity, velocity_feedforward)
+
+def hm(args, context):
+    print("Homing device")
+    galil = context.devices.galil
+    yield from motor_home(galil)
 
 def hv(args, context):
     homing_velocity = float(args[0])
