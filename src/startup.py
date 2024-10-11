@@ -19,12 +19,24 @@ import os
 from datetime import datetime
 from bluesky.utils import ProgressBarManager
 from bluesky import RunEngine
-from ophyd import EpicsMotor, EpicsSignal, EpicsSignalRO
+from ophyd import EpicsMotor, EpicsSignal, EpicsSignalRO, Component as Cpt
 from megatron.context import create_shared_context
 from megatron.interpreter import MegatronInterpreter
 from megatron.logger import ts_periodic_logging_decorator
+from megatron.support import register_custom_instructions
 
-galil = EpicsMotor('sim:mtr1', name='galil')
+class EpicsMotorGalil(EpicsMotor):
+    homing_monitor = Cpt(EpicsSignalRO, ".ATHM", kind="omitted", auto_monitor=True)
+    channel_enable = Cpt(EpicsSignal, ".CNEN", kind="omitted", auto_monitor=True)
+
+    def move(self, position, wait=True, **kwargs):
+        st = super().move(position, wait=wait, **kwargs)
+        if not wait:
+            self.clear_sub(st._finished)
+            st.set_finished()
+        return st
+
+galil = EpicsMotorGalil('sim:mtr1', name='galil')
 galil_val = EpicsSignal('sim:mtr1.VAL', name='galil_val', auto_monitor=True)
 galil_rbv = EpicsSignalRO('sim:mtr1.RBV', name='galil_rbv', auto_monitor=True)
 
@@ -32,6 +44,8 @@ devices = {"galil": galil, "galil_val": galil_val, "galil_rbv": galil_rbv}
 
 RE = RunEngine({})
 RE.waiting_hook = ProgressBarManager()
+
+register_custom_instructions(re=RE)
 
 context = create_shared_context(devices)
 interpreter = MegatronInterpreter(shared_context=context)
