@@ -14,16 +14,15 @@
 #   ipython
 #   run -i "startup.py"
 
+
 import os
 from datetime import datetime
 from bluesky.utils import ProgressBarManager
 from bluesky import RunEngine
 from ophyd import EpicsMotor, EpicsSignal, EpicsSignalRO
-from megatron.interpreter import MegatronInterpreter, create_shared_context, ts_periodic_logging_decorator 
-from megatron.exceptions import InvalidScriptPathError
-from epics import ca
-
-ca.use_initial_context()
+from megatron.context import create_shared_context
+from megatron.interpreter import MegatronInterpreter
+from megatron.logger import ts_periodic_logging_decorator
 
 galil = EpicsMotor('sim:mtr1', name='galil')
 galil_val = EpicsSignal('sim:mtr1.VAL', name='galil_val', auto_monitor=True)
@@ -37,21 +36,13 @@ RE.waiting_hook = ProgressBarManager()
 context = create_shared_context(devices)
 interpreter = MegatronInterpreter(shared_context=context)
 
-script_path = "scripts/demo1.txt"
+script_path = "scripts/script.txt"
 logging_dir = "./logs"
 log_file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + ".csv"
 log_file_path = os.path.join(logging_dir, log_file_name)
 
-if not os.path.exists(script_path) or not os.path.isfile(script_path):
-    raise InvalidScriptPathError(script_path)
+@ts_periodic_logging_decorator(signals=context.logged_signals, log_file_path=log_file_path, period=1)
+def run_with_logging():
+    yield from interpreter.execute_script(script_path)
 
-try:
-    @ts_periodic_logging_decorator(signals=context.logged_signals, log_file_path=log_file_path, period=1)
-    def run_with_logging():
-        yield from interpreter.execute_script(script_path)
-
-    RE(run_with_logging())
-except InvalidScriptPathError as e:
-    print(e)
-except Exception as e:
-    print(f"Execution failed with error: {e}")
+RE(run_with_logging())
