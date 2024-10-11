@@ -1,6 +1,0 @@
-L5
-L3
-print "*"
-N
-print "END"
-N
