@@ -103,11 +103,18 @@ class MegatronInterpreter:
             i = 0
             while i < len(script_lines):
                 line = script_lines[i].strip()
+                
+                # Ignore comments
+                if line.startswith('#'):
+                    i += 1
+                    continue
+                
                 if not line:
                     yield from bps.null()
                     i += 1
                     continue
 
+                # Handle timers (t) and loops (L)
                 match_t = re.match(r"t([\d.]+)", line, re.IGNORECASE)
                 match_l = re.match(r"l(\d+)", line, re.IGNORECASE)
 
@@ -125,10 +132,10 @@ class MegatronInterpreter:
                         yield from self.handle_loop(loop_count, script_lines[i + 1:loop_end])
                         i = loop_end
                     else:
-                        tokens = line.split(" ", 1)
-                        command = tokens[0].lower()
-                        args = tokens[1:] if len(tokens) > 1 else []
+                        # Tokenize the command and arguments, handling quoted strings as a single argument
+                        command, *args = self.tokenize_command(line)
 
+                        # Determine the appropriate handler for the command
                         if command in self.megatron_commands:
                             yield from process_megatron_command(command, args, self.context)
                         elif command in self.motor_commands:
@@ -141,6 +148,14 @@ class MegatronInterpreter:
                 i += 1
 
         yield from plan()
+
+    def tokenize_command(self, line):
+        # Regex to split by spaces or commas, while keeping quoted substrings intact
+        regex = r'(?:(?:"([^"]+)")|([^\s,]+))'
+        tokens = re.findall(regex, line)
+        
+        # Flatten the token list, ensuring we remove quotes and keep all values
+        return [t[0] or t[1] for t in tokens if t[0] or t[1]]
 
     def handle_timer(self, timer_value):
         print(f"Processing timer for {timer_value} seconds")
@@ -177,9 +192,7 @@ class MegatronInterpreter:
                 yield from self.handle_timer(timer_value)
                 continue
 
-            tokens = line.split(" ", 1)
-            command = tokens[0].lower()
-            args = tokens[1:] if len(tokens) > 1 else []
+            command, *args = self.tokenize_command(line)
 
             if command in self.megatron_commands:
                 yield from process_megatron_command(command, args, self.context)
