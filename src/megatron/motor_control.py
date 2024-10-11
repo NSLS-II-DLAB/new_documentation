@@ -1,4 +1,3 @@
-from ophyd import EpicsMotor
 import bluesky.plan_stubs as bps
 from megatron.exceptions import CommandNotFoundError
 from megatron.support import motor_move, motor_stop
