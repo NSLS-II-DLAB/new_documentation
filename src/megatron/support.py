@@ -238,12 +238,23 @@ def wait_for_condition(signal, target, operator, tolerance=0, timeout=None):
 
 def motor_stop(motor):
     yield from bps.stop(motor)
-    while(motor.moving):
-        yield from bps.sleep(0.1)
+    yield from bps.sleep(0.2)
+    wait_for_condition(motor.motor_done_move, 1, "==")
     yield from bps.sleep(0.2)
 
 
 def motor_move(motor, position, is_rel=False):
+    yield from motor_channel_enable(motor)
     yield from motor_stop(motor)
     _set = bps.rel_set if is_rel else bps.abs_set
     yield from _set(motor, position, wait=False)
+
+def motor_home(motor):
+    yield from motor_channel_enable(motor)
+    yield from motor_stop(motor)
+    yield from bps.abs_set(motor.home_reverse, 1, wait=True)
+    yield from wait_for_condition(motor.homing_monitor, 0, "==")
+
+
+def motor_channel_enable(motor):
+    yield from bps.abs_set(motor.channel_enable, 1, wait=True)
