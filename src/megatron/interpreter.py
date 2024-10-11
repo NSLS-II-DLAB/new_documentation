@@ -129,7 +129,8 @@ class MegatronInterpreter:
 
                         if loop_end == -1:
                             raise LoopSyntaxError()
-                        yield from self.handle_loop(loop_count, script_lines[i + 1:loop_end])
+                        loop_block = script_lines[i + 1:loop_end]
+                        yield from self.handle_loop(loop_count, loop_block)
                         i = loop_end
                     else:
                         # Tokenize the command and arguments, handling quoted strings as a single argument
@@ -180,16 +181,33 @@ class MegatronInterpreter:
         return -1
 
     def execute_block(self, block):
-        for line in block:
-            line = line.strip()
+        i = 0
+        while i < len(block):
+            line = block[i].strip()
             if not line:
                 yield from bps.null()
+                i += 1
                 continue
 
             match_t = re.match(r"t([\d.]+)", line, re.IGNORECASE)
+            match_l = re.match(r"l(\d+)", line, re.IGNORECASE)
+
             if match_t:
                 timer_value = match_t.group(1)
                 yield from self.handle_timer(timer_value)
+                i += 1
+                continue
+
+            elif match_l:
+                loop_count = int(match_l.group(1))
+                loop_end = self.find_end_of_loop(block, i)
+
+                if loop_end == -1:
+                    raise LoopSyntaxError()
+                
+                nested_block = block[i + 1:loop_end]
+                yield from self.handle_loop(loop_count, nested_block)
+                i = loop_end + 1  # Move past the 'N' after the loop
                 continue
 
             command, *args = self.tokenize_command(line)
@@ -198,3 +216,5 @@ class MegatronInterpreter:
                 yield from process_megatron_command(command, args, self.context)
             elif command in self.motor_commands:
                 yield from process_motor_command(command, args, self.context)
+
+            i += 1
