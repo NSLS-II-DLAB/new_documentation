@@ -122,7 +122,7 @@ def waitai(args, context):
         raise RuntimeError(f"Unrecognized device name: {source!r}")
 
     yield from wait_for_condition(
-        signal=signal, target=value, operator=operator, tolerance=tolerance, timeout=timeout
+        signal=signal, target=value / 1000000, operator=operator, tolerance=tolerance, timeout=timeout
     )
 
 def waitdi(args, context):
@@ -137,5 +137,5 @@ def waitdi(args, context):
         raise RuntimeError(f"Unrecognized device name: {source!r}")
 
     yield from wait_for_condition(
-        signal=signal, target=value, operator="==", tolerance=0, timeout=timeout
+        signal=signal, target=value / 1000000, operator="==", tolerance=0, timeout=timeout
     )
