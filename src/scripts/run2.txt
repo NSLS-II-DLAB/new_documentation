@@ -1,0 +1,4 @@
+print "This is the sub-script"
+t1
+print "Finished sub-script"
+run "run3.txt"
