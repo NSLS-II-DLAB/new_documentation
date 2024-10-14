@@ -16,15 +16,22 @@
 
 
 import os
+import argparse
 from datetime import datetime
 from bluesky.utils import ProgressBarManager
 from bluesky.run_engine import RunEngine
 import bluesky.preprocessors as bp
-from ophyd import EpicsMotor, EpicsSignal, EpicsSignalRO
+from ophyd import EpicsSignal, EpicsSignalRO
 from megatron.context import create_shared_context
 from megatron.interpreter import MegatronInterpreter
 from megatron.logger import ts_periodic_logging_decorator
 from megatron.support import register_custom_instructions, EpicsMotorGalil
+
+parser = argparse.ArgumentParser(description="Run a Megatron script.")
+parser.add_argument(
+    "-p", "--path", type=str, help="The path to the Megatron script to execute."
+)
+args = parser.parse_args()
 
 galil = EpicsMotorGalil('sim:mtr1', name='galil')
 galil_val = EpicsSignal('sim:mtr1.VAL', name='galil_val', auto_monitor=True)
@@ -44,7 +51,7 @@ register_custom_instructions(re=RE)
 context = create_shared_context(devices)
 interpreter = MegatronInterpreter(shared_context=context)
 
-script_path = "scripts/run1.txt"
+script_path = args.path if args.path else "scripts/run1.txt"
 logging_dir = "./logs"
 log_file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + ".csv"
 log_file_path = os.path.join(logging_dir, log_file_name)
