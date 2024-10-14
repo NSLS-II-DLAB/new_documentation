@@ -44,7 +44,7 @@ register_custom_instructions(re=RE)
 context = create_shared_context(devices)
 interpreter = MegatronInterpreter(shared_context=context)
 
-script_path = "scripts/script3.txt"
+script_path = "scripts/run1.txt"
 logging_dir = "./logs"
 log_file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + ".csv"
 log_file_path = os.path.join(logging_dir, log_file_name)

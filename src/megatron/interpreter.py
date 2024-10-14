@@ -7,6 +7,7 @@ from megatron.exceptions import CommandNotFoundError, LoopSyntaxError
 class MegatronInterpreter:
     def __init__(self, *, shared_context):
         self.context = shared_context
+        self.context.run_script_callback = self.execute_script  # Set the callback for running sub-scripts
         self.megatron_commands = ["email", "exit", "failif", "failifoff", "l", "log", "lograte", "plot", "print", "run", "setao", "setdo", "stop", "t", "var", "waitai", "waitdi"]
         self.motor_commands = ["ac", "af", "ba", "bg", "bi", "bl", "bm", "bt", "bz", "cc", "ce", "cn", "dc", "dp", "er", "fa", "fe", "fl", "fv", "hm", "hv", "ib", "iht", "il", "kd", "ki", "kp", "ld", "mo", "mt", "op", "pa", "pr", "pv", "sc", "sh", "sp", "st", "ta", "tp", "xq"]
 
@@ -44,7 +45,9 @@ class MegatronInterpreter:
                         i = loop_end
                     else:
                         command, *args = self.tokenize_command(line)
-                        if command in self.megatron_commands:
+                        if command == "run":
+                            yield from process_megatron_command(command, args, self.context, script_path)
+                        elif command in self.megatron_commands:
                             yield from process_megatron_command(command, args, self.context)
                         elif command in self.motor_commands:
                             yield from process_motor_command(command, args, self.context)
@@ -56,7 +59,6 @@ class MegatronInterpreter:
                 i += 1
 
         yield from plan()
-
     def tokenize_command(self, line):
         regex = r'(?:(?:"([^"]+)")|([^\s,]+))'
         tokens = re.findall(regex, line)
