@@ -37,7 +37,7 @@ def process_megatron_command(command, args, context, current_script_path=None):
     else:
         raise CommandNotFoundError(command)
 
-def l_command(args, block, context):
+def l_command(block, context):
     for line in block:
         yield from process_megatron_command(line[0], line[1:], context)
 
