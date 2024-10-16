@@ -1,4 +1,5 @@
 import re
+import os
 from bluesky import plan_stubs as bps
 from megatron.megatron_control import process_megatron_command
 from megatron.motor_control import process_motor_command
@@ -10,8 +11,14 @@ class MegatronInterpreter:
         self.context.run_script_callback = self.execute_script  # Set the callback for running sub-scripts
         self.megatron_commands = ["email", "exit", "failif", "failifoff", "l", "log", "lograte", "plot", "print", "run", "setao", "setdo", "stop", "t", "var", "waitai", "waitdi"]
         self.motor_commands = ["ac", "af", "ba", "bg", "bi", "bl", "bm", "bt", "bz", "cc", "ce", "cn", "dc", "dp", "er", "fa", "fe", "fl", "fv", "hm", "hv", "ib", "iht", "il", "kd", "ki", "kp", "ld", "mo", "mt", "op", "pa", "pr", "pv", "sc", "sh", "sp", "st", "ta", "tp", "xq"]
+        self.context.script_dir = ""
 
     def execute_script(self, script_path):
+
+        script_path = os.path.expanduser(script_path)
+        script_path = os.path.abspath(script_path)
+        self.context.script_dir = os.path.split(script_path)[0]
+
         with open(script_path, "r") as script_file:
             script_lines = script_file.readlines()
 
@@ -46,7 +53,7 @@ class MegatronInterpreter:
                     else:
                         command, *args = self.tokenize_command(line)
                         if command == "run":
-                            yield from process_megatron_command(command, args, self.context, script_path)
+                            yield from process_megatron_command(command, args, self.context)
                         elif command in self.megatron_commands:
                             yield from process_megatron_command(command, args, self.context)
                         elif command in self.motor_commands:

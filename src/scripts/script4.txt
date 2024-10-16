@@ -18,8 +18,6 @@ pr -30000000
 bg
 waitai "Galil RBV",<=,20000000,0,12
 
-sp 10000000
-pa 0
-bg
-waitai "Galil RBV" <= 0
+run "script4_func.txt"
 N
+

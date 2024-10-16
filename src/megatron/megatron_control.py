@@ -88,18 +88,13 @@ def print_command(args):
     print(f"Executing 'print' command with text: {text}")
     yield from bps.null()
 
-def run(args, context, current_script_path):
+def run(args, context):
     script_name = args[0]
 
-    base_path = os.path.dirname(current_script_path)
-    script_path = os.path.join(base_path, *script_name.split('\\'))
+    called_script_path = os.path.join(context.script_dir, script_name)
+    print(f"Running script: {script_name} ({called_script_path})")
 
-    if not os.path.exists(script_path):
-        raise FileNotFoundError(f"Script {script_path} not found.")
-
-    print(f"Running script: {script_name} ({script_path})")
-
-    yield from context.run_script_callback(script_path)
+    yield from context.run_script_callback(called_script_path)
 
 def setao(args):
     sp = args[0]
