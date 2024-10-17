@@ -33,9 +33,16 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-galil = EpicsMotorGalil('sim:mtr1', name='galil')
-galil_val = EpicsSignal('sim:mtr1.VAL', name='galil_val', auto_monitor=True)
-galil_rbv = EpicsSignalRO('sim:mtr1.RBV', name='galil_rbv', auto_monitor=True)
+prefix = "Test{DMC:1}A"
+#prefix = "sim:mtr1"
+
+galil = EpicsMotorGalil(f"{prefix}", name='galil')
+galil_val = EpicsSignal(f'{prefix}.VAL', name='galil_val', auto_monitor=True)
+galil_rbv = EpicsSignalRO(f'{prefix}.RBV', name='galil_rbv', auto_monitor=True)
+
+# galil = EpicsMotorGalil('sim:mtr1', name='galil')
+# galil_val = EpicsSignal('sim:mtr1.VAL', name='galil_val', auto_monitor=True)
+# galil_rbv = EpicsSignalRO('sim:mtr1.RBV', name='galil_rbv', auto_monitor=True)
 
 galil.wait_for_connection()
 galil_val.wait_for_connection()
@@ -58,8 +65,8 @@ log_file_path = os.path.join(logging_dir, log_file_name)
 
 @bp.reset_positions_decorator([galil.velocity])
 @ts_periodic_logging_decorator(signals=context.logged_signals, log_file_path=log_file_path, period=1)
-def run_with_logging():
+def run_with_logging(script_path):
     yield from interpreter.execute_script(script_path)
 
-RE(run_with_logging())
+#RE(run_with_logging(script_path))
 
