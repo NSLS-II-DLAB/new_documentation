@@ -33,16 +33,12 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-prefix = "Test{DMC:1}A"
-#prefix = "sim:mtr1"
+#prefix = "Test{DMC:1}A"
+prefix = "sim:mtr1"
 
 galil = EpicsMotorGalil(f"{prefix}", name='galil')
 galil_val = EpicsSignal(f'{prefix}.VAL', name='galil_val', auto_monitor=True)
 galil_rbv = EpicsSignalRO(f'{prefix}.RBV', name='galil_rbv', auto_monitor=True)
-
-# galil = EpicsMotorGalil('sim:mtr1', name='galil')
-# galil_val = EpicsSignal('sim:mtr1.VAL', name='galil_val', auto_monitor=True)
-# galil_rbv = EpicsSignalRO('sim:mtr1.RBV', name='galil_rbv', auto_monitor=True)
 
 galil.wait_for_connection()
 galil_val.wait_for_connection()
@@ -58,7 +54,7 @@ register_custom_instructions(re=RE)
 context = create_shared_context(devices)
 interpreter = MegatronInterpreter(shared_context=context)
 
-script_path = args.path if args.path else "scripts/run1.txt"
+script_path = args.path if args.path else "scripts/script2.txt"
 logging_dir = "./logs"
 log_file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + ".csv"
 log_file_path = os.path.join(logging_dir, log_file_name)
@@ -68,5 +64,4 @@ log_file_path = os.path.join(logging_dir, log_file_name)
 def run_with_logging(script_path):
     yield from interpreter.execute_script(script_path)
 
-#RE(run_with_logging(script_path))
-
+RE(run_with_logging(script_path))
