@@ -1,0 +1,2 @@
+print "Emergency stop triggered due to fail condition!"
+st

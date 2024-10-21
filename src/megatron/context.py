@@ -19,5 +19,7 @@ def create_shared_context(devices):
         galil_speed=1000000,
         device_mapping=_device_mapping,  
         required_devices=_required_devices,
-        logged_signals={}
+        logged_signals={},
+        script_dir = "",
+        fail_condition_triggered = False, 
     )
