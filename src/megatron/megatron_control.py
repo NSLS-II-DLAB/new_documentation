@@ -1,8 +1,10 @@
 import os
 import bluesky.plan_stubs as bps
-from megatron.exceptions import CommandNotFoundError
+from megatron.exceptions import CommandNotFoundError, StopScript
 from megatron.support import wait_for_condition
 import inspect
+
+active_failif_conditions = {}
 
 def process_megatron_command(command, args, context, current_script_path=None):
     command_dispatcher = {
@@ -61,14 +63,36 @@ def email(args):
     print(f"Sending email with subject '{subject}' to {recipients}")
     yield from bps.null()
 
-def failif(args):
-    pv, value, fail_script = args
-    print(f"Failing if {pv} changes to {value}, running script: {fail_script}")
+def failif(args, context):
+    pv_name, expected_value, fail_script = args
+    print(f"Setting failif on {pv_name} for value {expected_value}.")
+
+    device_name = context.device_mapping.get(pv_name)
+    if not device_name:
+        raise RuntimeError(f"PV {pv_name} not found in device mapping.")
+
+    pv_signal = getattr(context.devices, device_name)
+    if not pv_signal:
+        raise RuntimeError(f"Signal for {pv_name} not found.")
+
+    def check_pv_value(value, **kwargs):
+        if value == expected_value:
+            print(f"Failif triggered! {pv_name} reached value {expected_value}. Running {fail_script}.")
+            called_script_path = os.path.join(context.script_dir, fail_script)
+            context.run_script_callback(called_script_path)
+
+    token = pv_signal.subscribe(check_pv_value)
+    active_failif_conditions[pv_name] = (pv_signal, token)
     yield from bps.null()
 
 def failifoff(args):
-    pv = args[0]
-    print(f"Disabling failif for {pv}")
+    pv_name = args[0]
+    if pv_name in active_failif_conditions:
+        pv_signal, token = active_failif_conditions.pop(pv_name)
+        pv_signal.clear_sub(token)
+        print(f"Failif condition disabled for {pv_name}.")
+    else:
+        print(f"No active failif condition found for {pv_name}.")
     yield from bps.null()
 
 def log(args, context):
@@ -109,9 +133,8 @@ def setdo(args):
     yield from bps.null()
 
 def stop(args):
-    script_name = args[0]
-    print(f"Stopping script: {script_name}")
-    yield from bps.null()
+    print("Stopping the current script.")
+    raise StopScript()
 
 def var(args):
     variable = args[0]

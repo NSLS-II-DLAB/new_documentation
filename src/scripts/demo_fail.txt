@@ -1,0 +1,20 @@
+log "Galil VAL"
+log "Galil RBV"
+
+failif "Galil RBV", 10, "fail_test2.txt"  
+
+hm
+sp 10000000
+pa 50000000
+bg
+waitai "Galil RBV", >=, 50000000
+t1
+
+failifoff "Galil RBV"  
+pa 30000000
+bg
+waitai "Galil RBV", <=, 30000000, 0, 12
+
+pa 0
+bg
+waitai "Galil RBV", <=, 0

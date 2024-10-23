@@ -25,3 +25,7 @@ class InvalidScriptPathError(Exception):
     def __init__(self, path):
         self.path = path
         super().__init__(f"Error: Script path '{path}' is invalid or unreadable")
+
+class StopScript(Exception):
+    """Exception to signal the interpreter to stop the current script."""
+    pass

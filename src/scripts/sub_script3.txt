@@ -1,0 +1,4 @@
+sp 10000000
+pa 0
+bg
+waitai "Galil RBV" <= 0

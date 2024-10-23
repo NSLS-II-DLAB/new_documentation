@@ -3,7 +3,7 @@ import os
 from bluesky import plan_stubs as bps
 from megatron.megatron_control import process_megatron_command
 from megatron.motor_control import process_motor_command
-from megatron.exceptions import CommandNotFoundError, LoopSyntaxError
+from megatron.exceptions import CommandNotFoundError, LoopSyntaxError, StopScript
 
 class MegatronInterpreter:
     def __init__(self, *, shared_context):
@@ -11,7 +11,6 @@ class MegatronInterpreter:
         self.context.run_script_callback = self.execute_script  # Set the callback for running sub-scripts
         self.megatron_commands = ["email", "exit", "failif", "failifoff", "l", "log", "lograte", "plot", "print", "run", "setao", "setdo", "stop", "t", "var", "waitai", "waitdi"]
         self.motor_commands = ["ac", "af", "ba", "bg", "bi", "bl", "bm", "bt", "bz", "cc", "ce", "cn", "dc", "dp", "er", "fa", "fe", "fl", "fv", "hm", "hv", "ib", "iht", "il", "kd", "ki", "kp", "ld", "mo", "mt", "op", "pa", "pr", "pv", "sc", "sh", "sp", "st", "ta", "tp", "xq"]
-        self.context.script_dir = ""
 
     def execute_script(self, script_path):
 
@@ -52,20 +51,21 @@ class MegatronInterpreter:
                         i = loop_end
                     else:
                         command, *args = self.tokenize_command(line)
-                        if command == "run":
-                            yield from process_megatron_command(command, args, self.context)
-                        elif command in self.megatron_commands:
+                        if command in self.megatron_commands:
                             yield from process_megatron_command(command, args, self.context)
                         elif command in self.motor_commands:
                             yield from process_motor_command(command, args, self.context)
                         else:
                             raise CommandNotFoundError(command)
+                except StopScript:
+                    break
                 except (CommandNotFoundError, LoopSyntaxError) as e:
                     print(e)
                     yield from bps.null()
                 i += 1
 
         yield from plan()
+
     def tokenize_command(self, line):
         regex = r'(?:(?:"([^"]+)")|([^\s,]+))'
         tokens = re.findall(regex, line)
