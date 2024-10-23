@@ -1,6 +1,6 @@
 import os
 import bluesky.plan_stubs as bps
-from megatron.exceptions import CommandNotFoundError
+from megatron.exceptions import CommandNotFoundError, StopScript
 from megatron.support import wait_for_condition
 import inspect
 
@@ -133,9 +133,8 @@ def setdo(args):
     yield from bps.null()
 
 def stop(args):
-    script_name = args[0]
-    print(f"Stopping script: {script_name}")
-    yield from bps.null()
+    print("Stopping the current script.")
+    raise StopScript()
 
 def var(args):
     variable = args[0]

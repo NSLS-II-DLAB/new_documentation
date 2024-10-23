@@ -1,0 +1,7 @@
+hm 
+sp 5000000
+pa 10000000
+bg
+waitai "Galil RBV", >=, 10000000
+stop 
+print "This message will not print due to stop."

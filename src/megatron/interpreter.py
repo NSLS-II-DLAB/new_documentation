@@ -3,7 +3,7 @@ import os
 from bluesky import plan_stubs as bps
 from megatron.megatron_control import process_megatron_command
 from megatron.motor_control import process_motor_command
-from megatron.exceptions import CommandNotFoundError, LoopSyntaxError
+from megatron.exceptions import CommandNotFoundError, LoopSyntaxError, StopScript
 
 class MegatronInterpreter:
     def __init__(self, *, shared_context):
@@ -51,20 +51,21 @@ class MegatronInterpreter:
                         i = loop_end
                     else:
                         command, *args = self.tokenize_command(line)
-                        if command == "run":
-                            yield from process_megatron_command(command, args, self.context)
-                        elif command in self.megatron_commands:
+                        if command in self.megatron_commands:
                             yield from process_megatron_command(command, args, self.context)
                         elif command in self.motor_commands:
                             yield from process_motor_command(command, args, self.context)
                         else:
                             raise CommandNotFoundError(command)
+                except StopScript:
+                    break
                 except (CommandNotFoundError, LoopSyntaxError) as e:
                     print(e)
                     yield from bps.null()
                 i += 1
 
         yield from plan()
+
     def tokenize_command(self, line):
         regex = r'(?:(?:"([^"]+)")|([^\s,]+))'
         tokens = re.findall(regex, line)
